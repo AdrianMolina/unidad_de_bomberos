@@ -1,0 +1,43 @@
+<h1>Listing emergencies</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Lugar</th>
+      <th>Denunciante</th>
+      <th>Telefono denunciante</th>
+      <th>Numero caso</th>
+      <th>Sigla vehiculo</th>
+      <th>Hora salida</th>
+      <th>Observacion</th>
+      <th>Despachador</th>
+      <th>Referencia lugar</th>
+      <th>Tipo</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @emergencies.each do |emergency| %>
+      <tr>
+        <td><%= emergency.lugar %></td>
+        <td><%= emergency.denunciante %></td>
+        <td><%= emergency.telefono_denunciante %></td>
+        <td><%= emergency.numero_caso %></td>
+        <td><%= emergency.sigla_vehiculo %></td>
+        <td><%= emergency.hora_salida %></td>
+        <td><%= emergency.observacion %></td>
+        <td><%= emergency.user.nombre %></td>
+        <td><%= emergency.referencia_lugar %></td>
+        <td><%= emergency.tipo %></td>
+        <td><%= link_to 'Mostrar', emergency %></td>
+        <td><%= link_to 'Editar', edit_emergency_path(emergency) %></td>
+        <td><%= link_to 'Eliminar', emergency, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Registrar Emergencia', new_emergency_path %>

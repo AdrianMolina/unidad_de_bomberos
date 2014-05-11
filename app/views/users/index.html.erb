@@ -1,0 +1,26 @@
+<h1>Listing emergencies</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Apellido</th>
+      <th>Rango</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.nombre %></td>
+        <td><%= user.apellido %></td>
+        <td><%= user.rango %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Registrar Usuario', new_user_registration_path %>

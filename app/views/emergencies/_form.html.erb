@@ -1,0 +1,57 @@
+<%= form_for(@emergency) do |f| %>
+  <% if @emergency.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@emergency.errors.count, "error") %> prohibited this emergency from being saved:</h2>
+
+      <ul>
+      <% @emergency.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :lugar %><br>
+    <%= f.text_field :lugar %>
+  </div>
+  <div class="field">
+    <%= f.label :denunciante %><br>
+    <%= f.text_field :denunciante %>
+  </div>
+  <div class="field">
+    <%= f.label :telefono_denunciante %><br>
+    <%= f.text_field :telefono_denunciante %>
+  </div>
+  <div class="field">
+    <%= f.label :numero_caso %><br>
+    <%= f.text_field :numero_caso %>
+  </div>
+  <div class="field">
+    <%= f.label :sigla_vehiculo %><br>
+    <%= f.text_field :sigla_vehiculo %>
+  </div>
+  <div class="field">
+    <%= f.label :hora_salida %><br>
+    <%= f.datetime_select :hora_salida %>
+  </div>
+  <div class="field">
+    <%= f.label :observacion %><br>
+    <%= f.text_area :observacion %>
+  </div>
+  <div class="field">
+    <%= f.label :user_id, "Despachador" %><br>
+    <%= f.select :user_id, options_from_collection_for_select(User.all,:id,:nombre) %>
+  </div>
+  <div class="field">
+    <%= f.label :referencia_lugar %><br>
+    <%= f.text_area :referencia_lugar %>
+  </div>
+  <div class="field">
+    <%= f.label :tipo %><br>
+    <%= f.text_field :tipo %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

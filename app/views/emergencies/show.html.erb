@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Lugar:</strong>
+  <%= @emergency.lugar %>
+</p>
+
+<p>
+  <strong>Denunciante:</strong>
+  <%= @emergency.denunciante %>
+</p>
+
+<p>
+  <strong>Telefono denunciante:</strong>
+  <%= @emergency.telefono_denunciante %>
+</p>
+
+<p>
+  <strong>Numero caso:</strong>
+  <%= @emergency.numero_caso %>
+</p>
+
+<p>
+  <strong>Sigla vehiculo:</strong>
+  <%= @emergency.sigla_vehiculo %>
+</p>
+
+<p>
+  <strong>Hora salida:</strong>
+  <%= @emergency.hora_salida %>
+</p>
+
+<p>
+  <strong>Observacion:</strong>
+  <%= @emergency.observacion %>
+</p>
+
+<p>
+  <strong>Despachador:</strong>
+  <%= @emergency.user.nombre + " " + @emergency.user.apellido %>
+</p>
+
+<p>
+  <strong>Referencia lugar:</strong>
+  <%= @emergency.referencia_lugar %>
+</p>
+
+<p>
+  <strong>Tipo:</strong>
+  <%= @emergency.tipo %>
+</p>
+
+<%= link_to 'Editar', edit_emergency_path(@emergency) %> |
+<%= link_to 'Atras', emergencies_path %>

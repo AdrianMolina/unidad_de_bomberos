@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bomberos</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<p class = 'notice'><%= notice %></p>
+<p class = 'alert'><%= alert %></p>
+
+<nav class='navbar'>
+	<div class='navbar-inner'>
+		<ul class='nav'>
+			<% if user_signed_in? %>
+			  Bienvenido <strong><%= current_user.nombre %></strong>.
+			  <%= link_to "Administrar Usuarios", index_users_path %> |
+			  <%= link_to "Editar perfil", edit_user_registration_path %> |
+			  <%= link_to "Salir", destroy_user_session_path, method: :delete %>
+			<% else %>
+			  <!--<%= link_to "Registrarse", new_user_registration_path %> |
+			  <%= link_to "Ingresar", new_user_session_path %>-->
+			<% end %>
+		</ul>
+	</div>
+</nav>
+<%= yield %>
+
+</body>
+</html>

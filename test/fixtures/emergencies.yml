@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  lugar: MyString
+  denunciante: MyString
+  telefono_denunciante: MyString
+  numero_caso: MyString
+  sigla_vehiculo: MyString
+  hora_salida: 2014-05-10 15:25:17
+  observacion: MyText
+  despachador: MyString
+  referencia_lugar: MyText
+  tipo: MyString
+
+two:
+  lugar: MyString
+  denunciante: MyString
+  telefono_denunciante: MyString
+  numero_caso: MyString
+  sigla_vehiculo: MyString
+  hora_salida: 2014-05-10 15:25:17
+  observacion: MyText
+  despachador: MyString
+  referencia_lugar: MyText
+  tipo: MyString

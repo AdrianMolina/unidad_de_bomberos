@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140510232404) do
+ActiveRecord::Schema.define(version: 20140515021438) do
 
   create_table "emergencies", force: true do |t|
     t.string   "lugar"
@@ -26,6 +26,8 @@ ActiveRecord::Schema.define(version: 20140510232404) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+    t.float    "latitude"
+    t.float    "longitude"
   end
 
   add_index "emergencies", ["user_id"], name: "index_emergencies_on_user_id"

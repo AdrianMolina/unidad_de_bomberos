@@ -1,3 +1,5 @@
+<%= render 'mapa' %>
+<body onload="initialize()" >
 <%= form_for(@emergency) do |f| %>
   <% if @emergency.errors.any? %>
     <div id="error_explanation">
@@ -61,45 +63,5 @@
     <%= f.submit %>
   </div>
 <% end %>
-
+</body>
 <div id="map" style="width:500px; height:500px"></div>
-<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
-  <script>
-  function initialize() {
-    var $latitude = document.getElementById('emergency_latitude');
-    var $longitude = document.getElementById('emergency_longitude');
-    var latitude = -17.40049275908006
-    var longitude = -66.1427843109314;
-    var zoom = 15;
-    
-    var LatLng = new google.maps.LatLng(latitude, longitude);
-    
-    var mapOptions = {
-      zoom: zoom,
-      center: LatLng,
-      panControl: false,
-      zoomControl: false,
-      scaleControl: true,
-      mapTypeId: google.maps.MapTypeId.ROADMAP
-    } 
-    
-    var map = new google.maps.Map(document.getElementById('map'),mapOptions);
-      
-    
-    var marker = new google.maps.Marker({
-      position: LatLng,
-      map: map,
-      title: 'Drag Me!',
-      draggable: true
-    });
-    
-    google.maps.event.addListener(marker, 'dragend', function(marker){
-      var latLng = marker.latLng;
-      $latitude.value = latLng.lat();
-      $longitude.value = latLng.lng();
-    });
-    
-    
-  }
-  initialize();
-  </script>

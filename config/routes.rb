@@ -1,12 +1,13 @@
 Rails.application.routes.draw do
 
-  resources :vehicles
+  
 
   get 'users/index' => 'users#index', :as =>'index_users'
 
-  devise_for :users, controllers: {registrations: 'registrations'}
-  resources :users, only: [:index]
+  resources :users, only: [:index, :new, :create]
+  devise_for :users , controllers: {registrations: 'registrations'}
   resources :emergencies
+  resources :vehicles
 
 
   # The priority is based upon order of creation: first created -> highest priority.

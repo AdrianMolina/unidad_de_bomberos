@@ -30,8 +30,8 @@
     <%= f.text_field :numero_caso %>
   </div>
   <div class="field">
-    <%= f.label :sigla_vehiculo %><br>
-    <%= f.text_field :sigla_vehiculo %>
+    <%= f.label :vehicle_id, "Sigla vehiculo" %><br>
+    <%= f.select :vehicle_id, options_from_collection_for_select(Vehicle.all,:id,:sigla) %>
   </div>
   <div class="field">
     <%= f.label :hora_salida %><br>

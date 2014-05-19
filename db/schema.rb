@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140515021438) do
+ActiveRecord::Schema.define(version: 20140519202435) do
 
   create_table "emergencies", force: true do |t|
     t.string   "lugar"
@@ -28,9 +28,11 @@ ActiveRecord::Schema.define(version: 20140515021438) do
     t.integer  "user_id"
     t.float    "latitude"
     t.float    "longitude"
+    t.integer  "vehicle_id"
   end
 
   add_index "emergencies", ["user_id"], name: "index_emergencies_on_user_id"
+  add_index "emergencies", ["vehicle_id"], name: "index_emergencies_on_vehicle_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -52,5 +54,13 @@ ActiveRecord::Schema.define(version: 20140515021438) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+
+  create_table "vehicles", force: true do |t|
+    t.string   "sigla"
+    t.string   "placa"
+    t.string   "modelo"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

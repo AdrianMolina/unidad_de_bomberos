@@ -1,0 +1,57 @@
+<%= form_for(@explosife) do |f| %>
+  <% if @explosife.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@explosife.errors.count, "error") %> prohibited this explosife from being saved:</h2>
+
+      <ul>
+      <% @explosife.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :numero_caso %><br>
+    <%= f.text_field :numero_caso %>
+  </div>
+  <div class="field">
+    <%= f.label :fecha %><br>
+    <%= f.date_select :fecha %>
+  </div>
+  <div class="field">
+    <%= f.label :lugar_incidente %><br>
+    <%= f.text_field :lugar_incidente %>
+  </div>
+  <div class="field">
+    <%= f.label :hora_incidente %><br>
+    <%= f.time_select :hora_incidente %>
+  </div>
+  <div class="field">
+    <%= f.label :descripcion_incidente %><br>
+    <%= f.text_area :descripcion_incidente %>
+  </div>
+  <div class="field">
+    <%= f.label :material_utilizado %><br>
+    <%= f.text_area :material_utilizado %>
+  </div>
+  <div class="field">
+    <%= f.label :observaciones_incidente %><br>
+    <%= f.text_area :observaciones_incidente %>
+  </div>
+  <div class="field">
+    <%= f.label :jefe_brigada %><br>
+    <%= f.text_field :jefe_brigada %>
+  </div>
+  <div class="field">
+    <%= f.label :jefe_seguridad %><br>
+    <%= f.text_field :jefe_seguridad %>
+  </div>
+  <div class="field">
+    <%= f.label :emergency_id %><br>
+    <%= f.text_field :emergency_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

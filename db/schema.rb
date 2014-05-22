@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140519202435) do
+ActiveRecord::Schema.define(version: 20140522144734) do
 
   create_table "emergencies", force: true do |t|
     t.string   "lugar"
@@ -33,6 +33,23 @@ ActiveRecord::Schema.define(version: 20140519202435) do
 
   add_index "emergencies", ["user_id"], name: "index_emergencies_on_user_id"
   add_index "emergencies", ["vehicle_id"], name: "index_emergencies_on_vehicle_id"
+
+  create_table "explosives", force: true do |t|
+    t.string   "numero_caso"
+    t.date     "fecha"
+    t.string   "lugar_incidente"
+    t.time     "hora_incidente"
+    t.text     "descripcion_incidente"
+    t.text     "material_utilizado"
+    t.text     "observaciones_incidente"
+    t.string   "jefe_brigada"
+    t.string   "jefe_seguridad"
+    t.integer  "emergency_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "explosives", ["emergency_id"], name: "index_explosives_on_emergency_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

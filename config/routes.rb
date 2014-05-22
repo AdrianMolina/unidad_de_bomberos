@@ -2,13 +2,15 @@ Rails.application.routes.draw do
 
   
 
+  
+  get 'explosives/new/:id' => 'explosives#new', :as => 'new_form_explosive'
   get 'users/index' => 'users#index', :as =>'index_users'
 
   resources :users, only: [:index, :new, :create]
   devise_for :users , controllers: {registrations: 'registrations'}
   resources :emergencies
   resources :vehicles
-
+  resources :explosives
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

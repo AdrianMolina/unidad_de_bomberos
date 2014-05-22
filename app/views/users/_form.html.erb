@@ -1,21 +1,46 @@
-<%= form_for(@user) do |f| %>  
-  <div><%= f.label :nombre, "Nombre" %><br />
-  <%= f.text_field :nombre %></div>
+<%= form_for @user, :html => { :class => 'form-horizontal', :role => 'form' } do |f| %>
+<div class="col-lg-4">
+  <div class="well">
+    <div class="row">
+      <div class="col-lg-12">
+        <fieldset>
+          <div class="form-group">
+            <%= f.label :nombre, "Nombre" %>
+            <%= f.text_field :nombre, :class=>'form-control input-sm' %>
+          </div>
 
-  <div><%= f.label :apellido, "Apellido" %><br />
-  <%= f.text_field :apellido %></div>
+          <div class="form-group">
+            <%= f.label :apellido, "Apellido" %>
+            <%= f.text_field :apellido, :class=>'form-control input-sm' %>
+          </div>
 
-  <div><%= f.label :rango, "Rango" %><br />
-  <%= f.text_field :rango %></div>
+          <div class="form-group">
+            <%= f.label :rango, "Rango" %>
+            <%= f.text_field :rango, :class=>'form-control input-sm' %>
+          </div>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
+          <div class="form-group">
+            <%= f.label :email %>
+            <%= f.email_field :email, :autofocus => true, :class=>'form-control input-sm' %>
+          </div>
 
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
+          <div class="form-group">
+            <%= f.label :password %>
+            <%= f.password_field :password, :class=>'form-control input-sm' %>
+          </div>
 
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
+          <div class="form-group">
+            <%= f.label :password_confirmation %>
+            <%= f.password_field :password_confirmation, :class=>'form-control input-sm' %>
+          </div>
 
-  <div><%= f.submit "Registrar" %></div>
+          <div class="form-group">
+            <input type="submit" value="Registrar" class="btn btn-primary">
+            <a href="<%=index_users_path%>" class="btn btn-default btn-sm active" role="button"> Atras </a>
+          </div>
+        </fieldset>
+      </div>
+    </div>
+  </div>
+</div>
 <% end %>

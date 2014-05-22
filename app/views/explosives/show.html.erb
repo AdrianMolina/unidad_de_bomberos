@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Numero caso:</strong>
+  <%= @explosife.numero_caso %>
+</p>
+
+<p>
+  <strong>Fecha:</strong>
+  <%= @explosife.fecha %>
+</p>
+
+<p>
+  <strong>Lugar incidente:</strong>
+  <%= @explosife.lugar_incidente %>
+</p>
+
+<p>
+  <strong>Hora incidente:</strong>
+  <%= @explosife.hora_incidente %>
+</p>
+
+<p>
+  <strong>Descripcion incidente:</strong>
+  <%= @explosife.descripcion_incidente %>
+</p>
+
+<p>
+  <strong>Material utilizado:</strong>
+  <%= @explosife.material_utilizado %>
+</p>
+
+<p>
+  <strong>Observaciones incidente:</strong>
+  <%= @explosife.observaciones_incidente %>
+</p>
+
+<p>
+  <strong>Jefe brigada:</strong>
+  <%= @explosife.jefe_brigada %>
+</p>
+
+<p>
+  <strong>Jefe seguridad:</strong>
+  <%= @explosife.jefe_seguridad %>
+</p>
+
+<p>
+  <strong>Emergency:</strong>
+  <%= @explosife.emergency %>
+</p>
+
+<%= link_to 'Edit', edit_explosife_path(@explosife) %> |
+<%= link_to 'Back', explosives_path %>

@@ -12,8 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
-//= require jquery-1.10.2
+//= require_tree .
 //= bootstrap
 //= bootstrap.min
-//= require_tree .
+//= require turbolinks
+//= require jquery-1.10.2

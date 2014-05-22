@@ -1,10 +1,10 @@
-<%= form_for(@explosife) do |f| %>
-  <% if @explosife.errors.any? %>
+<%= form_for(@explosive) do |f| %>
+  <% if @explosive.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@explosife.errors.count, "error") %> prohibited this explosife from being saved:</h2>
+      <h2><%= pluralize(@explosive.errors.count, "error") %> prohibited this explosife from being saved:</h2>
 
       <ul>
-      <% @explosife.errors.full_messages.each do |message| %>
+      <% @explosive.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :numero_caso %><br>
-    <%= f.text_field :numero_caso %>
+    <%= f.text_field :numero_caso, :readonly => true, :value => @emergency.numero_caso %>
   </div>
   <div class="field">
     <%= f.label :fecha %><br>
@@ -48,8 +48,7 @@
     <%= f.text_field :jefe_seguridad %>
   </div>
   <div class="field">
-    <%= f.label :emergency_id %><br>
-    <%= f.text_field :emergency_id %>
+    <%= f.hidden_field :emergency_id, :value => @emergency.id, :readonly => true %>
   </div>
   <div class="actions">
     <%= f.submit %>

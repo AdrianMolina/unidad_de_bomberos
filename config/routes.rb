@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   
 
   
-  get 'explosives/new/:id' => 'explosives#new', :as => 'new_form_explosive'
+  get 'explosivos/new/:id' => 'explosives#new', :as => 'new_form_explosive'
+  get 'emergencias/formularios/:id' => 'emergencies#formularios', :as => 'formularios'
   get 'users/index' => 'users#index', :as =>'index_users'
 
   resources :users, only: [:index, :new, :create]

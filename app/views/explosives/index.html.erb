@@ -29,10 +29,10 @@
         <td><%= explosive.observaciones_incidente %></td>
         <td><%= explosive.jefe_brigada %></td>
         <td><%= explosive.jefe_seguridad %></td>
-        <td><%= explosive.emergency %></td>
-        <td><%= link_to 'Show', explosife %></td>
-        <td><%= link_to 'Edit', edit_explosife_path(explosife) %></td>
-        <td><%= link_to 'Destroy', explosife, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= explosive.emergency.id %></td>
+        <td><%= link_to 'Show', explosive %></td>
+        <td><%= link_to 'Edit', edit_explosife_path(explosive) %></td>
+        <td><%= link_to 'Destroy', explosive, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

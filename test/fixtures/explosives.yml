@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  numero_caso: MyString
+  fecha: 2014-05-22
+  lugar_incidente: MyString
+  hora_incidente: 2014-05-22 10:47:34
+  descripcion_incidente: MyText
+  material_utilizado: MyText
+  observaciones_incidente: MyText
+  jefe_brigada: MyString
+  jefe_seguridad: MyString
+  emergency_id: 
+
+two:
+  numero_caso: MyString
+  fecha: 2014-05-22
+  lugar_incidente: MyString
+  hora_incidente: 2014-05-22 10:47:34
+  descripcion_incidente: MyText
+  material_utilizado: MyText
+  observaciones_incidente: MyText
+  jefe_brigada: MyString
+  jefe_seguridad: MyString
+  emergency_id: 

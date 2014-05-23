@@ -1,0 +1,1 @@
+json.extract! @explosife, :id, :numero_caso, :fecha, :lugar_incidente, :hora_incidente, :descripcion_incidente, :material_utilizado, :observaciones_incidente, :jefe_brigada, :jefe_seguridad, :emergency_id, :created_at, :updated_at

@@ -74,6 +74,6 @@ class EmergenciesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def emergency_params
-      params.require(:emergency).permit(:lugar, :denunciante, :telefono_denunciante, :numero_caso, :sigla_vehiculo, :hora_salida, :observacion, :referencia_lugar, :tipo, :latitude, :longitude, :user_id, :vehicle_id)
+      params.require(:emergency).permit(:lugar, :denunciante, :telefono_denunciante, :numero_caso, :hora_salida, :observacion, :referencia_lugar, :tipo, :latitude, :longitude, :user_id, :vehicle_id)
     end
 end

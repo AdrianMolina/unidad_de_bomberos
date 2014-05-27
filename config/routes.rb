@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
 
-  
-
-  
   get 'explosivos/new/:id' => 'explosives#new', :as => 'new_form_explosive'
   get 'emergencias/formularios/:id' => 'emergencies#formularios', :as => 'formularios'
   get 'users/index' => 'users#index', :as =>'index_users'
@@ -12,12 +9,13 @@ Rails.application.routes.draw do
   resources :emergencies
   resources :vehicles
   resources :explosives
+  resources :welcomes
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'emergencies#index'
+  root 'welcomes#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

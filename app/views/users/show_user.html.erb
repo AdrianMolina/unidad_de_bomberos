@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+<br>
+<div class="col-lg-12">
+  <div class="page-header">
+       <h2 id="forms">Usuario</h2>
+  </div>
+</div>
+<div class="col-lg-12">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="field">
+            <h4><strong>Nombre:</strong>
+            <%= @user.nombre %></h4>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="field">
+            <h4><strong>Apellido:</strong>
+            <%= @user.apellido %></h4>              
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="field">
+            <h4><strong>Rango:</strong>
+            <%= @user.rango %></h4>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="field">
+            <h4><strong>Email:</strong>
+            <%= @user.email %></h4>              
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="field">
+    <a href="<%=index_users_path%>" class="btn btn-default btn-sm active" role="button">Volver</a>
+  </div>
+</div>

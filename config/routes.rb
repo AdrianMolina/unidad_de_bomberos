@@ -3,9 +3,10 @@ Rails.application.routes.draw do
   get 'explosivos/new/:id' => 'explosives#new', :as => 'new_form_explosive'
   get 'emergencias/formularios/:id' => 'emergencies#formularios', :as => 'formularios'
   get 'users/index' => 'users#index', :as =>'index_users'
-  get 'users/show_user/:id' => 'users#show_user', :as => 'show_user' 
+  get 'users/show_user/:id' => 'users#show_user', :as => 'show_user'
+  get 'users/cambio_de_estado_usuario/:id' => 'users#cambio_de_estado_usuario', :as => 'cambio_de_estado_usuario' 
 
-  resources :users, only: [:index, :new, :edit, :create, :update, :destroy]
+  resources :users, only: [:index, :new, :edit, :create, :update]
   devise_for :users , controllers: {registrations: 'registrations'}
   resources :emergencies
   resources :vehicles

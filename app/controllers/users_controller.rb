@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-	before_action :set_user, only: [:show_user, :edit, :update, :destroy]
+	before_action :set_user, only: [:show_user, :edit, :update, :cambio_de_estado_usuario]
 	def index
 		@users = User.all
 	end
@@ -16,7 +16,7 @@ class UsersController < ApplicationController
 
 	def create
 		@user = User.new(user_params)
-
+		@user.estado = "activo"
 	    respond_to do |format|
 	      if @user.save
 	        format.html { redirect_to index_users_path, notice: 'user was successfully created.' }
@@ -36,10 +36,15 @@ class UsersController < ApplicationController
 	    end
   	end
 
-	def destroy
-	    @user.destroy
-	    respond_to do |format|
-	      format.html { redirect_to index_users_path, notice: 'user was successfully destroyed.' }
+	def cambio_de_estado_usuario
+	    if @user.estado == "activo"
+	    	@user.estado = "inactivo"
+	    	@user.save
+	    	redirect_to index_users_path
+	    else
+	    	@user.estado = "activo"
+	    	@user.save
+	    	redirect_to index_users_path
 	    end
 	end
 
@@ -51,6 +56,6 @@ private
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:nombre, :apellido, :rango, :email, :password, :password_confirmation)
+      params.require(:user).permit(:nombre, :apellido, :rango, :email, :password, :password_confirmation, :estado)
     end
 end

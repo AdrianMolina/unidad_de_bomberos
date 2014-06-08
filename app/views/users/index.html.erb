@@ -22,14 +22,16 @@
 
           <tbody>
             <% @users.each do |user| %>
-              <tr>
-                <td><%= user.nombre %></td>
-                <td><%= user.apellido %></td>
-                <td><%= user.rango %></td>
-                <td align="center"><%= link_to 'Mostrar', show_user_path(user) %> |
-                    <%= link_to 'Editar', edit_user_path(user) %> |
-                    <%= link_to 'Eliminar', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-              </tr>
+              <% if user.estado == "activo" %> 
+                <tr>
+                  <td><%= user.nombre %></td>
+                  <td><%= user.apellido %></td>
+                  <td><%= user.rango %></td>
+                  <td align="center"><%= link_to 'Mostrar', show_user_path(user) %> |
+                      <%= link_to 'Editar', edit_user_path(user) %> |
+                      <%= link_to 'dar de baja', cambio_de_estado_usuario_path(user), data: { confirm: 'Are you sure?' } %></td>
+                </tr>
+              <% end %>
             <% end %>
           </tbody>
         </table>

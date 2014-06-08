@@ -5,6 +5,12 @@ class EmergenciesController < ApplicationController
   # GET /emergencies.json
   def index
     @emergencies = Emergency.all
+    if params[:search]
+      @emergencies = Emergency.search(params[:search]).reverse
+    else
+      @emergencies = Emergency.all.reverse
+    end
+
   end
 
   # GET /emergencies/1

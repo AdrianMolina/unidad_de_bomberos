@@ -12,6 +12,7 @@
  *= require bootstrap
  *= require font-awesome.min
  *= require landing-page
+ *= require realtime_validations
  *= require_tree .
  *= require_self
  */

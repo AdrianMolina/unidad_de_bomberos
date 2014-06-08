@@ -16,4 +16,5 @@
 //= bootstrap
 //= bootstrap.min
 //= require turbolinks
+//= require realtime_validations
 //= require jquery-1.10.2

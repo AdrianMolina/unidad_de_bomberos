@@ -1,6 +1,6 @@
 <%= render 'mapa' %>
 <body onload="initialize()" >
-<%= form_for @emergency, :html => { :class => 'form-horizontal', :role => 'form' } do |f| %>
+<%= form_validated_for @emergency, :html => { :class => 'form-horizontal', :role => 'form' } do |f| %>
   <% if @emergency.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@emergency.errors.count, "error") %> prohibited this emergency from being saved:</h2>

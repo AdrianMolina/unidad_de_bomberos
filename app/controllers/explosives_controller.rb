@@ -57,9 +57,10 @@ class ExplosivesController < ApplicationController
   # DELETE /explosives/1
   # DELETE /explosives/1.json
   def destroy
+    @emergency = Emergency.find(@explosive.emergency_id)
     @explosive.destroy
     respond_to do |format|
-      format.html { redirect_to explosives_url, notice: 'Explosive was successfully destroyed.' }
+      format.html { redirect_to formularios_path(@emergency), notice: 'Explosive was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

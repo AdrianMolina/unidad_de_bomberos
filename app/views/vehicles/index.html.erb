@@ -26,9 +26,9 @@
                 <td><%= vehicle.sigla %></td>
                 <td><%= vehicle.placa %></td>
                 <td><%= vehicle.modelo %></td>
-                <td align="center"><%= link_to 'Show', vehicle %> |
-                    <%= link_to 'Edit', edit_vehicle_path(vehicle) %> |
-                    <%= link_to 'Destroy', vehicle, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                <td align="center"><%= link_to 'Mostrar', vehicle %> |
+                    <%= link_to 'Editar', edit_vehicle_path(vehicle) %> |
+                    <%= link_to 'Eliminar', vehicle, method: :delete, data: { confirm: 'Are you sure?' } %></td>
               </tr>
             <% end %>
           </tbody>

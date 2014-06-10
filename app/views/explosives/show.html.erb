@@ -1,54 +1,89 @@
 <p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Numero caso:</strong>
-  <%= @explosive.numero_caso %>
-</p>
-
-<p>
-  <strong>Fecha:</strong>
-  <%= @explosive.fecha %>
-</p>
-
-<p>
-  <strong>Lugar incidente:</strong>
-  <%= @explosive.lugar_incidente %>
-</p>
-
-<p>
-  <strong>Hora incidente:</strong>
-  <%= @explosive.hora_incidente %>
-</p>
-
-<p>
-  <strong>Descripcion incidente:</strong>
-  <%= @explosive.descripcion_incidente %>
-</p>
-
-<p>
-  <strong>Material utilizado:</strong>
-  <%= @explosive.material_utilizado %>
-</p>
-
-<p>
-  <strong>Observaciones incidente:</strong>
-  <%= @explosive.observaciones_incidente %>
-</p>
-
-<p>
-  <strong>Jefe brigada:</strong>
-  <%= @explosive.jefe_brigada %>
-</p>
-
-<p>
-  <strong>Jefe seguridad:</strong>
-  <%= @explosive.jefe_seguridad %>
-</p>
-
-<p>
-  <strong>Emergency:</strong>
-  <%= @explosive.emergency_id %>
-</p>
-
-<%= link_to 'Edit', edit_explosife_path(@explosive) %> |
-<%= link_to 'Back', formularios_path(@emergency) %>
+<br>
+<div class="col-lg-12">
+  <div class="page-header">
+       <h2 id="forms">Formulario de Explosivos</h2>
+  </div>
+</div>
+<div class="col-lg-12">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="field">
+            <h4><strong>Numero de caso:</strong>
+            <%= @explosive.numero_caso %></h4>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="field">
+            <h4><strong>Lugar:</strong>
+            <%= @explosive.lugar_incidente %></h4>              
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="field">
+            <h4><strong>Fecha:</strong>
+            <%= @explosive.fecha %></h4>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="field">
+            <h4><strong>Hora:</strong>
+            <%= @explosive.hora_incidente %></h4>              
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="field">
+            <h4><strong>Descripcion:</strong>
+            <%= @explosive.descripcion_incidente %></h4>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="field">
+            <h4><strong>Material Utilizado:</strong>
+            <%= @explosive.material_utilizado %></h4>              
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="field">
+            <h4><strong>Observaciones:</strong>
+            <%= @explosive.observaciones_incidente %></h4>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="field">            
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="field">
+            <h4><strong>Jefe de brigada:</strong>
+            <%= @explosive.jefe_brigada %></h4>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="field">
+            <h4><strong>Jefe de seguridad:</strong>
+            <%= @explosive.jefe_seguridad %></h4>            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="field">
+    <a href="<%=formularios_path(@emergency)%>" class="btn btn-default btn-sm active" role="button">Volver</a>
+  </div>
+</div>

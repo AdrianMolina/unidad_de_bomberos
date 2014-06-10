@@ -13,16 +13,21 @@
     </div>
   <% end %>
 <div class="col-lg-12">
-  <div class="well">
-    <div class="row">
-      <div class="col-lg-12">
+  <div class="row">
+      <div class="col-lg-7">
+        <div class="well">
         <fieldset>
         <div class="row">
           <div class="col-lg-3">
             <div class="form-group">
               <%= f.label :hora_salida, "Fecha y hora de salida" %><br>
-              <%= f.datetime_select :hora_salida, :class=>'form-control input-sm' %>
+              <%= f.text_field :hora_salida, :class=>'form-control input-sm' %>
              </div>
+          </div>
+          <div class="col-lg-2">
+            <div class="form-group">
+              
+            </div>
           </div>
           <div class="col-lg-3">
             <div class="form-group">
@@ -36,6 +41,11 @@
             <div class="form-group">
               <%= f.label :tipo %><br>
               <%= f.text_field :tipo, :class=>'form-control input-sm' %>
+            </div>
+          </div>
+          <div class="col-lg-2">
+            <div class="form-group">
+              
             </div>
           </div>
           <div class="col-lg-3">
@@ -53,6 +63,11 @@
               <%= f.text_field :denunciante, :class=>'form-control input-sm' %>
             </div>
           </div>
+          <div class="col-lg-2">
+            <div class="form-group">
+              
+            </div>
+          </div>
           <div class="col-lg-3">
             <div class="form-group">
               <%= f.label :telefono_denunciante %><br>
@@ -67,6 +82,11 @@
               <%= f.select :vehicle_id, options_from_collection_for_select(Vehicle.all,:id,:sigla), :class=>'form-control' %>
             </div>
           </div>
+          <div class="col-lg-2">
+            <div class="form-group">
+              
+            </div>
+          </div>
           <div class="col-lg-3">
             <div class="form-group">
               <%= f.label :user_id, "Despachador" %><br>
@@ -79,6 +99,11 @@
             <div class="form-group">
               <%= f.label :referencia_lugar %><br>
               <%= f.text_area :referencia_lugar, :class=>'form-control input-sm' %>
+            </div>
+          </div>
+          <div class="col-lg-2">
+            <div class="form-group">
+              
             </div>
           </div>
           <div class="col-lg-3">
@@ -101,8 +126,15 @@
         </fieldset>
       </div>
     </div>
+        <div class="row">
+          <div class="col-lg-4">
+            <div id="map" style="width:500px; height:500px"></div>
+          </div>
+        </div>
   </div>
 </div>
 <% end %>
+<script type="text/javascript">
+  jQuery('#emergency_hora_salida').datetimepicker();
+</script>
 </body>
-<div id="map" style="width:500px; height:500px"></div>

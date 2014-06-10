@@ -13,6 +13,7 @@
  *= require font-awesome.min
  *= require landing-page
  *= require realtime_validations
+ *= require jquery.datetimepicker
  *= require_tree .
  *= require_self
  */

@@ -18,3 +18,4 @@
 //= require turbolinks
 //= require realtime_validations
 //= require jquery-1.10.2
+//= require jquery.datetimepicker

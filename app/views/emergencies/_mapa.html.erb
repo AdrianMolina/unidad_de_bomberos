@@ -43,6 +43,7 @@
 
   function codeAddress() {
   var address = document.getElementById('emergency_lugar').value;
+  address = address + " cochabamba bolivia";
   geocoder.geocode( { 'address': address}, function(results, status) {
     if (status == google.maps.GeocoderStatus.OK) {
       map.setCenter(results[0].geometry.location);

@@ -31,7 +31,7 @@ class EmergenciesController < ApplicationController
   # POST /emergencies.json
   def create
     @emergency = Emergency.new(emergency_params)
-
+    @emergency.user_id = current_user.id
     respond_to do |format|
       if @emergency.save
         format.html { redirect_to @emergency, notice: 'Emergency was successfully created.' }

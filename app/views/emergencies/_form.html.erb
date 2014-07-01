@@ -21,7 +21,7 @@
           <div class="col-lg-3">
             <div class="form-group">
               <%= f.label :hora_salida, "Fecha y hora de salida" %><br>
-              <%= f.text_field :hora_salida, :class=>'form-control input-sm' %>
+              <%= f.text_field :hora_salida, :class=>'form-control input-sm', :value=>Time.now.strftime("%Y/%m/%e %I:%M") %>
              </div>
           </div>
           <div class="col-lg-2">
@@ -40,7 +40,13 @@
           <div class="col-lg-3">
             <div class="form-group">
               <%= f.label :tipo %><br>
-              <%= f.text_field :tipo, :class=>'form-control input-sm' %>
+              
+              <select id = "emergency_tipo" name = "emergency[tipo]" class='form-control input-sm' >
+                <option value="incendio">Incendio</option>
+                <option value="explosivo">Explosivo</option>
+                <option value="rescate">Rescate</option>
+                <option value="atencion prehospitaria">Atencion prehospitalaria</option>
+              </select>
             </div>
           </div>
           <div class="col-lg-2">
@@ -51,7 +57,7 @@
           <div class="col-lg-3">
             <div class="form-group" >
               <%= f.label :lugar %><br>
-              <%= f.text_field :lugar, :class=>'form-control input-sm', :required => true %>
+              <%= f.text_area :lugar, :class=>'form-control input-sm', :required => true %>
               <input type="button" value="Geocode" onclick="codeAddress()">
             </div>
           </div>
@@ -79,7 +85,8 @@
           <div class="col-lg-3">
             <div class="form-group">
               <%= f.label :vehicle_id, "Sigla vehiculo" %><br>
-              <%= f.select :vehicle_id, options_from_collection_for_select(Vehicle.all,:id,:sigla), :class=>'form-control' %>
+              
+              <%=f.collection_select(:vehicle_id, Vehicle.all, :id, :sigla, {:class=>'form-control input-sm'})%>
             </div>
           </div>
           <div class="col-lg-2">
@@ -89,8 +96,8 @@
           </div>
           <div class="col-lg-3">
             <div class="form-group">
-              <%= f.label :user_id, "Despachador" %><br>
-              <%= f.select :user_id, options_from_collection_for_select(User.all,:id,:nombre), :class=>'form-control' %>
+              <%#= f.label :user_id, "Despachador" %><br>
+              <%#= f.select :user_id, options_from_collection_for_select(User.all,:id,:nombre), :class=>'form-control' %>
             </div>
           </div>
         </div>

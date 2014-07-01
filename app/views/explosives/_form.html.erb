@@ -31,15 +31,15 @@
           <div class="col-lg-4">
             <div class="form-group">
               <%= f.label :lugar_incidente, "Lugar del incidente" %><br>
-              <%= f.text_field :lugar_incidente, :class=>'form-control input-sm' %>
+              <%= f.text_field :lugar_incidente, :class=>'form-control input-sm', :value => @emergency.lugar %>
             </div>
           </div>
         </div>
         <div class="row">
           <div class="col-lg-4">
             <div class="form-group">
-              <%= f.label :fecha, "Fecha" %><br>
-              <%= f.date_select :fecha, :class=>'form-control input-sm' %>
+              <%#= f.label :fecha, "Fecha" %><br>
+              <%#= f.date_select :fecha, :class=>'form-control input-sm' %>
             </div>
           </div>
           <div class="col-lg-2">
@@ -50,7 +50,7 @@
           <div class="col-lg-4">
             <div class="form-group" >
               <%= f.label :hora_incidente, "Hora" %><br>
-              <%= f.time_select :hora_incidente, :class=>'form-control input-sm' %>
+              <%= f.text_field :hora_incidente, :class=>'form-control input-sm', :value => @emergency.hora_salida.strftime("%Y/%m/%e %I:%M") %>
             </div>
           </div>
         </div>

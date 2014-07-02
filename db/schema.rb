@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140608161241) do
+ActiveRecord::Schema.define(version: 20140702024420) do
 
   create_table "emergencies", force: true do |t|
     t.string   "lugar"
@@ -47,6 +47,8 @@ ActiveRecord::Schema.define(version: 20140608161241) do
     t.integer  "emergency_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.float    "latitude"
+    t.float    "Longitude"
   end
 
   add_index "explosives", ["emergency_id"], name: "index_explosives_on_emergency_id"

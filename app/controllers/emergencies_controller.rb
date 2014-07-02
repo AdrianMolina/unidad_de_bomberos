@@ -1,6 +1,6 @@
 class EmergenciesController < ApplicationController
   before_action :set_emergency, only: [:show, :edit, :update, :destroy]
-  
+  before_action :authenticate_user!
   # GET /emergencies
   # GET /emergencies.json
   def index
@@ -16,6 +16,9 @@ class EmergenciesController < ApplicationController
   # GET /emergencies/1
   # GET /emergencies/1.json
   def show
+  end
+  def show_last
+    redirect_to Emergency.all.last
   end
 
   # GET /emergencies/new

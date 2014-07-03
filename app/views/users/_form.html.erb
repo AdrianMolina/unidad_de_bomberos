@@ -21,7 +21,7 @@
 
           <div class="form-group">
             <%= f.label :fecha_nacimiento, "Fecha de nacimiento" %>
-            <%= f.text_field :fecha_nacimiento, :class=>'form-control input-sm' %>
+            <%= f.date_field :fecha_nacimiento, :class=>'form-control input-sm' %>
           </div>
 
           <div class="form-group">
@@ -31,7 +31,10 @@
 
           <div class="form-group">
             <%= f.label :institucion, "Intitucion de egreso" %>
-            <%= f.text_field :institucion, :class=>'form-control input-sm' %>
+            <select id = "user_institucion" name = "user[institucion]" class='form-control input-sm' >
+                <option value="anapol">Academia Nacional de Policias</option>
+                <option value="esbapol">Escuela Basica de Policias</option>
+              </select>
           </div>
 
           <div class="form-group">
@@ -47,6 +50,11 @@
           <div class="form-group">
             <%= f.label :especialidad, "Area de especialidad" %>
             <%= f.text_field :especialidad, :class=>'form-control input-sm' %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :cargo, "Cargo actual" %>
+            <%= f.text_field :cargo, :class=>'form-control input-sm' %>
           </div>
 
           <div class="form-group">

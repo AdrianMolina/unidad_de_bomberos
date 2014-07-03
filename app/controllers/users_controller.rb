@@ -56,6 +56,6 @@ private
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:nombre, :apellido, :rango, :email, :password, :password_confirmation, :estado, :ap_materno, :escalafon, :especialidad, :telefono, :celular, :fecha_nacimiento, :egreso, :institucion)
+      params.require(:user).permit(:nombre, :apellido, :rango, :email, :password, :password_confirmation, :estado, :ap_materno, :escalafon, :especialidad, :telefono, :celular, :fecha_nacimiento, :egreso, :institucion, :cargo)
     end
 end

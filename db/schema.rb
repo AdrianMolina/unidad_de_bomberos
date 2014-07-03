@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140703151909) do
+ActiveRecord::Schema.define(version: 20140703153645) do
 
   create_table "emergencies", force: true do |t|
     t.string   "lugar"
@@ -78,6 +78,7 @@ ActiveRecord::Schema.define(version: 20140703151909) do
     t.date     "fecha_nacimiento"
     t.integer  "egreso"
     t.string   "institucion"
+    t.string   "cargo"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'users/show_user/:id' => 'users#show_user', :as => 'show_user'
   get 'users/cambio_de_estado_usuario/:id' => 'users#cambio_de_estado_usuario', :as => 'cambio_de_estado_usuario' 
   get 'emergencies/index_last' => 'emergencies#index_last', :as => 'index_last'
+  get 'emergencies/activo/:id' => 'emergencies#activo', :as => 'activo'
   resources :users, only: [:index, :new, :edit, :create, :update]
   devise_for :users , controllers: {registrations: 'registrations'}
   resources :emergencies

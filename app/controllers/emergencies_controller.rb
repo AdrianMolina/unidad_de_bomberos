@@ -14,7 +14,7 @@ class EmergenciesController < ApplicationController
   end
   #muestra las emergencias activas o en curso
   def index_last
-    @emergencies = Emergency.activos(false)
+    @emergencies = Emergency.all
   end
 
   # GET /emergencies/1
@@ -74,6 +74,16 @@ class EmergenciesController < ApplicationController
   def formularios
     @emergencia = Emergency.find(params[:id])
     @explosivos = Explosive.all
+  end
+
+  def activo
+    @emergency = Emergency.find(params[:id])
+    if @emergency.estado == false
+      @emergency.estado = true
+    else
+      @emergency.estado = false
+    end
+    redirect_to index_last_path
   end
 
   private

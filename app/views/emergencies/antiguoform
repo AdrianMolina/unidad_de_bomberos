@@ -1,0 +1,149 @@
+<%= render 'mapa' %>
+
+<%= form_validated_for @emergency, :html => { :class => 'form-horizontal', :role => 'form' } do |f| %>
+  <% if @emergency.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@emergency.errors.count, "error") %> prohibited this emergency from being saved:</h2>
+
+      <ul>
+      <% @emergency.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<div class="col-lg-12">
+  <div class="row">
+      <div class="col-lg-7">
+        <div class="well">
+        <fieldset>
+        <div class="row">
+          <div class="col-lg-3">
+            <div class="form-group">
+              <%= f.label :hora_salida, "Fecha y hora de salida" %><br>
+              <%= f.text_field :hora_salida, :class=>'form-control input-sm', :value=>Time.now.strftime("%Y/%m/%e %I:%M") %>
+             </div>
+          </div>
+          <div class="col-lg-2">
+            <div class="form-group">
+              
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <div class="form-group">
+              <%= f.label :numero_caso %><br>
+              <%= f.text_field :numero_caso, :class=>'form-control input-sm', :placeholder=>'Numero de caso', :maxlength => 10 , :title => "Por favor rellene este campo", :required => true %>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-3">
+            <div class="form-group">
+              <%= f.label :tipo %><br>
+              
+              <select id = "emergency_tipo" name = "emergency[tipo]" class='form-control input-sm' >
+                <option value="incendio">Incendio</option>
+                <option value="explosivo">Explosivo</option>
+                <option value="rescate">Rescate</option>
+                <option value="atencion prehospitaria">Atencion prehospitalaria</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-lg-2">
+            <div class="form-group">
+              
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <div class="form-group" >
+              <%= f.label :lugar %><br>
+              <%= f.text_area :lugar, :class=>'form-control input-sm', :required => true %>
+              <input type="button" value="Geocode" onclick="codeAddress()">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-3">
+            <div class="form-group">
+              <%= f.label :denunciante %><br>
+              <%= f.text_field :denunciante, :class=>'form-control input-sm' %>
+            </div>
+          </div>
+          <div class="col-lg-2">
+            <div class="form-group">
+              
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <div class="form-group">
+              <%= f.label :telefono_denunciante %><br>
+              <%= f.phone_field :telefono_denunciante, :class=>'form-control input-sm' %>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-3">
+            <div class="form-group">
+              <%= f.label :vehicle_id, "Sigla vehiculo" %><br>
+              
+              <%=f.collection_select(:vehicle_id, Vehicle.all, :id, :sigla, {:class=>'form-control input-sm'})%>
+            </div>
+          </div>
+          <div class="col-lg-2">
+            <div class="form-group">
+              
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <div class="form-group">
+              <%#= f.label :user_id, "Despachador" %><br>
+              <%#= f.select :user_id, options_from_collection_for_select(User.all,:id,:nombre), :class=>'form-control' %>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-3">
+            <div class="form-group">
+              <%= f.label :referencia_lugar %><br>
+              <%= f.text_area :referencia_lugar, :class=>'form-control input-sm' %>
+            </div>
+          </div>
+          <div class="col-lg-2">
+            <div class="form-group">
+              
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <div class="form-group">
+              <%= f.label :observacion %><br>
+              <%= f.text_area :observacion, :class=>'form-control input-sm' %>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <%= f.hidden_field :latitude %>
+        </div>
+        <div class="form-group">
+          <%= f.hidden_field :longitude %>
+        </div>
+        <div class="form-group">
+          <%= f.hidden_field :estado, :value=> false %>
+        </div>
+        <div class="form-group">
+          <input type="submit" value="Registrar Emergencia" class="btn btn-danger">
+          <a href="<%=emergencies_path%>" class="btn btn-default btn-sm active" role="button"> Atras </a>
+        </div>
+        </fieldset>
+      </div>
+    </div>
+        <div class="row">
+          <div class="col-lg-4">
+            <div id="map" style="width:500px; height:500px"></div>
+          </div>
+        </div>
+  </div>
+</div>
+<% end %>
+<script type="text/javascript">
+  jQuery('#emergency_hora_salida').datetimepicker();
+</script>

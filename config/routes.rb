@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get 'users/index' => 'users#index', :as =>'index_users'
   get 'users/show_user/:id' => 'users#show_user', :as => 'show_user'
   get 'users/cambio_de_estado_usuario/:id' => 'users#cambio_de_estado_usuario', :as => 'cambio_de_estado_usuario' 
-  get 'emergencies/show_last' => 'emergencies#show_last', :as => 'show_last'
+  get 'emergencies/index_last' => 'emergencies#index_last', :as => 'index_last'
   resources :users, only: [:index, :new, :edit, :create, :update]
   devise_for :users , controllers: {registrations: 'registrations'}
   resources :emergencies
@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'emergencies#show_last'
+  root 'emergencies#index_last'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

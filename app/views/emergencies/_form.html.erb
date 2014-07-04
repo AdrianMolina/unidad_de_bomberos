@@ -127,6 +127,9 @@
           <%= f.hidden_field :longitude %>
         </div>
         <div class="form-group">
+          <%= f.hidden_field :estado, :value=> false %>
+        </div>
+        <div class="form-group">
           <input type="submit" value="Registrar Emergencia" class="btn btn-danger">
           <a href="<%=emergencies_path%>" class="btn btn-default btn-sm active" role="button"> Atras </a>
         </div>

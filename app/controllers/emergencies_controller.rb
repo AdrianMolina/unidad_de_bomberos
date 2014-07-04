@@ -12,13 +12,14 @@ class EmergenciesController < ApplicationController
     end
 
   end
+  #muestra las emergencias activas o en curso
+  def index_last
+    @emergencies = Emergency.activos(false)
+  end
 
   # GET /emergencies/1
   # GET /emergencies/1.json
   def show
-  end
-  def show_last
-    redirect_to Emergency.all.last
   end
 
   # GET /emergencies/new
@@ -83,6 +84,6 @@ class EmergenciesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def emergency_params
-      params.require(:emergency).permit(:lugar, :denunciante, :telefono_denunciante, :numero_caso, :hora_salida, :observacion, :referencia_lugar, :tipo, :latitude, :longitude, :user_id, :vehicle_id)
+      params.require(:emergency).permit(:lugar, :denunciante, :telefono_denunciante, :numero_caso, :hora_salida, :observacion, :referencia_lugar, :tipo, :latitude, :longitude, :user_id, :vehicle_id, :estado)
     end
 end

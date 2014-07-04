@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140703162320) do
+ActiveRecord::Schema.define(version: 20140704163123) do
 
   create_table "emergencies", force: true do |t|
     t.string   "lugar"
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20140703162320) do
     t.float    "latitude"
     t.float    "longitude"
     t.integer  "vehicle_id"
+    t.boolean  "estado"
   end
 
   add_index "emergencies", ["user_id"], name: "index_emergencies_on_user_id"

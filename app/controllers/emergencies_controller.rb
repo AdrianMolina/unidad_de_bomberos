@@ -83,6 +83,7 @@ class EmergenciesController < ApplicationController
     else
       @emergency.estado = false
     end
+    @emergency.save
     redirect_to index_last_path
   end
 

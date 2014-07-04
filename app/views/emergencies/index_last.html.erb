@@ -38,7 +38,7 @@
                 <td><%= emergency.tipo %></td>
                 <td align="center"><%= link_to 'Mostrar', emergency %> |
                     <%= link_to 'Editar', edit_emergency_path(emergency),'data-no-turbolink' => true %> |
-                    <%= link_to 'Emergencia atendida', activo_path(emergency) %>
+                    <%= link_to 'Emergencia resuelta', activo_path(emergency) %>
                 <td align="center"><a href="<%=formularios_path(emergency)%>" class="btn btn-primary btn-sm active" role="button">Ver Formularios</a></td>
               <% end %>
               </tr>

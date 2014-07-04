@@ -4,11 +4,19 @@
     var marker;
     var geocoder;
     var map;
+    
   function initialize() {
     var $latitude = document.getElementById('emergency_latitude');
     var $longitude = document.getElementById('emergency_longitude');
-    var latitude = -17.40049275908006;
-    var longitude = -66.1427843109314;
+    var latitude;
+    var longitude;
+    if ($latitude.value ==""){
+      latitude = -17.40049275908006;
+      longitude = -66.1427843109314;
+    }else{
+      latitude = $latitude.value;
+      longitude = $longitude.value;
+    }
     var zoom = 15;
     geocoder = new google.maps.Geocoder();
     var LatLng = new google.maps.LatLng(latitude, longitude);
@@ -43,12 +51,19 @@
 
   function codeAddress() {
   var address = document.getElementById('emergency_lugar').value;
+  var lat = document.getElementById('emergency_latitude');
+  var lon = document.getElementById('emergency_longitude');
   address = address + " cochabamba bolivia";
   geocoder.geocode( { 'address': address}, function(results, status) {
     if (status == google.maps.GeocoderStatus.OK) {
       map.setCenter(results[0].geometry.location);
       
       marker.setPosition(results[0].geometry.location);
+      
+      var latLng = results[0].geometry.location;
+      lat.value = latLng.lat();
+      lon.value = latLng.lng();
+
     } else {
       alert('No se pudo encontrar la direccion: ' + status);
     }

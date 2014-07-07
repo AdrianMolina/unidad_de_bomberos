@@ -16,7 +16,7 @@ class UsersController < ApplicationController
 
 	def create
 		@user = User.new(user_params)
-		@user.estado = "activo"
+		@user.estado = "activo" #deberia ser bool y no un string
 	    respond_to do |format|
 	      if @user.save
 	        format.html { redirect_to index_users_path, notice: 'user was successfully created.' }
@@ -56,6 +56,6 @@ private
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:nombre, :apellido, :rango, :email, :password, :password_confirmation, :estado, :ap_materno, :escalafon, :especialidad, :telefono, :celular, :fecha_nacimiento, :egreso, :institucion, :cargo)
+      params.require(:user).permit(:nombre, :apellido, :rango, :email, :password, :password_confirmation, :estado, :ap_materno, :escalafon, :especialidad, :telefono, :celular, :fecha_nacimiento, :egreso, :institucion, :cargo, :username)
     end
 end

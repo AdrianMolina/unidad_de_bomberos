@@ -5,88 +5,87 @@
        <h2 id="forms">Emergencia</h2>
   </div>
 </div>
-<div class="col-lg-11">
-  <div class="row">
-    <div class="col-lg-8">
-      <div class="row">
-        <div class="col-lg-4">
-          <div class="field">
-            <h4><strong>Numero de caso:</strong>
-            <%= @emergency.numero_caso %></h4>
-          </div>
+
+
+<div class="container">
+  <div class="row clearfix">
+    <div class="col-md-4 column">
+      
+      <form role="form">
+        <h4>
+        <div class="form-group">
+           <label for="exampleInputEmail1">Numero de caso</label>
+            <%= @emergency.numero_caso %>
         </div>
-        <div class="col-lg-4">
-          <div class="field">
-            <h4><strong>Hora salida:</strong>
-            <%= @emergency.hora_salida %></h4>              
-          </div>
+        <div class="form-group">
+           <label for="exampleInputPassword1">Denunciante</label>
+              <%= @emergency.denunciante %>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-lg-4">
-          <div class="field">
-            <h4><strong>Tipo:</strong>
-            <%= @emergency.tipo %></h4>
-          </div>
+        <div class="form-group">
+           <label for="exampleInputPassword1">Direccion</label>
+           <%= @emergency.lugar %>
         </div>
-        <div class="col-lg-4">
-          <div class="field">
-            <h4><strong>Lugar:</strong>
-            <%= @emergency.lugar %></h4>              
-          </div>
+        <div class="form-group">
+           <label for="exampleInputPassword1">Tipo</label>
+           <%= @emergency.tipo %>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-lg-4">
-          <div class="field">
-            <h4><strong>Denunciante:</strong>
-            <%= @emergency.denunciante %></h4>
-          </div>
+        <div class="form-group">
+           <label for="exampleInputPassword1">Observacion</label>
+           <%= @emergency.observacion %>
         </div>
-        <div class="col-lg-4">
-          <div class="field">
-            <h4><strong>Telefono del denunciante:</strong>
-            <%= @emergency.telefono_denunciante %></h4>              
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-lg-4">
-          <div class="field">
-            <h4><strong>Sigla del vehiculo:</strong>
-            <%= @emergency.vehicle.sigla %></h4>
-          </div>
-        </div>
-        <div class="col-lg-4">
-          <div class="field">
-            <h4><strong>Despachador:</strong>
-            <%= @emergency.user.nombre + " " + @emergency.user.apellido %></h4>              
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-lg-4">
-          <div class="field">
-            <h4><strong>Referencia del lugar:</strong>
-            <%= @emergency.referencia_lugar %></h4>
-          </div>
-        </div>
-        <div class="col-lg-4">
-          <div class="field">
-            <h4><strong>Observacion:</strong>
-            <%= @emergency.observacion %></h4>            
-          </div>
-        </div>
-      </div>
+        </h4>
+      </form>
+    
     </div>
-    <div class="row">
-        <div class="col-lg-4">
-          <div id="map">
-          <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x250&sensor=false&zoom=16&markers=#{@emergency.latitude}%2C#{@emergency.longitude}" %>
-          </div>
+
+    <div class="col-md-4 column">
+      
+      <form role="form">
+        <h4>
+        <div class="form-group">
+           <label for="exampleInputEmail1">Hora de salida</label>
+           <%= @emergency.hora_salida.strftime("%Y/%m/%e %I:%M") %>
         </div>
+        <div class="form-group">
+           <label for="exampleInputPassword1">Telefono Denunciante</label>
+           <%= @emergency.telefono_denunciante %>
+            
+        </div>
+        <div class="form-group">
+           <label for="exampleInputPassword1">Referencia del lugar</label>
+           <%= @emergency.referencia_lugar %>
+        </div>
+        <div class="form-group">
+           <label for="exampleInputPassword1">Despachador</label>
+           <%= @emergency.user.nombre + " " + @emergency.user.apellido %>
+        </div>
+        <div class="form-group">
+           <label for="exampleInputPassword1">Sigla vehiculo</label>
+           <%= @emergency.vehicle.sigla %>
+        </div>
+        </h4>
+      </form>
+    
+    </div>
+
+    <div class="col-md-4 column">
+      <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x250&sensor=false&zoom=16&markers=#{@emergency.latitude}%2C#{@emergency.longitude}" %>
     </div>
   </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
   <div class="page-header">
        <h2 id="forms">Añadir formulario:</h2>
   </div>

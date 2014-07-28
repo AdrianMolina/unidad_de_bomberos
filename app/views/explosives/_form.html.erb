@@ -86,8 +86,8 @@
         <div class="row">
           <div class="col-lg-4">
             <div class="form-group">
-              <%= f.label :jefe_brigada, "Jefe de brigada" %><br>
-              <%= f.text_field :jefe_brigada, :class=>'form-control input-sm' %>
+              <label for="exampleInputPassword1">Jefe de brigada</label>
+              <%= f.collection_select :jefe_brigada, User.all, :nombre_completo, :nombre_completo, {prompt: "Seleccionar"}, {class: "form-control input-sm"} %>
             </div>
           </div>
           <div class="col-lg-2">
@@ -97,8 +97,8 @@
           </div>
           <div class="col-lg-4">
             <div class="form-group">
-              <%= f.label :jefe_seguridad, "Jefe de seguridad" %><br>
-              <%= f.text_field :jefe_seguridad, :class=>'form-control input-sm' %>
+              <label for="exampleInputPassword1">Jefe de seguridad</label>
+              <%= f.collection_select :jefe_seguridad, User.all, :nombre_completo, :nombre_completo, {prompt: "Seleccionar"}, {class: "form-control input-sm"} %>
             </div>
           </div>
         </div>

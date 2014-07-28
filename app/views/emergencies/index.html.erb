@@ -1,20 +1,20 @@
 <br>
 <br>
 <div class="row">
-<div class="col-lg-6">
-  <div class="page-header">
-       <h1 id="forms">Emergencias</h1>
+  <div class="col-lg-6">
+    <div class="page-header">
+         <h1 id="forms">Emergencias</h1>
+    </div>
   </div>
-</div>
 </div>
 <div class="row">
   <div class="col-lg-6">
     <h4>Buscar por numero de caso, denunciante, direccion o sigla vehiculo</h4>
     <br>
-<%= form_tag emergencies_path, :method => 'get' do %>
-      <%= text_field_tag :search, params[:search] %>
-      <%= submit_tag "Buscar", :name => nil, :class => 'btn btn-primary btn' %> 
-<% end %>
+    <%= form_tag emergencies_path, :method => 'get' do %>
+          <%= text_field_tag :search, params[:search] %>
+          <%= submit_tag "Buscar", :name => nil, :class => 'btn btn-primary btn' %> 
+    <% end %>
   </div>
 </div>
 <br>

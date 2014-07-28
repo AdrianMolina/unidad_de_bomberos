@@ -1,0 +1,41 @@
+<%= form_for @material, :html => { :class => 'form-horizontal', :role => 'form' } do |f| %>
+  <% if @material.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@material.errors.count, "error") %> prohibited this material from being saved:</h2>
+
+      <ul>
+      <% @material.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<div class="container">
+  <form role="form">
+    <div class="row clearfix">
+      <div class="col-md-4 column">
+        <div class="well">
+            <div class="form-group">
+             <label for="exampleInputPassword1">Especialidad</label>
+             <%= f.text_field :especialidad, :class=>'form-control' %>
+            </div>
+            <div class="form-group">
+             <label for="exampleInputPassword1">Codigo</label>
+             <%= f.text_field :codigo, :class=>'form-control' %>
+            </div>
+            <div class="form-group">
+             <label for="exampleInputPassword1">Estado</label>
+             <%= f.text_field :estado, :class=>'form-control' %>
+            </div>
+            <div class="form-group">
+             <label for="exampleInputPassword1">Ubicacion</label>
+             <%= f.text_field :ubicacion, :class=>'form-control' %>
+            </div>
+            <input type="submit" value="Registrar Material" class="btn btn-danger">
+            <a href="<%=materials_path%>" class="btn btn-default btn-sm active" role="button"> Atras </a> 
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+<% end %>

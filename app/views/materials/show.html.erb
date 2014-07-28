@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+<br>
+<div class="col-lg-12">
+  <div class="page-header">
+       <h2 id="forms">Material</h2>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row clearfix">
+    <div class="col-md-4 column">
+      <form role="form">
+      	<h4>
+        <div class="form-group">
+           <label for="exampleInputEmail1">Especialidad:</label>
+            <%= @material.especialidad %>
+        </div>
+        <div class="form-group">
+           <label for="exampleInputPassword1">Codigo:</label>
+              <%= @material.codigo %>
+        </div>
+        <div class="form-group">
+           <label for="exampleInputPassword1">Estado:</label>
+           <%= @material.estado %>
+        </div>
+        <div class="form-group">
+           <label for="exampleInputPassword1">Ubicacion:</label>
+           <%= @material.ubicacion %>
+        </div>
+        </h4>
+	</form>
+	<a href="<%=materials_path%>" class="btn btn-default btn-sm active" role="button">Lista de materiales</a>
+  </div>
+ </div>
+</div>

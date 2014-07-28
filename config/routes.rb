@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :emergencies
   resources :vehicles
   resources :explosives
+  resources :materials
   resources :welcomes
 
   # The priority is based upon order of creation: first created -> highest priority.

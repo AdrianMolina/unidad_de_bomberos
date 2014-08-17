@@ -1,0 +1,75 @@
+<p id="notice"><%= notice %></p>
+<br>
+<div class="col-lg-12">
+  <div class="page-header">
+       <h2 id="forms">Formulario de incendios</h2>
+  </div>
+</div>
+<div class="col-lg-12">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="field">
+            <h4><strong>Numero de caso:</strong>
+            <%= @fire.numero_caso %></h4>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="field">
+            <h4><strong>Lugar:</strong>
+            <%= @fire.lugar_incidente %></h4>              
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="field">
+            <h4><strong>Fecha:</strong>
+            <%= @fire.created_at %></h4>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="field">
+            <h4><strong>Hora:</strong>
+            <%= @fire.hora_incidente %></h4>              
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="field">
+            <h4><strong>Descripcion:</strong>
+            <%= @fire.descripcion_incidente %></h4>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="field">
+            
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="field">
+            <h4><strong>Jefe de brigada:</strong>
+            <%= @fire.jefe_brigada %></h4>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="field">
+            <h4><strong>Jefe de seguridad:</strong>
+            <%= @fire.jefe_seguridad %></h4>            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="field">
+    <a href="<%=formularios_path(@emergency)%>" class="btn btn-default btn-sm active" role="button">Volver</a>
+  </div>
+</div>

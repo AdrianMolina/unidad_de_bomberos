@@ -74,6 +74,7 @@ class EmergenciesController < ApplicationController
   def formularios
     @emergencia = Emergency.find(params[:id])
     @explosivos = Explosive.all
+    @incendios = Fire.all
   end
 
   def activo

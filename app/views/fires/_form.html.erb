@@ -1,11 +1,11 @@
-<%= render 'mapa' %>
-<%= form_for @explosive, :html => { :class => 'form-horizontal', :role => 'form' } do |f| %>
-  <% if @explosive.errors.any? %>
+<!--<%= render 'mapa' %>-->
+<%= form_for @fire, :html => { :class => 'form-horizontal', :role => 'form' } do |f| %>
+  <% if @fire.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@explosive.errors.count, "error") %> prohibited this explosife from being saved:</h2>
+      <h2><%= pluralize(@fire.errors.count, "error") %> prohibited this fire from being saved:</h2>
 
       <ul>
-      <% @explosive.errors.full_messages.each do |message| %>
+      <% @fire.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
@@ -57,29 +57,10 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-lg-4">
-            <div class="form-group">
-              <%= f.label :descripcion_incidente, "Descripcion" %><br>
-              <%= f.text_area :descripcion_incidente, :class=>'form-control' %>
-            </div>
-          </div>
-          <div class="col-lg-2">
-            <div class="form-group">
-              
-            </div>
-          </div>
-          <div class="col-lg-4">
-            <div class="form-group">
-              <%= f.label :observaciones_incidente, "Observaciones" %><br>
-              <%= f.text_area :observaciones_incidente, :class=>'form-control' %>
-            </div>
-          </div>
-        </div>
-        <div class="row">
           <div class="col-lg-10">
             <div class="form-group">
-              <%= f.label :material_utilizado, "Material utilizado" %><br>
-              <%= f.text_area :material_utilizado, :class=>'form-control' %>
+              <%= f.label :descripcion_incidente, "Descripcion del incidente" %><br>
+              <%= f.text_area :descripcion_incidente, :class=>'form-control' %>
             </div>
           </div>
         </div>
@@ -109,7 +90,7 @@
           <%= f.hidden_field :latitude, :value => @emergency.latitude %>
         </div>
         <div class="form-group">
-          <%= f.hidden_field :Longitude, :value => @emergency.longitude %>
+          <%= f.hidden_field :longitude, :value => @emergency.longitude %>
         </div>
         <div class="form-group">
           <input type="submit" value="Registrar Formulario" class="btn btn-primary">
@@ -120,9 +101,8 @@
   </div>
 </div>
 <% end %>
-
-<div class="row">
+<!--<div class="row">
   <div class="col-lg-4">
     <div id="map" style="width:500px; height:500px"></div>
   </div>
-</div>
+</div>-->

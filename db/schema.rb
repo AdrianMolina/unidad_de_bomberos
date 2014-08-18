@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140818163636) do
+ActiveRecord::Schema.define(version: 20140818233158) do
 
   create_table "assist_explosives", force: true do |t|
     t.integer  "user_id"
@@ -130,6 +130,16 @@ ActiveRecord::Schema.define(version: 20140818163636) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+
+  create_table "vehicle_drivers", force: true do |t|
+    t.integer  "vehicle_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "vehicle_drivers", ["user_id"], name: "index_vehicle_drivers_on_user_id"
+  add_index "vehicle_drivers", ["vehicle_id"], name: "index_vehicle_drivers_on_vehicle_id"
 
   create_table "vehicles", force: true do |t|
     t.string   "sigla"

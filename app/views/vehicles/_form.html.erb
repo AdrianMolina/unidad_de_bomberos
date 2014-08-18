@@ -1,4 +1,4 @@
-<%= form_for @vehicle, :html => { :class => 'form-horizontal', :role => 'form' } do |f| %>
+<%= nested_form_for @vehicle, :html => { :class => 'form-horizontal', :role => 'form' } do |f| %>
   <% if @vehicle.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@vehicle.errors.count, "error") %> prohibited this vehicle from being saved:</h2>
@@ -32,7 +32,7 @@
             <%= f.label :especialidad %><br>
             <%= f.text_field :especialidad, :class=>'form-control input-sm' %>
           </div>
-          <%= f.fields_for :vehicle_drivers %>
+          <%= f.fields_for :drivers %>
           <div class="form-group">
             <input type="submit" value="Registrar" class="btn btn-primary">
             <a href="<%=vehicles_path%>" class="btn btn-default btn-sm active" role="button"> Atras </a>

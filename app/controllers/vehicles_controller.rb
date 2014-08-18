@@ -15,6 +15,9 @@ class VehiclesController < ApplicationController
   # GET /vehicles/new
   def new
     @vehicle = Vehicle.new
+    2.times {  
+      @vehicle.vehicle_drivers.build 
+    }
   end
 
   # GET /vehicles/1/edit
@@ -69,6 +72,6 @@ class VehiclesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def vehicle_params
-      params.require(:vehicle).permit(:sigla, :placa, :modelo, :especialidad)
+      params.require(:vehicle).permit(:sigla, :placa, :modelo, :especialidad, vehicle_drivers_attributes: [:id, :vehicle_id, :user_id, :_destroy])
     end
 end

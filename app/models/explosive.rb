@@ -1,4 +1,5 @@
 class Explosive < ActiveRecord::Base
   belongs_to :emergency
-  accepts_nested_attributes_for :assist_explosives, :allow_destroy => true
+  has_many :assists, :dependent => :destroy, inverse_of: :explosive
+  accepts_nested_attributes_for :assists, :allow_destroy => true
 end

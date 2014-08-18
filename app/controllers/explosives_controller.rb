@@ -17,6 +17,9 @@ class ExplosivesController < ApplicationController
   def new
     @explosive = Explosive.new
     @emergency = Emergency.find(params[:id])
+    1.times {  
+      @explosive.assists.build 
+    }
   end
 
   # GET /explosives/1/edit
@@ -73,6 +76,6 @@ class ExplosivesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def explosive_params
-      params.require(:explosive).permit(:numero_caso, :fecha, :lugar_incidente, :hora_incidente, :descripcion_incidente, :material_utilizado, :observaciones_incidente, :jefe_brigada, :jefe_seguridad, :emergency_id, :latitude, :Longitude)
+      params.require(:explosive).permit(:numero_caso, :fecha, :lugar_incidente, :hora_incidente, :descripcion_incidente, :material_utilizado, :observaciones_incidente, :jefe_brigada, :jefe_seguridad, :emergency_id, :latitude, :Longitude, assists_attributes: [:id, :user_id, :explosive_id, :_destroy])
     end
 end

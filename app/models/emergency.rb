@@ -3,6 +3,7 @@ class Emergency < ActiveRecord::Base
 	belongs_to :vehicle
 	has_many :explosives
 	has_many :fires
+	has_many :rescues
 	validates :numero_caso, :uniqueness => true
 	validates :lugar, :format => { :with => /[a-zA-Z]+/i, :message => "Sólo se permiten letras" }
 	validates :denunciante, :format => { :with => /[a-zA-Z]+/i, :message => "Sólo se permiten letras" }

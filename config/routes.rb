@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :rescues
-
+  get 'rescates/new/:id' => 'rescues#new', :as => 'new_form_rescue'
   get 'incendios/new/:id' => 'fires#new', :as => 'new_form_fire'
   get 'explosivos/new/:id' => 'explosives#new', :as => 'new_form_explosive'
   get 'emergencias/formularios/:id' => 'emergencies#formularios', :as => 'formularios'
@@ -16,6 +15,7 @@ Rails.application.routes.draw do
   resources :vehicles
   resources :explosives
   resources :fires
+  resources :rescues
   resources :materials
   resources :welcomes
 

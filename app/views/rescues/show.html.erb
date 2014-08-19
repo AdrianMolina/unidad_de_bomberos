@@ -1,59 +1,91 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Numero caso:</strong>
-  <%= @rescue.numero_caso %>
-</p>
+br>
+<div class="col-lg-12">
+  <div class="page-header">
+       <h2 id="forms">Formulario de rescates</h2>
+  </div>
+</div>
+<div class="col-lg-12">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="field">
+            <h4><strong>Numero de caso:</strong>
+            <%= @rescue.numero_caso %></h4>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="field">
+            <h4><strong>Lugar:</strong>
+            <%= @rescue.lugar_incidente %></h4>              
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="field">
+            <h4><strong>Fecha:</strong>
+            <%= @rescue.created_at %></h4>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="field">
+            <h4><strong>Hora:</strong>
+            <%= @rescue.hora_incidente %></h4>              
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="field">
+            <h4><strong>Descripcion:</strong>
+            <%= @rescue.descripcion_incidente %></h4>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="field">
+            <h4><strong>Observaciones:</strong>
+            <%= @rescue.observaciones %></h4>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="field">
+            <h4><strong>Daños materiales:</strong>
+            <%= @rescue.danos_materiales %></h4>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="field">
 
-<p>
-  <strong>Lugar incidente:</strong>
-  <%= @rescue.lugar_incidente %>
-</p>
-
-<p>
-  <strong>Hora incidente:</strong>
-  <%= @rescue.hora_incidente %>
-</p>
-
-<p>
-  <strong>Descripcion incidente:</strong>
-  <%= @rescue.descripcion_incidente %>
-</p>
-
-<p>
-  <strong>Observaciones:</strong>
-  <%= @rescue.observaciones %>
-</p>
-
-<p>
-  <strong>Danos materiales:</strong>
-  <%= @rescue.danos_materiales %>
-</p>
-
-<p>
-  <strong>Jefe brigada:</strong>
-  <%= @rescue.jefe_brigada %>
-</p>
-
-<p>
-  <strong>Jefe seguridad:</strong>
-  <%= @rescue.jefe_seguridad %>
-</p>
-
-<p>
-  <strong>Latitude:</strong>
-  <%= @rescue.latitude %>
-</p>
-
-<p>
-  <strong>Longitude:</strong>
-  <%= @rescue.longitude %>
-</p>
-
-<p>
-  <strong>Emergency:</strong>
-  <%= @rescue.emergency %>
-</p>
-
-<%= link_to 'Edit', edit_rescue_path(@rescue) %> |
-<%= link_to 'Back', rescues_path %>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="field">
+            <h4><strong>Jefe de brigada:</strong>
+            <%= @rescue.jefe_brigada %></h4>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="field">
+            <h4><strong>Jefe de seguridad:</strong>
+            <%= @rescue.jefe_seguridad %></h4>            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="field">
+    <a href="<%=formularios_path(@emergency)%>" class="btn btn-default btn-sm active" role="button">Volver</a>
+  </div>
+</div>

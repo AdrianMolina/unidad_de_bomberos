@@ -10,15 +10,18 @@ class RescuesController < ApplicationController
   # GET /rescues/1
   # GET /rescues/1.json
   def show
+    @emergency = Emergency.find(@rescue.emergency_id)
   end
 
   # GET /rescues/new
   def new
     @rescue = Rescue.new
+    @emergency = Emergency.find(params[:id])
   end
 
   # GET /rescues/1/edit
   def edit
+    @emergency = Emergency.find(@rescue.emergency_id)
   end
 
   # POST /rescues

@@ -111,8 +111,13 @@
         <div class="form-group">
           <%= f.hidden_field :Longitude, :value => @emergency.longitude %>
         </div>
+
         <%= f.fields_for :assists %>
         <p><%= f.link_to_add "Agregar Bombero", :assists, :class=> 'btn btn-success pull-right' %></p>
+
+        <%= f.fields_for :explosive_material_useds %>
+        <p><%= f.link_to_add "Agregar material", :explosive_material_useds, :class=> 'btn btn-success pull-right' %></p>
+
         <div class="form-group">
           <input type="submit" value="Registrar Formulario" class="btn btn-primary">
         </div>

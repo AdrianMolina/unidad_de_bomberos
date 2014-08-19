@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Numero caso:</strong>
+  <%= @rescue.numero_caso %>
+</p>
+
+<p>
+  <strong>Lugar incidente:</strong>
+  <%= @rescue.lugar_incidente %>
+</p>
+
+<p>
+  <strong>Hora incidente:</strong>
+  <%= @rescue.hora_incidente %>
+</p>
+
+<p>
+  <strong>Descripcion incidente:</strong>
+  <%= @rescue.descripcion_incidente %>
+</p>
+
+<p>
+  <strong>Observaciones:</strong>
+  <%= @rescue.observaciones %>
+</p>
+
+<p>
+  <strong>Danos materiales:</strong>
+  <%= @rescue.danos_materiales %>
+</p>
+
+<p>
+  <strong>Jefe brigada:</strong>
+  <%= @rescue.jefe_brigada %>
+</p>
+
+<p>
+  <strong>Jefe seguridad:</strong>
+  <%= @rescue.jefe_seguridad %>
+</p>
+
+<p>
+  <strong>Latitude:</strong>
+  <%= @rescue.latitude %>
+</p>
+
+<p>
+  <strong>Longitude:</strong>
+  <%= @rescue.longitude %>
+</p>
+
+<p>
+  <strong>Emergency:</strong>
+  <%= @rescue.emergency %>
+</p>
+
+<%= link_to 'Edit', edit_rescue_path(@rescue) %> |
+<%= link_to 'Back', rescues_path %>

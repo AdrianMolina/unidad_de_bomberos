@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  numero_caso: MyString
+  lugar_incidente: MyString
+  hora_incidente: 2014-08-19 15:39:13
+  descripcion_incidente: MyText
+  observaciones: MyText
+  danos_materiales: MyString
+  jefe_brigada: MyString
+  jefe_seguridad: MyString
+  latitude: 1.5
+  longitude: 1.5
+  emergency_id: 
+
+two:
+  numero_caso: MyString
+  lugar_incidente: MyString
+  hora_incidente: 2014-08-19 15:39:13
+  descripcion_incidente: MyText
+  observaciones: MyText
+  danos_materiales: MyString
+  jefe_brigada: MyString
+  jefe_seguridad: MyString
+  latitude: 1.5
+  longitude: 1.5
+  emergency_id: 

@@ -1,0 +1,61 @@
+<%= form_for(@rescue) do |f| %>
+  <% if @rescue.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@rescue.errors.count, "error") %> prohibited this rescue from being saved:</h2>
+
+      <ul>
+      <% @rescue.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :numero_caso %><br>
+    <%= f.text_field :numero_caso %>
+  </div>
+  <div class="field">
+    <%= f.label :lugar_incidente %><br>
+    <%= f.text_field :lugar_incidente %>
+  </div>
+  <div class="field">
+    <%= f.label :hora_incidente %><br>
+    <%= f.time_select :hora_incidente %>
+  </div>
+  <div class="field">
+    <%= f.label :descripcion_incidente %><br>
+    <%= f.text_area :descripcion_incidente %>
+  </div>
+  <div class="field">
+    <%= f.label :observaciones %><br>
+    <%= f.text_area :observaciones %>
+  </div>
+  <div class="field">
+    <%= f.label :danos_materiales %><br>
+    <%= f.text_field :danos_materiales %>
+  </div>
+  <div class="field">
+    <%= f.label :jefe_brigada %><br>
+    <%= f.text_field :jefe_brigada %>
+  </div>
+  <div class="field">
+    <%= f.label :jefe_seguridad %><br>
+    <%= f.text_field :jefe_seguridad %>
+  </div>
+  <div class="field">
+    <%= f.label :latitude %><br>
+    <%= f.text_field :latitude %>
+  </div>
+  <div class="field">
+    <%= f.label :longitude %><br>
+    <%= f.text_field :longitude %>
+  </div>
+  <div class="field">
+    <%= f.label :emergency_id %><br>
+    <%= f.text_field :emergency_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

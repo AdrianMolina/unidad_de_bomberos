@@ -1,0 +1,45 @@
+<h1>Listing rescues</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Numero caso</th>
+      <th>Lugar incidente</th>
+      <th>Hora incidente</th>
+      <th>Descripcion incidente</th>
+      <th>Observaciones</th>
+      <th>Danos materiales</th>
+      <th>Jefe brigada</th>
+      <th>Jefe seguridad</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
+      <th>Emergency</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @rescues.each do |rescue| %>
+      <tr>
+        <td><%= rescue.numero_caso %></td>
+        <td><%= rescue.lugar_incidente %></td>
+        <td><%= rescue.hora_incidente %></td>
+        <td><%= rescue.descripcion_incidente %></td>
+        <td><%= rescue.observaciones %></td>
+        <td><%= rescue.danos_materiales %></td>
+        <td><%= rescue.jefe_brigada %></td>
+        <td><%= rescue.jefe_seguridad %></td>
+        <td><%= rescue.latitude %></td>
+        <td><%= rescue.longitude %></td>
+        <td><%= rescue.emergency %></td>
+        <td><%= link_to 'Show', rescue %></td>
+        <td><%= link_to 'Edit', edit_rescue_path(rescue) %></td>
+        <td><%= link_to 'Destroy', rescue, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Rescue', new_rescue_path %>

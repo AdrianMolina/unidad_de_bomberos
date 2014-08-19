@@ -1,0 +1,1 @@
+json.extract! @rescue, :id, :numero_caso, :lugar_incidente, :hora_incidente, :descripcion_incidente, :observaciones, :danos_materiales, :jefe_brigada, :jefe_seguridad, :latitude, :longitude, :emergency_id, :created_at, :updated_at

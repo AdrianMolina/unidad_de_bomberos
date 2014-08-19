@@ -1,4 +1,4 @@
-<!--<%= render 'mapa' %>-->
+<%= render 'mapa' %>
 <%= form_for @fire, :html => { :class => 'form-horizontal', :role => 'form' } do |f| %>
   <% if @fire.errors.any? %>
     <div id="error_explanation">
@@ -101,8 +101,9 @@
   </div>
 </div>
 <% end %>
-<!--<div class="row">
+
+<div class="row">
   <div class="col-lg-4">
     <div id="map" style="width:500px; height:500px"></div>
   </div>
-</div>-->
+</div>

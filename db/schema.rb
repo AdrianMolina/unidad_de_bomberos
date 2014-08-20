@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140819193913) do
+ActiveRecord::Schema.define(version: 20140820201116) do
+
+  create_table "affected_people", force: true do |t|
+    t.string   "nombre"
+    t.string   "telefono"
+    t.integer  "explosive_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "affected_people", ["explosive_id"], name: "index_affected_people_on_explosive_id"
 
   create_table "assist_explosives", force: true do |t|
     t.integer  "user_id"

@@ -31,7 +31,12 @@
           </div>
         </div>
         <div class="col-lg-4">
-          <div class="field">          
+          <div class="field">  
+              <h4><strong>Conductores:</strong>
+                <% @vehicle.drivers.each do |d| %>
+                  <BR><%= d.user.nombre_completo %>
+                <% end %>
+              </h4>
           </div>
         </div>
       </div>

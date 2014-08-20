@@ -1,0 +1,13 @@
+<div class="row" >
+<div class="col-md-3 column">
+  <div class="form-group">
+    <label for="material_id">Bomberos</label>
+    <%= f.collection_select :user_id, User.all, :id, :nombre_completo, {prompt: "Agregar bombero"}, {class: "form-control input-sm active", :required => true} %>
+  </div>
+</div>
+<div class="col-md-2 column">
+  <div class="form-group">
+    <%= f.link_to_remove "Eliminar bombero", :class=> 'btn btn-warning active' %>
+  </div>
+</div>
+</div>

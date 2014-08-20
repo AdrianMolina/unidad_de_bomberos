@@ -17,6 +17,9 @@ class RescuesController < ApplicationController
   def new
     @rescue = Rescue.new
     @emergency = Emergency.find(params[:id])
+    1.times {  
+      @rescue.assist_rescues.build
+    }
   end
 
   # GET /rescues/1/edit
@@ -72,6 +75,6 @@ class RescuesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def rescue_params
-      params.require(:rescue).permit(:numero_caso, :lugar_incidente, :hora_incidente, :descripcion_incidente, :observaciones, :danos_materiales, :jefe_brigada, :jefe_seguridad, :latitude, :longitude, :emergency_id)
+      params.require(:rescue).permit(:numero_caso, :lugar_incidente, :hora_incidente, :descripcion_incidente, :observaciones, :danos_materiales, :jefe_brigada, :jefe_seguridad, :latitude, :longitude, :emergency_id, assist_rescues_attributes: [:id, :user_id, :rescue_id, :_destroy])
     end
 end

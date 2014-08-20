@@ -12,24 +12,24 @@
     </div>
   <% end %>
 
-<div class="col-lg-12">
+<div class="col-md-8 column">
   <div class="row">
-    <div class="col-lg-7">
+    <div class="col-md-12 column">
       <div class="well">
         <fieldset>
         <div class="row">
-          <div class="col-lg-4">
+          <div class="col-md-5 column">
             <div class="form-group">
               <%= f.label :numero_caso, "Numero de caso" %><br>
               <%= f.text_field :numero_caso, :class=>'form-control input-sm', :readonly => true, :value => @emergency.numero_caso %>
              </div>
           </div>
-          <div class="col-lg-2">
+          <div class="col-md-2 column">
             <div class="form-group">
               
             </div>
           </div>
-          <div class="col-lg-4">
+          <div class="col-md-5 column">
             <div class="form-group">
               <%= f.label :lugar_incidente, "Lugar del incidente" %><br>
               <%= f.text_field :lugar_incidente, :class=>'form-control input-sm', :value => @emergency.lugar %>
@@ -38,18 +38,18 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-lg-4">
+          <div class="col-md-5 column">
             <div class="form-group">
               <%#= f.label :fecha, "Fecha" %><br>
               <%#= f.date_select :fecha, :class=>'form-control input-sm' %>
             </div>
           </div>
-          <div class="col-lg-2">
+          <div class="col-md-2 column">
             <div class="form-group">
               
             </div>
           </div>
-          <div class="col-lg-4">
+          <div class="col-md-5 column">
             <div class="form-group" >
               <%= f.label :hora_incidente, "Hora" %><br>
               <%= f.text_field :hora_incidente, :class=>'form-control input-sm', :value => @emergency.hora_salida.strftime("%Y/%m/%e %I:%M") %>
@@ -57,18 +57,18 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-lg-4">
+          <div class="col-md-5 column">
             <div class="form-group">
               <%= f.label :descripcion_incidente, "Descripcion" %><br>
               <%= f.text_area :descripcion_incidente, :class=>'form-control' %>
             </div>
           </div>
-          <div class="col-lg-2">
+          <div class="col-md-2 column">
             <div class="form-group">
               
             </div>
           </div>
-          <div class="col-lg-4">
+          <div class="col-md-5 column">
             <div class="form-group">
               <%= f.label :observaciones_incidente, "Observaciones" %><br>
               <%= f.text_area :observaciones_incidente, :class=>'form-control' %>
@@ -76,7 +76,7 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-lg-10">
+          <div class="col-md-12 column">
             <div class="form-group">
               <%= f.label :material_utilizado, "Material utilizado" %><br>
               <%= f.text_area :material_utilizado, :class=>'form-control' %>
@@ -84,18 +84,18 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-lg-4">
+          <div class="col-md-5 column">
             <div class="form-group">
               <label for="exampleInputPassword1">Jefe de brigada</label>
               <%= f.collection_select :jefe_brigada, User.all, :nombre_completo, :nombre_completo, {prompt: "Seleccionar"}, {class: "form-control input-sm"} %>
             </div>
           </div>
-          <div class="col-lg-2">
+          <div class="col-md-2 column">
             <div class="form-group">
               
             </div>
           </div>
-          <div class="col-lg-4">
+          <div class="col-md-5 column">
             <div class="form-group">
               <label for="exampleInputPassword1">Jefe de seguridad</label>
               <%= f.collection_select :jefe_seguridad, User.all, :nombre_completo, :nombre_completo, {prompt: "Seleccionar"}, {class: "form-control input-sm"} %>
@@ -123,13 +123,11 @@
         </div>
         </fieldset>
       </div>
-    </div>
+   </div>
   </div>
 </div>
 <% end %>
 
-<div class="row">
-  <div class="col-lg-4">
+  <div class="col-md-4 column">
     <div id="map" style="width:500px; height:500px"></div>
   </div>
-</div>

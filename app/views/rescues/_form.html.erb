@@ -114,7 +114,10 @@
         <p><%= f.link_to_add "Agregar Bombero", :assist_rescues, :class=> 'btn btn-success pull-right' %></p>
         <BR>
         <%= f.fields_for :rescue_affected_people %>
-        <p><%= f.link_to_add "Agregar Bombero", :rescue_affected_people, :class=> 'btn btn-success pull-right' %></p>
+        <p><%= f.link_to_add "Agregar persona afectada", :rescue_affected_people, :class=> 'btn btn-success pull-right' %></p>
+        <BR>
+        <%= f.fields_for :rescue_institutions %>
+        <p><%= f.link_to_add "Agregar intitucion", :rescue_institutions, :class=> 'btn btn-success pull-right' %></p>
         <BR>
         <div class="form-group">
           <input type="submit" value="Registrar Formulario" class="btn btn-primary">

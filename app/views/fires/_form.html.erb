@@ -1,5 +1,5 @@
 <%= render 'mapa' %>
-<%= form_for @fire, :html => { :class => 'form-horizontal', :role => 'form' } do |f| %>
+<%= nested_form_for @fire, :html => { :class => 'form-horizontal', :role => 'form' } do |f| %>
   <% if @fire.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@fire.errors.count, "error") %> prohibited this fire from being saved:</h2>
@@ -92,6 +92,9 @@
         <div class="form-group">
           <%= f.hidden_field :longitude, :value => @emergency.longitude %>
         </div>
+        <%= f.fields_for :assist_fires %>
+        <p><%= f.link_to_add "Agregar Bombero", :assist_fires, :class=> 'btn btn-success pull-right' %></p>
+        <BR>
         <div class="form-group">
           <input type="submit" value="Registrar Formulario" class="btn btn-primary">
         </div>

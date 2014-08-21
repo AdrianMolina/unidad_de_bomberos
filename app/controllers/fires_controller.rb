@@ -17,6 +17,9 @@ class FiresController < ApplicationController
   def new
     @fire = Fire.new
     @emergency = Emergency.find(params[:id])
+    1.times {  
+      @fire.assist_fires.build 
+    }
   end
 
   # GET /fires/1/edit
@@ -72,6 +75,6 @@ class FiresController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def fire_params
-      params.require(:fire).permit(:numero_caso, :lugar_incidente, :hora_incidente, :descripcion_incidente, :jefe_brigada, :jefe_seguridad, :latitude, :longitude, :emergency_id)
+      params.require(:fire).permit(:numero_caso, :lugar_incidente, :hora_incidente, :descripcion_incidente, :jefe_brigada, :jefe_seguridad, :latitude, :longitude, :emergency_id, assist_fires_attributes: [:id, :user_id, :fire_id, :_destroy])
     end
 end

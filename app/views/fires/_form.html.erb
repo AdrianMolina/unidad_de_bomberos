@@ -98,6 +98,9 @@
         <%= f.fields_for :fire_affected_people %>
         <p><%= f.link_to_add "Agregar afectado", :fire_affected_people, :class=> 'btn btn-success pull-right' %></p>
         <BR>
+        <%= f.fields_for :fire_institutions %>
+        <p><%= f.link_to_add "Agregar institucion", :fire_institutions, :class=> 'btn btn-success pull-right' %></p>
+        <BR>
         <div class="form-group">
           <input type="submit" value="Registrar Formulario" class="btn btn-primary">
         </div>

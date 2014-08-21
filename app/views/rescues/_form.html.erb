@@ -113,6 +113,9 @@
          <%= f.fields_for :assist_rescues %>
         <p><%= f.link_to_add "Agregar Bombero", :assist_rescues, :class=> 'btn btn-success pull-right' %></p>
         <BR>
+        <%= f.fields_for :rescue_material_useds %>
+        <p><%= f.link_to_add "Agregar material", :rescue_material_useds, :class=> 'btn btn-success pull-right' %></p>
+        <BR>
         <%= f.fields_for :rescue_affected_people %>
         <p><%= f.link_to_add "Agregar persona afectada", :rescue_affected_people, :class=> 'btn btn-success pull-right' %></p>
         <BR>

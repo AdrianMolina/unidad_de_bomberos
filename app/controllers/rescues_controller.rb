@@ -18,7 +18,8 @@ class RescuesController < ApplicationController
     @rescue = Rescue.new
     @emergency = Emergency.find(params[:id])
     1.times {  
-      @rescue.assist_rescues.build 
+      @rescue.assist_rescues.build
+      @rescue.rescue_material_useds.build
       @rescue.rescue_affected_people.build
       @rescue.rescue_institutions.build
     }
@@ -78,6 +79,6 @@ class RescuesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def rescue_params
-      params.require(:rescue).permit(:numero_caso, :lugar_incidente, :hora_incidente, :descripcion_incidente, :observaciones, :danos_materiales, :jefe_brigada, :jefe_seguridad, :latitude, :longitude, :emergency_id, assist_rescues_attributes: [:id, :user_id, :rescue_id, :_destroy], rescue_affected_people_attributes: [:id, :nombre, :telefono, :rescue_id, :_destroy], rescue_institutions_attributes: [:id, :nombre, :trabajo, :rescue_id, :_destroy])
+      params.require(:rescue).permit(:numero_caso, :lugar_incidente, :hora_incidente, :descripcion_incidente, :observaciones, :danos_materiales, :jefe_brigada, :jefe_seguridad, :latitude, :longitude, :emergency_id, assist_rescues_attributes: [:id, :user_id, :rescue_id, :_destroy], rescue_affected_people_attributes: [:id, :nombre, :telefono, :rescue_id, :_destroy], rescue_institutions_attributes: [:id, :nombre, :trabajo, :rescue_id, :_destroy], rescue_material_useds_attributes: [:id, :rescue_id, :material_id, :_destroy])
     end
 end

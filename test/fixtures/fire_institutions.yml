@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nombre: MyString
+  trabajo: MyString
+  fire_id: 
+
+two:
+  nombre: MyString
+  trabajo: MyString
+  fire_id: 

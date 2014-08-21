@@ -95,6 +95,9 @@
         <%= f.fields_for :assist_fires %>
         <p><%= f.link_to_add "Agregar Bombero", :assist_fires, :class=> 'btn btn-success pull-right' %></p>
         <BR>
+        <%= f.fields_for :fire_material_useds %>
+        <p><%= f.link_to_add "Agregar material", :fire_material_useds, :class=> 'btn btn-success pull-right' %></p>
+        <BR>
         <%= f.fields_for :fire_affected_people %>
         <p><%= f.link_to_add "Agregar afectado", :fire_affected_people, :class=> 'btn btn-success pull-right' %></p>
         <BR>

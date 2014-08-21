@@ -62,9 +62,10 @@ class RescuesController < ApplicationController
   # DELETE /rescues/1
   # DELETE /rescues/1.json
   def destroy
+    @emergency = Emergency.find(@rescue.emergency_id)
     @rescue.destroy
     respond_to do |format|
-      format.html { redirect_to rescues_url, notice: 'Rescue was successfully destroyed.' }
+      format.html { redirect_to formularios_path(@emergency), notice: 'Rescue was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

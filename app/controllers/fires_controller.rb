@@ -19,6 +19,7 @@ class FiresController < ApplicationController
     @emergency = Emergency.find(params[:id])
     1.times {  
       @fire.assist_fires.build
+      @fire.fire_material_useds.build
       @fire.fire_affected_people.build
       @fire.fire_institutions.build 
     }
@@ -62,9 +63,10 @@ class FiresController < ApplicationController
   # DELETE /fires/1
   # DELETE /fires/1.json
   def destroy
+    @emergency = Emergency.find(@fire.emergency_id)
     @fire.destroy
     respond_to do |format|
-      format.html { redirect_to fires_url, notice: 'Fire was successfully destroyed.' }
+      format.html { redirect_to formularios_path(@emergency), notice: 'Fire was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -77,6 +79,6 @@ class FiresController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def fire_params
-      params.require(:fire).permit(:numero_caso, :lugar_incidente, :hora_incidente, :descripcion_incidente, :jefe_brigada, :jefe_seguridad, :latitude, :longitude, :emergency_id, assist_fires_attributes: [:id, :user_id, :fire_id, :_destroy], fire_affected_people_attributes: [:id, :nombre, :telefono, :fire_id, :_destroy], fire_institutions_attributes: [:id, :nombre, :trabajo, :fire_id, :_destroy])
+      params.require(:fire).permit(:numero_caso, :lugar_incidente, :hora_incidente, :descripcion_incidente, :jefe_brigada, :jefe_seguridad, :latitude, :longitude, :emergency_id, assist_fires_attributes: [:id, :user_id, :fire_id, :_destroy], fire_affected_people_attributes: [:id, :nombre, :telefono, :fire_id, :_destroy], fire_institutions_attributes: [:id, :nombre, :trabajo, :fire_id, :_destroy], fire_material_useds_attributes: [:id, :fire_id, :material_id, :_destroy])
     end
 end

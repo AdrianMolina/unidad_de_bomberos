@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  rescue_id: 
+  material_id: 
+
+two:
+  rescue_id: 
+  material_id: 

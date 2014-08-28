@@ -76,14 +76,6 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-md-12 column">
-            <div class="form-group">
-              <%= f.label :material_utilizado, "Material utilizado" %><br>
-              <%= f.text_area :material_utilizado, :class=>'form-control' %>
-            </div>
-          </div>
-        </div>
-        <div class="row">
           <div class="col-md-5 column">
             <div class="form-group">
               <label for="exampleInputPassword1">Jefe de brigada</label>
@@ -111,18 +103,34 @@
         <div class="form-group">
           <%= f.hidden_field :Longitude, :value => @emergency.longitude %>
         </div>
-
+        <div class="page-header">
+          <h2>Bomberos que intervinieron</h2>
+        </div>
         <%= f.fields_for :assists %>
         <p><%= f.link_to_add "Agregar Bombero", :assists, :class=> 'btn btn-success pull-right' %></p>
         <BR>
+        <BR>
+        <div class="page-header">
+          <h2>Materiales utilizados</h2>
+        </div>
         <%= f.fields_for :explosive_material_useds %>
         <p><%= f.link_to_add "Agregar material", :explosive_material_useds, :class=> 'btn btn-success pull-right' %></p>
         <BR>
+        <BR>
+        <div class="page-header">
+          <h2>Personas afectadas</h2>
+        </div>
         <%= f.fields_for :affected_people %>
         <p><%= f.link_to_add "Agregar Persona", :affected_people, :class=> 'btn btn-success pull-right' %></p>
         <BR>
+        <BR>
+        <div class="page-header">
+          <h2>Instituciones que intervinieron</h2>
+        </div>
         <%= f.fields_for :institutions %>
         <p><%= f.link_to_add "Agregar Institucion que colaboro", :institutions, :class=> 'btn btn-success pull-right' %></p>
+        <BR>
+        <BR>
         <div class="form-group">
           <input type="submit" value="Registrar Formulario" class="btn btn-primary">
         </div>

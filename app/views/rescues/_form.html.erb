@@ -110,17 +110,33 @@
         <div class="form-group">
           <%= f.hidden_field :longitude, :value => @emergency.longitude %>
         </div>
+        <div class="page-header">
+          <h2>Bomberos que intervinieron</h2>
+        </div>
          <%= f.fields_for :assist_rescues %>
         <p><%= f.link_to_add "Agregar Bombero", :assist_rescues, :class=> 'btn btn-success pull-right' %></p>
         <BR>
+        <BR>
+        <div class="page-header">
+          <h2>Materiales utilizados</h2>
+        </div>
         <%= f.fields_for :rescue_material_useds %>
         <p><%= f.link_to_add "Agregar material", :rescue_material_useds, :class=> 'btn btn-success pull-right' %></p>
         <BR>
+        <BR>
+        <div class="page-header">
+          <h2>Personas afectadas</h2>
+        </div>
         <%= f.fields_for :rescue_affected_people %>
         <p><%= f.link_to_add "Agregar persona afectada", :rescue_affected_people, :class=> 'btn btn-success pull-right' %></p>
         <BR>
+        <BR>
+        <div class="page-header">
+          <h2>Instituciones que intervinieron</h2>
+        </div>
         <%= f.fields_for :rescue_institutions %>
         <p><%= f.link_to_add "Agregar intitucion", :rescue_institutions, :class=> 'btn btn-success pull-right' %></p>
+        <BR>
         <BR>
         <div class="form-group">
           <input type="submit" value="Registrar Formulario" class="btn btn-primary">

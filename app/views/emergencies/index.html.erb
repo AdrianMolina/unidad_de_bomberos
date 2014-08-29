@@ -1,3 +1,27 @@
+<BR>
+<BR>
+<BR>
+<BR>
+<div class="row">
+<div class="col-md-11 column">
+
+<%= month_calendar day_names: "date.day_names" , table: {class: "table table-bordered"}, tr: {class: "calendar-row"}, td: {class: "day" }, emergencies: Emergency.all do |date, emergencies| %>
+  <%= date.day %>
+  <% @emergencies.each do |emergency| %>
+    <% if  emergency.created_at.to_date == date %>
+      <div><%= emergency.lugar %></div>
+    <% end %>
+  <% end %>
+<% end %>
+
+</div>
+</div>
+
+
+<div id="emergencies_calendar" >
+  <%= render partial: "calendar", locals: {emergencies: @emergencies} %>
+</div>
+
 <br>
 <br>
 <div class="row">

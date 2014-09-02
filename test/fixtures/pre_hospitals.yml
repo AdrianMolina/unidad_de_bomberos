@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  numero_caso: MyString
+  hora_incidente: 2014-09-02 16:44:24
+  accidente_vehicular: MyString
+  peritaje_vehicular: MyString
+  trauma: MyString
+  diagnostico: MyText
+  prioridad_traslado: MyString
+  desarrollo_atencion: MyText
+  pertenencias_victima: MyString
+  emergency_id: 
+
+two:
+  numero_caso: MyString
+  hora_incidente: 2014-09-02 16:44:24
+  accidente_vehicular: MyString
+  peritaje_vehicular: MyString
+  trauma: MyString
+  diagnostico: MyText
+  prioridad_traslado: MyString
+  desarrollo_atencion: MyText
+  pertenencias_victima: MyString
+  emergency_id: 

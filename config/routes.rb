@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :pre_hospitals
+
   get 'rescates/new/:id' => 'rescues#new', :as => 'new_form_rescue'
   get 'incendios/new/:id' => 'fires#new', :as => 'new_form_fire'
   get 'explosivos/new/:id' => 'explosives#new', :as => 'new_form_explosive'

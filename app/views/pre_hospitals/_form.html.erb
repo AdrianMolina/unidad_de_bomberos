@@ -1,0 +1,57 @@
+<%= form_for(@pre_hospital) do |f| %>
+  <% if @pre_hospital.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@pre_hospital.errors.count, "error") %> prohibited this pre_hospital from being saved:</h2>
+
+      <ul>
+      <% @pre_hospital.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :numero_caso %><br>
+    <%= f.text_field :numero_caso %>
+  </div>
+  <div class="field">
+    <%= f.label :hora_incidente %><br>
+    <%= f.time_select :hora_incidente %>
+  </div>
+  <div class="field">
+    <%= f.label :accidente_vehicular %><br>
+    <%= f.text_field :accidente_vehicular %>
+  </div>
+  <div class="field">
+    <%= f.label :peritaje_vehicular %><br>
+    <%= f.text_field :peritaje_vehicular %>
+  </div>
+  <div class="field">
+    <%= f.label :trauma %><br>
+    <%= f.text_field :trauma %>
+  </div>
+  <div class="field">
+    <%= f.label :diagnostico %><br>
+    <%= f.text_area :diagnostico %>
+  </div>
+  <div class="field">
+    <%= f.label :prioridad_traslado %><br>
+    <%= f.text_field :prioridad_traslado %>
+  </div>
+  <div class="field">
+    <%= f.label :desarrollo_atencion %><br>
+    <%= f.text_area :desarrollo_atencion %>
+  </div>
+  <div class="field">
+    <%= f.label :pertenencias_victima %><br>
+    <%= f.text_field :pertenencias_victima %>
+  </div>
+  <div class="field">
+    <%= f.label :emergency_id %><br>
+    <%= f.text_field :emergency_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

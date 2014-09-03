@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140902204424) do
+ActiveRecord::Schema.define(version: 20140902223949) do
 
   create_table "affected_people", force: true do |t|
     t.string   "nombre"
@@ -202,6 +202,9 @@ ActiveRecord::Schema.define(version: 20140902204424) do
     t.integer  "emergency_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.string   "lugar_incidente"
   end
 
   add_index "pre_hospitals", ["emergency_id"], name: "index_pre_hospitals_on_emergency_id"

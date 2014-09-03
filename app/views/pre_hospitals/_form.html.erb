@@ -1,4 +1,5 @@
-<%= form_for(@pre_hospital) do |f| %>
+<%= render 'mapa' %>
+<%= nested_form_for @pre_hospital, :html => { :class => 'form-horizontal', :role => 'form' } do |f| %>
   <% if @pre_hospital.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@pre_hospital.errors.count, "error") %> prohibited this pre_hospital from being saved:</h2>
@@ -11,47 +12,151 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :numero_caso %><br>
-    <%= f.text_field :numero_caso %>
+<div class="col-md-8 column">
+  <div class="row">
+    <div class="col-md-12 column">
+      <div class="well">
+        <fieldset>
+        <div class="row">
+          <div class="col-md-5 column">
+            <div class="form-group">
+              <%= f.label :numero_caso, "Numero de caso" %><br>
+              <%= f.text_field :numero_caso, :class=>'form-control input-sm', :readonly => true, :value => @emergency.numero_caso %>
+             </div>
+          </div>
+          <div class="col-lg-2">
+            <div class="form-group">
+              
+            </div>
+          </div>
+          <div class="col-md-5 column">
+            <div class="form-group">
+              <%= f.label :lugar_incidente, "Lugar del incidente" %><br>
+              <%= f.text_field :lugar_incidente, :class=>'form-control input-sm', :value => @emergency.lugar %>
+              <input type="button" value="Ver en el mapa" onclick="codeAddress()">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-5 column">
+            <div class="form-group">
+              <%#= f.label :fecha, "Fecha" %><br>
+              <%#= f.date_select :fecha, :class=>'form-control input-sm' %>
+            </div>
+          </div>
+          <div class="col-lg-2">
+            <div class="form-group">
+              
+            </div>
+          </div>
+          <div class="col-md-5 column">
+            <div class="form-group" >
+              <%= f.label :hora_incidente, "Hora" %><br>
+              <%= f.text_field :hora_incidente, :class=>'form-control input-sm', :value => @emergency.hora_salida.strftime("%Y/%m/%e %I:%M") %>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-5 column">
+            <div class="form-group">
+              <label for="exampleInputPassword1">Accidente Vehicular</label>
+                <select id = "accidente_vehicular" name = "pre_hospital[accidente_vehicular]" class='form-control input-sm' >
+                  <option value="Colision/Choque">Colision/Choque</option>
+                  <option value="Atropello">Atropello</option>
+                  <option value="Vuelque">Vuelque</option>
+                  <option value="Otro">Otro</option>
+                </select>
+            </div>
+          </div>
+          <div class="col-lg-2">
+            <div class="form-group">
+              
+            </div>
+          </div>
+          <div class="col-md-5 column">
+            <div class="form-group">
+              <label for="exampleInputPassword1">Peritaje Vehicular</label>
+                <select id = "peritaje_vehicular" name = "pre_hospital[peritaje_vehicular]" class='form-control input-sm' >
+                  <option value="Chofer">Chofer</option>
+                  <option value="Copiloto">Copiloto</option>
+                  <option value="Pasajero">Pasajero</option>
+                </select>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-5 column">
+            <div class="form-group">
+              <label for="exampleInputPassword1">Trauma</label>
+                <select id = "trauma" name = "pre_hospital[trauma]" class='form-control input-sm' >
+                  <option value="TEC">TEC</option>
+                  <option value="Arma">Arma</option>
+                  <option value="Caida">Caida</option>
+                  <option value="Quemadura">Quemadura</option>
+                </select>
+            </div>
+          </div>
+          <div class="col-lg-2">
+            <div class="form-group">
+              
+            </div>
+          </div>
+          <div class="col-md-5 column">
+            <div class="form-group">
+              <label for="exampleInputPassword1">Prioridad en el traslado</label>
+                <select id = "prioridad_traslado" name = "pre_hospital[prioridad_traslado]" class='form-control input-sm' >
+                  <option value="Ligeramente inestable">Ligeramente inestable</option>
+                  <option value="Urgente estable">Urgente estable</option>
+                  <option value="No urgente">No urgente</option>
+                  <option value="Fallecido">Fallecido</option>
+                </select>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 column">
+            <div class="form-group">
+              <label for="exampleInputPassword1">Diagnostico</label>
+              <%= f.text_area :diagnostico, :class=>'form-control' %>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 column">
+            <div class="form-group">
+              <label for="exampleInputPassword1">Desarrollo de la atencion</label>
+              <%= f.text_area :desarrollo_atencion, :class=>'form-control' %>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 column">
+            <div class="form-group">
+              <label for="exampleInputPassword1">Pertenencias de la victima</label>
+              <%= f.text_area :pertenencias_victima, :class=>'form-control' %>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <%= f.hidden_field :emergency_id, :value => @emergency.id%>
+        </div>
+        <div class="form-group">
+          <%= f.hidden_field :latitude, :value => @emergency.latitude %>
+        </div>
+        <div class="form-group">
+          <%= f.hidden_field :longitude, :value => @emergency.longitude %>
+        </div>
+        
+        <div class="form-group">
+          <input type="submit" value="Registrar Formulario" class="btn btn-primary">
+        </div>
+        </fieldset>
+      </div>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :hora_incidente %><br>
-    <%= f.time_select :hora_incidente %>
-  </div>
-  <div class="field">
-    <%= f.label :accidente_vehicular %><br>
-    <%= f.text_field :accidente_vehicular %>
-  </div>
-  <div class="field">
-    <%= f.label :peritaje_vehicular %><br>
-    <%= f.text_field :peritaje_vehicular %>
-  </div>
-  <div class="field">
-    <%= f.label :trauma %><br>
-    <%= f.text_field :trauma %>
-  </div>
-  <div class="field">
-    <%= f.label :diagnostico %><br>
-    <%= f.text_area :diagnostico %>
-  </div>
-  <div class="field">
-    <%= f.label :prioridad_traslado %><br>
-    <%= f.text_field :prioridad_traslado %>
-  </div>
-  <div class="field">
-    <%= f.label :desarrollo_atencion %><br>
-    <%= f.text_area :desarrollo_atencion %>
-  </div>
-  <div class="field">
-    <%= f.label :pertenencias_victima %><br>
-    <%= f.text_field :pertenencias_victima %>
-  </div>
-  <div class="field">
-    <%= f.label :emergency_id %><br>
-    <%= f.text_field :emergency_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+</div>
 <% end %>
+
+  <div class="col-md-4 column">
+    <div id="map" style="width:500px; height:500px"></div>
+  </div>

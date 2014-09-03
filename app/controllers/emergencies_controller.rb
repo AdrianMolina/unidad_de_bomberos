@@ -76,6 +76,7 @@ class EmergenciesController < ApplicationController
     @explosivos = Explosive.all
     @incendios = Fire.all
     @rescates = Rescue.all
+    @atencion = PreHospital.all
   end
 
   def activo

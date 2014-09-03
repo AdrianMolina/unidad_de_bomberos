@@ -10,15 +10,18 @@ class PreHospitalsController < ApplicationController
   # GET /pre_hospitals/1
   # GET /pre_hospitals/1.json
   def show
+    @emergency = Emergency.find(@pre_hospital.emergency_id)
   end
 
   # GET /pre_hospitals/new
   def new
     @pre_hospital = PreHospital.new
+    @emergency = Emergency.find(params[:id])
   end
 
   # GET /pre_hospitals/1/edit
   def edit
+    @emergency = Emergency.find(@pre_hospital.emergency_id)
   end
 
   # POST /pre_hospitals
@@ -54,9 +57,10 @@ class PreHospitalsController < ApplicationController
   # DELETE /pre_hospitals/1
   # DELETE /pre_hospitals/1.json
   def destroy
+    @emergency = Emergency.find(@pre_hospital.emergency_id)
     @pre_hospital.destroy
     respond_to do |format|
-      format.html { redirect_to pre_hospitals_url, notice: 'Pre hospital was successfully destroyed.' }
+      format.html { redirect_to formularios_path(@emergency), notice: 'Pre hospital was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -69,6 +73,6 @@ class PreHospitalsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def pre_hospital_params
-      params.require(:pre_hospital).permit(:numero_caso, :hora_incidente, :accidente_vehicular, :peritaje_vehicular, :trauma, :diagnostico, :prioridad_traslado, :desarrollo_atencion, :pertenencias_victima, :emergency_id)
+      params.require(:pre_hospital).permit(:numero_caso, :hora_incidente, :accidente_vehicular, :peritaje_vehicular, :trauma, :diagnostico, :prioridad_traslado, :desarrollo_atencion, :pertenencias_victima, :emergency_id, :latitude, :longitude, :lugar_incidente)
     end
 end

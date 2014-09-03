@@ -47,7 +47,7 @@
                 <td><%= emergency.observacion %></td>
                 <td><%= emergency.user.nombre %></td>
                 <td><%= emergency.tipo %></td>
-                <td align="center"><%= link_to 'Mostrar', emergency %> |
+                <td align="center"><%= link_to 'Mostrar', emergency,'data-no-turbolink' => true %> |
                     <%= link_to 'Editar', edit_emergency_path(emergency),'data-no-turbolink' => true %> |
                     <%= link_to 'Eliminar', emergency, method: :delete, data: { confirm: 'Are you sure?' } %></td>
                 <td align="center"><a href="<%=formularios_path(emergency)%>" class="btn btn-primary btn-sm active" role="button">Ver Formularios</a></td>

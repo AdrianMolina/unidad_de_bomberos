@@ -14,8 +14,9 @@
     <h4>Buscar por numero de caso, denunciante, direccion o sigla vehiculo</h4>
     <br>
     <%= form_tag emergencies_path, :method => 'get' do %>
-          <%= text_field_tag :search, params[:search] %>
-          <%= submit_tag "Buscar", :name => nil, :class => 'btn btn-primary btn' %> 
+          <%= text_field_tag :search, params[:search] %> Fecha:
+          <%= text_field_tag :date, params[:date] %>
+          <%= submit_tag "Buscar", :name => nil, :class => 'btn btn-primary btn ' %> 
     <% end %>
   </div>
 </div>
@@ -50,7 +51,7 @@
                 <td align="center"><%= link_to 'Mostrar', emergency,'data-no-turbolink' => true %> |
                     <%= link_to 'Editar', edit_emergency_path(emergency),'data-no-turbolink' => true %> |
                     <%= link_to 'Eliminar', emergency, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-                <td align="center"><a href="<%=formularios_path(emergency)%>" class="btn btn-primary btn-sm active" role="button">Ver Formularios</a></td>
+                <td align="center"><a href="<%=formularios_path(emergency)%>" class="btn btn-primary btn-sm " role="button">Ver Formularios</a></td>
               </tr>
             <% end %>
           </tbody>
@@ -60,3 +61,9 @@
   </div>
   <a data-no-turbolink="true" href="<%=new_emergency_path%>" class="btn btn-danger btn-sm active" role="button">Registrar Emergencia</a>
 </div>
+<script type="text/javascript">
+  jQuery('#date').datetimepicker({
+     format:'d/m/Y',
+    timepicker:false
+  });
+</script>

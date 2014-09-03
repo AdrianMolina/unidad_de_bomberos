@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140821163043) do
+ActiveRecord::Schema.define(version: 20140902223949) do
 
   create_table "affected_people", force: true do |t|
     t.string   "nombre"
@@ -188,6 +188,26 @@ ActiveRecord::Schema.define(version: 20140821163043) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "pre_hospitals", force: true do |t|
+    t.string   "numero_caso"
+    t.time     "hora_incidente"
+    t.string   "accidente_vehicular"
+    t.string   "peritaje_vehicular"
+    t.string   "trauma"
+    t.text     "diagnostico"
+    t.string   "prioridad_traslado"
+    t.text     "desarrollo_atencion"
+    t.string   "pertenencias_victima"
+    t.integer  "emergency_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.string   "lugar_incidente"
+  end
+
+  add_index "pre_hospitals", ["emergency_id"], name: "index_pre_hospitals_on_emergency_id"
 
   create_table "rescue_affected_people", force: true do |t|
     t.string   "nombre"

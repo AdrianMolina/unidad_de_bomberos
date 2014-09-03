@@ -1,0 +1,1 @@
+json.extract! @pre_hospital, :id, :numero_caso, :hora_incidente, :accidente_vehicular, :peritaje_vehicular, :trauma, :diagnostico, :prioridad_traslado, :desarrollo_atencion, :pertenencias_victima, :emergency_id, :created_at, :updated_at

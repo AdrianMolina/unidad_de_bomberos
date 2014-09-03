@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get 'pre_hospitalario/new/:id' => 'pre_hospitals#new', :as => 'new_form_pre_hospital'
   get 'rescates/new/:id' => 'rescues#new', :as => 'new_form_rescue'
   get 'incendios/new/:id' => 'fires#new', :as => 'new_form_fire'
   get 'explosivos/new/:id' => 'explosives#new', :as => 'new_form_explosive'
@@ -12,10 +13,11 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :new, :edit, :create, :update]
   devise_for :users , controllers: {registrations: 'registrations'}
   resources :emergencies
-  resources :vehicles
   resources :explosives
   resources :fires
   resources :rescues
+  resources :pre_hospitals
+  resources :vehicles
   resources :materials
   resources :welcomes
 

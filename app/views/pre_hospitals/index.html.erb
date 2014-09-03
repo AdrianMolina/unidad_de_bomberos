@@ -1,0 +1,43 @@
+<h1>Listing pre_hospitals</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Numero caso</th>
+      <th>Hora incidente</th>
+      <th>Accidente vehicular</th>
+      <th>Peritaje vehicular</th>
+      <th>Trauma</th>
+      <th>Diagnostico</th>
+      <th>Prioridad traslado</th>
+      <th>Desarrollo atencion</th>
+      <th>Pertenencias victima</th>
+      <th>Emergency</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pre_hospitals.each do |pre_hospital| %>
+      <tr>
+        <td><%= pre_hospital.numero_caso %></td>
+        <td><%= pre_hospital.hora_incidente %></td>
+        <td><%= pre_hospital.accidente_vehicular %></td>
+        <td><%= pre_hospital.peritaje_vehicular %></td>
+        <td><%= pre_hospital.trauma %></td>
+        <td><%= pre_hospital.diagnostico %></td>
+        <td><%= pre_hospital.prioridad_traslado %></td>
+        <td><%= pre_hospital.desarrollo_atencion %></td>
+        <td><%= pre_hospital.pertenencias_victima %></td>
+        <td><%= pre_hospital.emergency %></td>
+        <td><%= link_to 'Show', pre_hospital %></td>
+        <td><%= link_to 'Edit', edit_pre_hospital_path(pre_hospital) %></td>
+        <td><%= link_to 'Destroy', pre_hospital, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Pre hospital', new_pre_hospital_path %>

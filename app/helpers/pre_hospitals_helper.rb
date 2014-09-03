@@ -1,0 +1,2 @@
+module PreHospitalsHelper
+end

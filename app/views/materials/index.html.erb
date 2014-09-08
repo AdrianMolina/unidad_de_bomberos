@@ -15,10 +15,9 @@
         <table class="table table-bordered">
           <thead>
             <tr>
+              <th>Nombre Material</th>
               <th>Especialidad</th>
               <th>Codigo</th>
-              <th>Estado</th>
-              <th>Ubicacion</th>
               <th></th>
             </tr>
           </thead>
@@ -26,10 +25,9 @@
           <tbody>
             <% @materials.each do |material| %>
             <tr>
+                <td><%= material.nombre_material %></td>
                 <td><%= material.especialidad %></td>
                 <td><%= material.codigo %></td>
-                <td><%= material.estado %></td>
-                <td><%= material.ubicacion %></td>
                 <td align="center"><%= link_to 'Mostrar', material %> |
                     <%= link_to 'Editar', edit_material_path(material),'data-no-turbolink' => true %> |
                     <%= link_to 'Eliminar', material, method: :delete, data: { confirm: 'Esta seguro?' } %></td>

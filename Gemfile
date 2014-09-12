@@ -26,8 +26,13 @@ gem 'realtime-validations'
 gem 'nested_form', '~> 0.3.2'
 gem 'pdfkit', '~> 0.6.2'
 gem 'wkhtmltopdf', '~> 0.1.2'
-gem 'pg', group: [:production]
-gem 'rails_12factor'
+group :development do
+  gem 'sqlite3'
+end
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
+end
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

@@ -27,6 +27,7 @@ gem 'nested_form', '~> 0.3.2'
 gem 'pdfkit', '~> 0.6.2'
 gem 'wkhtmltopdf', '~> 0.1.2'
 gem 'pg', group: [:production]
+gem 'rails_12factor'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

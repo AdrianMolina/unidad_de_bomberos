@@ -64,6 +64,7 @@ GEM
     nested_form (0.3.2)
     orm_adapter (0.5.0)
     pdfkit (0.6.2)
+    pg (0.16.0-x86-mingw32)
     polyglot (0.3.4)
     rack (1.5.2)
     rack-test (0.6.2)
@@ -137,6 +138,7 @@ DEPENDENCIES
   jquery-rails
   nested_form (~> 0.3.2)
   pdfkit (~> 0.6.2)
+  pg
   rails (= 4.1.1)
   realtime-validations
   sass-rails (~> 4.0.3)

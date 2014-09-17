@@ -17,6 +17,9 @@ class PreHospitalsController < ApplicationController
   def new
     @pre_hospital = PreHospital.new
     @emergency = Emergency.find(params[:id])
+    1.times {  
+      @pre_hospital.assist_pre_hospitals.build
+    }
   end
 
   # GET /pre_hospitals/1/edit
@@ -73,6 +76,6 @@ class PreHospitalsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def pre_hospital_params
-      params.require(:pre_hospital).permit(:numero_caso, :hora_incidente, :accidente_vehicular, :peritaje_vehicular, :trauma, :diagnostico, :prioridad_traslado, :desarrollo_atencion, :pertenencias_victima, :emergency_id, :latitude, :longitude, :lugar_incidente)
+      params.require(:pre_hospital).permit(:numero_caso, :hora_incidente, :accidente_vehicular, :peritaje_vehicular, :trauma, :diagnostico, :prioridad_traslado, :desarrollo_atencion, :pertenencias_victima, :emergency_id, :latitude, :longitude, :lugar_incidente, assist_pre_hospitals_attributes: [:id, :user_id, :pre_hospital_id, :_destroy])
     end
 end

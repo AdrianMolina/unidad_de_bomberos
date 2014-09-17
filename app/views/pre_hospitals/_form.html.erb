@@ -146,6 +146,13 @@
         <div class="form-group">
           <%= f.hidden_field :longitude, :value => @emergency.longitude %>
         </div>
+        <div class="page-header">
+          <h2>Bomberos que intervinieron</h2>
+        </div>
+        <%= f.fields_for :assist_pre_hospitals %>
+        <p><%= f.link_to_add "Agregar Bombero", :assist_pre_hospitals, :class=> 'btn btn-success pull-right' %></p>
+        <BR>
+        <BR>
         
         <div class="form-group">
           <input type="submit" value="Registrar Formulario" class="btn btn-primary">

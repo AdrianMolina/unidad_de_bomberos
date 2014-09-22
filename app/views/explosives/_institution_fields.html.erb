@@ -10,7 +10,7 @@
 
         <tbody>
           <tr>
-              <td><%= f.text_field :nombre, :class=>'form-control input-sm' %></td>
+              <td><%= f.collection_select :nombre, InstitutionList.all, :sigla_nombre, :sigla_nombre, {prompt: "Seleccionar"}, {class: "form-control input-sm"} %></td>
               <td><%= f.text_area :trabajo, :class=>'form-control input-sm' %></td>
               <td align="center"><%= f.link_to_remove "Eliminar datos", :class=> 'btn btn-warning active' %></td>
           </tr>

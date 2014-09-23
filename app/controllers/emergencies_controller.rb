@@ -16,6 +16,15 @@ class EmergenciesController < ApplicationController
   def index_last
     @emergencies = Emergency.all
   end
+  #reporte de emergencias
+  def report_emergencies
+    @emergencies = Emergency.all
+    if params[:search] || params[:type]
+      @emergencies = Emergency.buscar(params[:type])
+    else
+      @emergencies = Emergency.all
+    end
+  end
 
   # GET /emergencies/1
   # GET /emergencies/1.json

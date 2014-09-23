@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+<br>
+<div class="col-lg-12">
+  <div class="page-header">
+       <h2 id="forms">Institucion</h2>
+  </div>
+</div>
+
+<div class="col-lg-12">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="field">
+            <h4><strong>Sigla:</strong>
+            <%= @institution_list.sigla %></h4>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="field">
+            <h4><strong>Nombre:</strong>
+            <%= @institution_list.nombre %></h4>              
+          </div>
+        </div>
+      </div>
+      <br>
+    </div>
+  </div>
+  <br>
+  <div class="field">
+    <a href="<%=institution_lists_path%>" class="btn btn-default btn-sm active" role="button">Volver</a>
+  </div>
+</div>

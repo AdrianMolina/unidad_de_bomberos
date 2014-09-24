@@ -86,10 +86,29 @@ function setMarkers(map, locations, infowindow) {
   // Origins, anchor positions and coordinates of the marker
   // increase in the X direction to the right and in
   // the Y direction down.
-  var image = {
-    url: "<%= asset_path('beachflag.png') %>",
-    // This marker is 20 pixels wide by 32 pixels tall.
-    size: new google.maps.Size(20, 32),
+  var images = new Array();
+    images[0]= {
+    url: "<%= asset_path('fuego.png') %>",
+    size: new google.maps.Size(30, 30),
+    origin: new google.maps.Point(0,0),
+    anchor: new google.maps.Point(0, 32)
+    };
+    images[1]= {
+    url: "<%= asset_path('bomba.png') %>",
+    size: new google.maps.Size(31, 31),
+    origin: new google.maps.Point(0,0),
+    anchor: new google.maps.Point(0, 32)
+    };
+    images[2]= {
+    url: "<%= asset_path('cruz.png') %>",
+    size: new google.maps.Size(30, 30),
+    origin: new google.maps.Point(0,0),
+    anchor: new google.maps.Point(0, 32)
+    };
+  images[3] = {
+    url: "<%= asset_path('camilla.png') %>",
+    // This marker is 16 pixels wide by 31 pixels tall.
+    size: new google.maps.Size(16, 31),
     // The origin for this image is 0,0.
     origin: new google.maps.Point(0,0),
     // The anchor for this image is the base of the flagpole at 0,32.
@@ -108,15 +127,50 @@ function setMarkers(map, locations, infowindow) {
   for (var i = 0; i < locations.length; i++) {
     var terminal = locations[i];
     var myLatLng = new google.maps.LatLng(terminal[1], terminal[2]);
-    marker[i] = new google.maps.Marker({
+    if (terminal[0]=="incendio"){
+      marker[i] = new google.maps.Marker({
         position: myLatLng,
         map: map,
-        icon: image,
+        icon: images[0],
         shape: shape,
         title: terminal[0],
         zIndex: terminal[3]
 
-    });
+      });  
+    };
+    if (terminal[0]=="explosivo"){
+      marker[i] = new google.maps.Marker({
+        position: myLatLng,
+        map: map,
+        icon: images[1],
+        shape: shape,
+        title: terminal[0],
+        zIndex: terminal[3]
+
+      });  
+    };
+    if (terminal[0]=="prehospitalaria"){
+      marker[i] = new google.maps.Marker({
+        position: myLatLng,
+        map: map,
+        icon: images[2],
+        shape: shape,
+        title: terminal[0],
+        zIndex: terminal[3]
+
+      });  
+    };
+    if (terminal[0]=="rescate"){
+      marker[i] = new google.maps.Marker({
+        position: myLatLng,
+        map: map,
+        icon: images[3],
+        shape: shape,
+        title: terminal[0],
+        zIndex: terminal[3]
+
+      });  
+    };
   }
   var x = 0;
   for (var i = 0; i < locations.length; i++) {

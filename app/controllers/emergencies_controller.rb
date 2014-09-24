@@ -20,7 +20,7 @@ class EmergenciesController < ApplicationController
   def report_emergencies
     @emergencies = Emergency.all
     if params[:search] || params[:type]
-      @emergencies = Emergency.buscar(params[:type])
+      @emergencies = Emergency.buscar(params[:search],params[:type])
     else
       @emergencies = Emergency.all
     end

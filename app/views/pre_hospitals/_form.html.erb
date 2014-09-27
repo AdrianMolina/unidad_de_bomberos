@@ -32,7 +32,7 @@
           <div class="col-md-5 column">
             <div class="form-group">
               <%= f.label :lugar_incidente, "Lugar del incidente" %><br>
-              <%= f.text_field :lugar_incidente, :class=>'form-control input-sm', :value => @emergency.lugar %>
+              <%= f.text_field :lugar_incidente, :class=>'form-control input-sm', :value => @emergency.lugar, :maxlength => 30 , :title => "Por favor ingrese la direccion", :required => true %>
               <input type="button" value="Ver en el mapa" onclick="codeAddress()">
             </div>
           </div>
@@ -52,7 +52,7 @@
           <div class="col-md-5 column">
             <div class="form-group" >
               <%= f.label :hora_incidente, "Hora" %><br>
-              <%= f.text_field :hora_incidente, :class=>'form-control input-sm', :value => @emergency.hora_salida.strftime("%Y/%m/%e %I:%M") %>
+              <%= f.text_field :hora_incidente, :class=>'form-control input-sm', :value => @emergency.hora_salida.strftime("%Y/%m/%e %I:%M"), :maxlength => 30 , :title => "Por favor ingrese la fecha y hora", :required => true %>
             </div>
           </div>
         </div>
@@ -117,7 +117,7 @@
           <div class="col-md-12 column">
             <div class="form-group">
               <label for="exampleInputPassword1">Diagnostico</label>
-              <%= f.text_area :diagnostico, :class=>'form-control' %>
+              <%= f.text_area :diagnostico, :class=>'form-control', :maxlength => 400 , :title => "Por favor ingrese el diagnostico " %>
             </div>
           </div>
         </div>
@@ -125,7 +125,7 @@
           <div class="col-md-12 column">
             <div class="form-group">
               <label for="exampleInputPassword1">Desarrollo de la atencion</label>
-              <%= f.text_area :desarrollo_atencion, :class=>'form-control' %>
+              <%= f.text_area :desarrollo_atencion, :class=>'form-control', :maxlength => 400 , :title => "Por favor rellene este campo" %>
             </div>
           </div>
         </div>
@@ -133,7 +133,7 @@
           <div class="col-md-12 column">
             <div class="form-group">
               <label for="exampleInputPassword1">Pertenencias de la victima</label>
-              <%= f.text_area :pertenencias_victima, :class=>'form-control' %>
+              <%= f.text_area :pertenencias_victima, :class=>'form-control', :maxlength => 30 , :title => "Por favor ingrese las pertenecias de la victima" %>
             </div>
           </div>
         </div>

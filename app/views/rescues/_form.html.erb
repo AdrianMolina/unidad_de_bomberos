@@ -51,7 +51,7 @@
           <div class="col-md-5 column">
             <div class="form-group" >
               <%= f.label :hora_incidente, "Hora" %><br>
-              <%= f.text_field :hora_incidente, :class=>'form-control input-sm', :value => @emergency.hora_salida.strftime("%Y/%m/%e %I:%M") %>
+              <%= f.text_field :hora_incidente, :class=>'form-control input-sm', :value => @emergency.hora_salida.strftime("%Y/%m/%e %I:%M"), :maxlength => 30 , :title => "Por favor rellene este campo", :required => true %>
             </div>
           </div>
         </div>
@@ -59,7 +59,7 @@
           <div class="col-md-12 column">
             <div class="form-group">
               <%= f.label :descripcion_incidente, "Descripcion del incidente" %><br>
-              <%= f.text_area :descripcion_incidente, :class=>'form-control' %>
+              <%= f.text_area :descripcion_incidente, :class=>'form-control', :maxlength => 400 , :title => "Por favor ingrese la descripcion del incidente", :required => true %>
             </div>
           </div>
         </div>
@@ -67,7 +67,7 @@
           <div class="col-md-5 column">
             <div class="form-group">
               <%= f.label :observaciones, "Observaciones" %><br>
-              <%= f.text_area :observaciones, :class=>'form-control' %>
+              <%= f.text_area :observaciones, :class=>'form-control', :maxlength => 400 , :title => "Por favor ingrese las observaciones de la emergencia", :required => true %>
             </div>
           </div>
           <div class="col-md-2 column">
@@ -78,7 +78,7 @@
           <div class="col-md-5 column">
             <div class="form-group" >
               <%= f.label :danos_materiales, "Daños materiales" %><br>
-              <%= f.text_area :danos_materiales, :class=>'form-control' %>
+              <%= f.text_area :danos_materiales, :class=>'form-control', :maxlength => 400 , :title => "Por favor ingrese los daños materiales" %>
             </div>
           </div>
         </div>
@@ -86,7 +86,7 @@
           <div class="col-md-5 column">
             <div class="form-group">
               <label for="exampleInputPassword1">Jefe de brigada</label>
-              <%= f.collection_select :jefe_brigada, User.all, :nombre_completo, :nombre_completo, {prompt: "Seleccionar"}, {class: "form-control input-sm"} %>
+              <%= f.collection_select :jefe_brigada, User.all, :nombre_completo, :nombre_completo, {prompt: "Seleccionar"}, {class: "form-control input-sm", :required => true} %>
             </div>
           </div>
           <div class="col-md-2 column">
@@ -97,7 +97,7 @@
           <div class="col-md-5 column">
             <div class="form-group">
               <label for="exampleInputPassword1">Jefe de seguridad</label>
-              <%= f.collection_select :jefe_seguridad, User.all, :nombre_completo, :nombre_completo, {prompt: "Seleccionar"}, {class: "form-control input-sm"} %>
+              <%= f.collection_select :jefe_seguridad, User.all, :nombre_completo, :nombre_completo, {prompt: "Seleccionar"}, {class: "form-control input-sm", :required => true} %>
             </div>
           </div>
         </div>

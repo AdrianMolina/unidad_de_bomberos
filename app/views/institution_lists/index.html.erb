@@ -22,11 +22,11 @@
           <tbody>
             <% @institution_lists.each do |institution_list| %>
               <tr>
-                <td><%= institution_list.sigla %></td>
-                <td><%= institution_list.nombre %></td>
-                <td align="center"><%= link_to 'Mostrar', institution_list %> |
-                    <%= link_to 'Editar', edit_institution_list_path(institution_list) %> |
-                    <%= link_to 'Eliminar', institution_list, method: :delete, data: { confirm: 'Esta seguro?' } %></td>
+                <td style= 'cursor:pointer' onclick=<%="document.location.href='/institution_lists/"+institution_list.id.to_s+"'"%>><%= institution_list.sigla %></td>
+                <td style= 'cursor:pointer' onclick=<%="document.location.href='/institution_lists/"+institution_list.id.to_s+"'"%>><%= institution_list.nombre %></td>
+                <td align="center">
+                    <%= link_to 'Editar', edit_institution_list_path(institution_list), :class => 'btn btn-primary btn-sm' %>
+                    <%= link_to 'Eliminar', institution_list, method: :delete, :class => 'btn btn-danger btn-sm', data: { confirm: 'Esta seguro?' } %></td>
               </tr>
             <% end %>
           </tbody>

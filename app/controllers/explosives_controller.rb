@@ -1,6 +1,6 @@
 class ExplosivesController < ApplicationController
   before_action :set_explosive, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!
   # GET /explosives
   # GET /explosives.json
   def index

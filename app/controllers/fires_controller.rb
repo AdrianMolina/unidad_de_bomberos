@@ -1,5 +1,6 @@
 class FiresController < ApplicationController
   before_action :set_fire, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /fires
   # GET /fires.json

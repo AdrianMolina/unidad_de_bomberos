@@ -31,7 +31,7 @@
           </div>
           <div class="col-md-5 column">
             <div class="form-group">
-              <%= f.label :lugar_incidente, "Lugar del incidente" %><br>
+              <%= f.label :lugar_incidente, "*Lugar del incidente" %><br>
               <%= f.text_field :lugar_incidente, :class=>'form-control input-sm', :value => @emergency.lugar, :maxlength => 30 , :title => "Por favor ingrese la direccion", :required => true %>
               <input type="button" value="Ver en el mapa" onclick="codeAddress()">
             </div>
@@ -51,7 +51,7 @@
           </div>
           <div class="col-md-5 column">
             <div class="form-group" >
-              <%= f.label :hora_incidente, "Hora" %><br>
+              <%= f.label :hora_incidente, "*Fecha y Hora" %><br>
               <%= f.text_field :hora_incidente, :class=>'form-control input-sm', :value => @emergency.hora_salida.strftime("%Y/%m/%e %I:%M"), :maxlength => 30 , :title => "Por favor ingrese la fecha y hora", :required => true %>
             </div>
           </div>

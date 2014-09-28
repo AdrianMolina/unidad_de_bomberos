@@ -1,5 +1,6 @@
 class InstitutionListsController < ApplicationController
   before_action :set_institution_list, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /institution_lists
   # GET /institution_lists.json

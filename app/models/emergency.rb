@@ -4,6 +4,7 @@ class Emergency < ActiveRecord::Base
 	has_many :explosives
 	has_many :fires
 	has_many :rescues
+	has_many :pre_hospitals
 	validates :numero_caso, :uniqueness => true
 	validates :lugar, :format => { :with => /[a-zA-Z]+/i, :message => "Sólo se permiten letras" }
 	validates :denunciante, :format => { :with => /[a-zA-Z]+/i, :message => "Sólo se permiten letras" }
@@ -27,4 +28,46 @@ class Emergency < ActiveRecord::Base
 			"UBNA-%.4d" % numero
 		end
 	end
+	def self.incendios
+		emergencias = Emergency.all
+		c=0
+		emergencias.each do |e|
+			if e.tipo == "incendio"
+				c+=1
+			end 
+		end
+		c
+	end
+	
+	def self.pre_hospitals
+		emergencias = Emergency.all
+		c=0
+		emergencias.each do |e|
+			if e.tipo == "prehospitalaria"
+				c+=1
+			end 
+		end
+		c
+	end
+	def self.rescates
+		emergencias = Emergency.all
+		c=0
+		emergencias.each do |e|
+			if e.tipo == "rescate"
+				c+=1
+			end 
+		end
+		c
+	end
+	def self.explosivos
+		emergencias = Emergency.all
+		c=0
+		emergencias.each do |e|
+			if e.tipo == "explosivo"
+				c+=1
+			end 
+		end
+		c
+	end
+
 end

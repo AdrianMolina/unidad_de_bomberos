@@ -16,12 +16,12 @@
       <div class="col-md-4 column">
         <div class="well">
             <div class="form-group">
-             <label for="exampleInputPassword1">Nombre Material</label>
-             <%= f.text_field :nombre_material, :class=>'form-control' %>
+             <label for="exampleInputPassword1">*Nombre Material</label>
+             <%= f.text_field :nombre_material, :class=>'form-control', :maxlength => 30 , :title => "Por favor ingrese el nombre", :required => true %>
             </div>
             <div class="form-group">
-             <label for="exampleInputPassword1">Codigo</label>
-             <%= f.text_field :codigo, :class=>'form-control' %>
+             <label for="exampleInputPassword1">*Codigo</label>
+             <%= f.text_field :codigo, :class=>'form-control', :maxlength => 30 , :title => "Por favor ingrese el codigo", :required => true %>
             </div>
             <div class="form-group">
               <label for="exampleInputPassword1">Especialidad</label>
@@ -41,8 +41,8 @@
                 </select>
             </div>
             <div class="form-group">
-             <label for="exampleInputPassword1">Ubicacion</label>
-             <%= f.text_field :ubicacion, :class=>'form-control' %>
+             <label for="exampleInputPassword1">*Ubicacion</label>
+             <%= f.text_field :ubicacion, :class=>'form-control', :maxlength => 30 , :title => "Por favor ingrese la ubicacion", :required => true %>
             </div>
             <input type="submit" value="Registrar Material" class="btn btn-danger">
             <a href="<%=materials_path%>" class="btn btn-default btn-sm active" role="button"> Atras </a> 

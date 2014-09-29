@@ -26,9 +26,10 @@
           </div>
           <div class="col-lg-2">
             <div class="form-group">
-              
+               
             </div>
           </div>
+
           <div class="col-md-5 column">
             <div class="form-group">
               <%= f.label :lugar_incidente, "*Lugar del incidente" %><br>
@@ -40,8 +41,11 @@
         <div class="row">
           <div class="col-md-5 column">
             <div class="form-group">
-              <%#= f.label :fecha, "Fecha" %><br>
+              <%#= f.label :fecha, "Fecha" %>
               <%#= f.date_select :fecha, :class=>'form-control input-sm' %>
+              <button class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal">
+                 Accidente vehicular
+              </button>
             </div>
           </div>
           <div class="col-lg-2">
@@ -56,6 +60,56 @@
             </div>
           </div>
         </div>
+        
+        <div class="row">
+          <div class="col-md-12 column">
+            <div class="form-group">
+              <label for="exampleInputPassword1">Diagnostico</label>
+              <%= f.text_area :diagnostico, :class=>'form-control', :maxlength => 400 , :title => "Por favor ingrese el diagnostico " %>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 column">
+            <div class="form-group">
+              <label for="exampleInputPassword1">Desarrollo de la atencion</label>
+              <%= f.text_area :desarrollo_atencion, :class=>'form-control', :maxlength => 400 , :title => "Por favor rellene este campo" %>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 column">
+            <div class="form-group">
+              <label for="exampleInputPassword1">Pertenencias de la victima</label>
+              <%= f.text_area :pertenencias_victima, :class=>'form-control', :maxlength => 30 , :title => "Por favor ingrese las pertenecias de la victima" %>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <%= f.hidden_field :emergency_id, :value => @emergency.id%>
+        </div>
+        <div class="form-group">
+          <%= f.hidden_field :latitude, :value => @emergency.latitude %>
+        </div>
+        <div class="form-group">
+          <%= f.hidden_field :longitude, :value => @emergency.longitude %>
+        </div>
+        <div class="page-header">
+          <h2>Bomberos que intervinieron</h2>
+        </div>
+        <%= f.fields_for :assist_pre_hospitals %>
+        <p><%= f.link_to_add "Agregar Bombero", :assist_pre_hospitals, :class=> 'btn btn-success pull-right' %></p>
+        <BR>
+        <BR>
+        <!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Cerrar</span></button>
+        <h4 class="modal-title" id="myModalLabel">Accidente vehicular</h4>
+      </div>
+      <div class="modal-body">
         <div class="row">
           <div class="col-md-5 column">
             <div class="form-group">
@@ -69,7 +123,7 @@
                 </select>
             </div>
           </div>
-          <div class="col-lg-2">
+          <div class="col-md-2">
             <div class="form-group">
               
             </div>
@@ -117,47 +171,13 @@
             </div>
           </div>
         </div>
-        <div class="row">
-          <div class="col-md-12 column">
-            <div class="form-group">
-              <label for="exampleInputPassword1">Diagnostico</label>
-              <%= f.text_area :diagnostico, :class=>'form-control', :maxlength => 400 , :title => "Por favor ingrese el diagnostico " %>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-12 column">
-            <div class="form-group">
-              <label for="exampleInputPassword1">Desarrollo de la atencion</label>
-              <%= f.text_area :desarrollo_atencion, :class=>'form-control', :maxlength => 400 , :title => "Por favor rellene este campo" %>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-12 column">
-            <div class="form-group">
-              <label for="exampleInputPassword1">Pertenencias de la victima</label>
-              <%= f.text_area :pertenencias_victima, :class=>'form-control', :maxlength => 30 , :title => "Por favor ingrese las pertenecias de la victima" %>
-            </div>
-          </div>
-        </div>
-        <div class="form-group">
-          <%= f.hidden_field :emergency_id, :value => @emergency.id%>
-        </div>
-        <div class="form-group">
-          <%= f.hidden_field :latitude, :value => @emergency.latitude %>
-        </div>
-        <div class="form-group">
-          <%= f.hidden_field :longitude, :value => @emergency.longitude %>
-        </div>
-        <div class="page-header">
-          <h2>Bomberos que intervinieron</h2>
-        </div>
-        <%= f.fields_for :assist_pre_hospitals %>
-        <p><%= f.link_to_add "Agregar Bombero", :assist_pre_hospitals, :class=> 'btn btn-success pull-right' %></p>
-        <BR>
-        <BR>
-        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Volver</button>
+      </div>
+    </div>
+  </div>
+</div>
         <div class="form-group">
           <input type="submit" value="Registrar Formulario" class="btn btn-primary">
         </div>

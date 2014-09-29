@@ -1,21 +1,21 @@
 <p id="notice"><%= notice %></p>
 <br>
-<div class="col-lg-12">
+<div class="col-md-12">
   <div class="page-header">
        <h2 id="forms">Vehiculo</h2>
   </div>
 </div>
-<div class="col-lg-12">
+<div class="col-md-12">
   <div class="row">
-    <div class="col-lg-12">
+    <div class="col-md-12">
       <div class="row">
-        <div class="col-lg-4">
+        <div class="col-md-4">
           <div class="field">
             <h4><strong>Sigla:</strong>
             <%= @vehicle.sigla %></h4>
           </div>
         </div>
-        <div class="col-lg-4">
+        <div class="col-md-4">
           <div class="field">
             <h4><strong>Placa:</strong>
             <%= @vehicle.placa %></h4>              
@@ -24,13 +24,13 @@
       </div>
       <br>
       <div class="row">
-        <div class="col-lg-4">
+        <div class="col-md-4">
           <div class="field">
             <h4><strong>Modelo:</strong>
             <%= @vehicle.modelo %></h4>
           </div>
         </div>
-        <div class="col-lg-4">
+        <div class="col-md-4">
           <div class="field">  
               <h4><strong>Conductores:</strong>
                 <% @vehicle.drivers.each do |d| %>

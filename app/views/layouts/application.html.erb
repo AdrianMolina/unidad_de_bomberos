@@ -57,6 +57,7 @@
                         </ul>
                     </li>
                     <li><%= link_to "Salir", destroy_user_session_path, method: :delete %></li>
+                    <li><a><%= "Sesion de: " + current_user.nombre + " " + current_user.apellido %></a></li>
                 <% else %>
                     <li><a href="#contact"></a></li>
                 <% end %>

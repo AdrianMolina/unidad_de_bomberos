@@ -3,21 +3,25 @@ class ReportsController < ApplicationController
   def asistencia_incendios
     vector = User.all
     @usuarios = ordenar_incedio(vector)
+    @usuarios = Kaminari.paginate_array(@usuarios).page(params[:page]).per(8)
   end
 
   def asistencia_rescates
     vector = User.all
     @usuarios = ordenar_rescate(vector)
+    @usuarios = Kaminari.paginate_array(@usuarios).page(params[:page]).per(8)
   end
 
   def asistencia_explosivos
     vector = User.all
     @usuarios = ordenar_explosivo(vector)
+    @usuarios = Kaminari.paginate_array(@usuarios).page(params[:page]).per(8)
   end
 
   def asistencia_pre_hospitalarios
     vector = User.all
     @usuarios = ordenar_prehospitalario(vector)
+    @usuarios = Kaminari.paginate_array(@usuarios).page(params[:page]).per(8)
   end
 
   private

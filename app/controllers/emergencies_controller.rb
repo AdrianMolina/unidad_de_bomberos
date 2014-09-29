@@ -6,15 +6,18 @@ class EmergenciesController < ApplicationController
   def index
     @emergencies = Emergency.all
     if params[:search]
-      @emergencies = Emergency.search(params[:search]).reverse
+      @emergencies_reverse = Emergency.search(params[:search]).reverse
+      @emergencies = Kaminari.paginate_array(@emergencies_reverse).page(params[:page]).per(4)
     else
-      @emergencies = Emergency.all.reverse
+      @emergencies_reverse = Emergency.all.reverse
+      @emergencies = Kaminari.paginate_array(@emergencies_reverse).page(params[:page]).per(4)
     end
 
   end
   #muestra las emergencias activas o en curso
   def index_last
     @emergencies = Emergency.all
+    @emergencies = Kaminari.paginate_array(@emergencies).page(params[:page]).per(4)
   end
   #reporte de emergencias
   def report_emergencies

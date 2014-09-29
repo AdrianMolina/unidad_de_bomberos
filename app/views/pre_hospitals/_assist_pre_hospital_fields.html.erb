@@ -1,0 +1,17 @@
+<div class="row" >
+	<table class="table table-bordered">
+		<thead>
+        	<tr>
+              <th>Nombre Bombero</th>
+              <th></th>
+            </tr>
+        </thead>
+
+        <tbody>
+        	<tr>
+            	<td><%= f.collection_select :user_id, User.all, :id, :nombre_completo, {prompt: "Agregar bombero"}, {class: "form-control input-sm active", :required => true} %></td>
+                <td align="center"><%= f.link_to_remove "Eliminar bombero", :class=> 'btn btn-warning active' %></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

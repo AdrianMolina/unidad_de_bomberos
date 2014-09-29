@@ -1,0 +1,88 @@
+<%= render 'map' %>
+<div class="row">
+	<div class="col-md-3">
+		<%= form_tag report_emergencies_path, :method => 'get' do %>
+          Por fecha
+          <%= text_field_tag :search, params[:search] %>
+			<fieldset>
+			    <legend><h3>Filtros</h3></legend>
+			    <div class="actions">
+			        <div class="col-md-2 column">
+            			<div class="form-group">
+              
+            			</div>
+          			</div>
+          			<div class="col-md-10 column">
+            			<div class="form-group">
+			        <%= label_tag :type, "Tipo de emergencia:", :class=>"control-label" %>
+			        
+			        <div class="controls">
+			        	<label class="checkbox inline">
+			           		<%= check_box_tag :type , 'incendio', Emergency.check_box(params[:type],"incendio") %>
+			           		Incendios
+			            </label>
+			        	<label class="checkbox inline">
+			          		<%= check_box_tag :type , 'explosivo', Emergency.check_box(params[:type],"explosivo") %>
+			          		Explosivos
+			            </label>
+						<label class="checkbox inline">
+			          		<%= check_box_tag :type , 'prehospitalaria', Emergency.check_box(params[:type],"prehospitalaria") %>
+			          		Atencion prehospitalaria
+			            </label>
+			            <label class="checkbox inline">
+			          		<%= check_box_tag :type , 'rescate', Emergency.check_box(params[:type],"rescate") %>
+			          		Rescate
+			            </label>
+			        </div>
+			      </div>
+			      <div class="control-group">
+			        <div class="controls">
+			      		<%= submit_tag "Filtrar", :name => nil, :class => 'btn btn-primary btn ' %> 
+			        </div>
+			      </div>
+			     </div>
+			    </div>
+    	</fieldset>
+		<% end %>
+	</div>
+	<div class="col-md-9">
+    	<div id="map-canvas">
+    		
+    	</div> 
+	</div>
+</div>
+<br>
+<br>
+<div class="row">
+	<div class="col-md-3">
+    	<div class="form-group">
+              <legend><h3><center>Incendios</center></h3></legend>
+              <center>Cantidad de incendios: <%= Emergency.incendios %></center>
+        </div>
+	</div>
+	<div class="col-md-3">
+    	<div class="form-group">
+              <legend><h3><center>Atencion Prehospitalaria</center></h3></legend>
+              <center>Cantidad de atenciones: <%= Emergency.pre_hospitals %></center>
+        </div>
+	</div>
+	<div class="col-md-3">
+    	<div class="form-group">
+              <legend><h3><center>Rescates</center></h3></legend>
+              <center>Cantidad de rescates: <%= Emergency.rescates %></center>
+        </div>
+	</div>
+	<div class="col-md-3">
+    	<div class="form-group">
+              <legend><h3><center>Explosivos</center></h3></legend>
+              <center>Cantidad de explosivos: <%= Emergency.explosivos %></center>
+        </div>
+	</div>
+</div>
+<script type="text/javascript">
+  jQuery('#search').datetimepicker({
+     format:'d/m/Y',
+    timepicker:false
+  });
+</script>
+

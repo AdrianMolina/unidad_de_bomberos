@@ -25,7 +25,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-              <a class="navbar-brand" data-no-turbolink="true" href="<%=new_emergency_path%>">Registrar Emergencia</a>
+              <a class="navbar-brand" data-no-turbolink="true" href="<%=index_last_path%>">Emergencias en Curso</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -41,16 +41,24 @@
                         </ul>
                     </li>
                     <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Reportes<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                           <li><a data-no-turbolink="true" href="<%=asistencia_incendios_path%>">Asistencia a emergencias</a></li>
+                           <li><%= link_to "Emeregencias del mes", report_emergencies_path,'data-no-turbolink' => true %></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Administrar<b class="caret"></b></a>
                         <ul class="dropdown-menu">
                            <li><a href="<%=index_users_path%>">Usuarios</a></li>
                            <li><a href="<%=vehicles_path%>">Vehiculos</a></li>
                            <li><a href="<%=materials_path%>">Materiales</a></li>
+                           <li><a href="<%=institution_lists_path%>">Instituciones</a></li>
                         </ul>
                     </li>
                     <li><%= link_to "Salir", destroy_user_session_path, method: :delete %></li>
                 <% else %>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#contact"></a></li>
                 <% end %>
             </ul>
         </div>

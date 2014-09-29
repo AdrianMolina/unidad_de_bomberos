@@ -1,5 +1,3 @@
-
-
 <br>
 <br>
 <div class="row">
@@ -15,7 +13,6 @@
     <br>
     <%= form_tag emergencies_path, :method => 'get' do %>
           <%= text_field_tag :search, params[:search] %> Fecha:
-          <%= text_field_tag :date, params[:date] %>
           <%= submit_tag "Buscar", :name => nil, :class => 'btn btn-primary btn ' %> 
     <% end %>
   </div>
@@ -42,16 +39,14 @@
           <tbody>
             <% @emergencies.each do |emergency| %>
               <tr>
-                <td><%= emergency.numero_caso %></td>
-                <td><%= emergency.lugar %></td>
-                <td><%= emergency.denunciante %></td>
-                <td><%= emergency.observacion %></td>
-                <td><%= emergency.user.nombre %></td>
-                <td><%= emergency.tipo %></td>
-                <td align="center"><%= link_to 'Mostrar', emergency,'data-no-turbolink' => true %> |
-                    <%= link_to 'Editar', edit_emergency_path(emergency),'data-no-turbolink' => true %> |
-                    <%= link_to 'Eliminar', emergency, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-                <td align="center"><a href="<%=formularios_path(emergency)%>" class="btn btn-primary btn-sm " role="button">Ver Formularios</a></td>
+                <td style= 'cursor:pointer' onclick=<%="document.location.href='/emergencies/"+emergency.id.to_s+"'"%>><%= emergency.numero_caso %></td>
+                <td style= 'cursor:pointer' onclick=<%="document.location.href='/emergencies/"+emergency.id.to_s+"'"%>><%= emergency.lugar %></td>
+                <td style= 'cursor:pointer' onclick=<%="document.location.href='/emergencies/"+emergency.id.to_s+"'"%>><%= emergency.denunciante %></td>
+                <td style= 'cursor:pointer' onclick=<%="document.location.href='/emergencies/"+emergency.id.to_s+"'"%>><%= emergency.observacion %></td>
+                <td style= 'cursor:pointer' onclick=<%="document.location.href='/emergencies/"+emergency.id.to_s+"'"%>><%= emergency.user.nombre %></td>
+                <td style= 'cursor:pointer' onclick=<%="document.location.href='/emergencies/"+emergency.id.to_s+"'"%>><%= emergency.tipo %></td>
+                <td align="center"><%= link_to 'Editar', edit_emergency_path(emergency), :class => 'btn btn-primary btn-sm','data-no-turbolink' => true %></td>
+                <td align="center"><a href="<%=formularios_path(emergency)%>" class="btn btn-primary btn-sm" role="button">Ver Formularios</a></td>
               </tr>
             <% end %>
           </tbody>

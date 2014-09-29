@@ -25,12 +25,11 @@
           <tbody>
             <% @materials.each do |material| %>
             <tr>
-                <td><%= material.nombre_material %></td>
-                <td><%= material.especialidad %></td>
-                <td><%= material.codigo %></td>
-                <td align="center"><%= link_to 'Mostrar', material %> |
-                    <%= link_to 'Editar', edit_material_path(material),'data-no-turbolink' => true %> |
-                    <%= link_to 'Eliminar', material, method: :delete, data: { confirm: 'Esta seguro?' } %></td>
+                <td style= 'cursor:pointer' onclick=<%="document.location.href='/materials/"+material.id.to_s+"'"%>><%= material.nombre_material %></td>
+                <td style= 'cursor:pointer' onclick=<%="document.location.href='/materials/"+material.id.to_s+"'"%>><%= material.especialidad %></td>
+                <td style= 'cursor:pointer' onclick=<%="document.location.href='/materials/"+material.id.to_s+"'"%>><%= material.codigo %></td>
+                <td align="center">
+                    <%= link_to 'Editar', edit_material_path(material), :class => 'btn btn-primary btn-sm','data-no-turbolink' => true %></td>
             </tr>
             <% end %>
           </tbody>

@@ -1,0 +1,38 @@
+<br>
+<br>
+<div class="col-lg-12">
+  <div class="page-header">
+       <h1 id="forms">Lista de Instituciones</h1>
+  </div>
+</div>
+
+<div class="col-lg-8">
+  <div class="well">
+    <div class="row">
+      <div class="col-lg-12">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Sigla</th>
+              <th>Nombre</th>
+              <th colspan="3"></th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% @institution_lists.each do |institution_list| %>
+              <tr>
+                <td style= 'cursor:pointer' onclick=<%="document.location.href='/institution_lists/"+institution_list.id.to_s+"'"%>><%= institution_list.sigla %></td>
+                <td style= 'cursor:pointer' onclick=<%="document.location.href='/institution_lists/"+institution_list.id.to_s+"'"%>><%= institution_list.nombre %></td>
+                <td align="center">
+                    <%= link_to 'Editar', edit_institution_list_path(institution_list), :class => 'btn btn-primary btn-sm' %>
+                    <%= link_to 'Eliminar', institution_list, method: :delete, :class => 'btn btn-danger btn-sm', data: { confirm: 'Esta seguro?' } %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <a href="<%=new_institution_list_path%>" class="btn btn-primary btn-sm active" role="button">Registrar Nueva institucion</a>
+</div>

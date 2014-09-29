@@ -23,12 +23,12 @@
           <tbody>
             <% @vehicles.each do |vehicle| %>
               <tr>
-                <td><%= vehicle.sigla %></td>
-                <td><%= vehicle.placa %></td>
-                <td><%= vehicle.modelo %></td>
-                <td align="center"><%= link_to 'Mostrar', vehicle %> |
-                    <%= link_to 'Editar', edit_vehicle_path(vehicle) %> |
-                    <%= link_to 'Eliminar', vehicle, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                <td style= 'cursor:pointer' onclick=<%="document.location.href='/vehicles/"+vehicle.id.to_s+"'"%>><%= vehicle.sigla %></td>
+                <td style= 'cursor:pointer' onclick=<%="document.location.href='/vehicles/"+vehicle.id.to_s+"'"%>><%= vehicle.placa %></td>
+                <td style= 'cursor:pointer' onclick=<%="document.location.href='/vehicles/"+vehicle.id.to_s+"'"%>><%= vehicle.modelo %></td>
+                <td align="center">
+                    <%= link_to 'Editar', edit_vehicle_path(vehicle), :class => 'btn btn-primary btn-sm' %>
+                    <%= link_to 'Eliminar', vehicle, method: :delete, :class => 'btn btn-danger btn-sm', data: { confirm: 'Esta seguro?' } %></td>
               </tr>
             <% end %>
           </tbody>

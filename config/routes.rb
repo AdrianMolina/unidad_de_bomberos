@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'reports/asistencia_pre_hospitalarios' => 'reports#asistencia_pre_hospitalarios', :as => 'asistencia_pre_hospitalarios'
+  get 'reports/asistencia_explosivos' => 'reports#asistencia_explosivos', :as => 'asistencia_explosivos'
+  get 'reports/asistencia_rescates' => 'reports#asistencia_rescates', :as => 'asistencia_rescates'
+  get 'reports/asistencia_incendios' => 'reports#asistencia_incendios', :as => 'asistencia_incendios'
   get 'pre_hospitalario/new/:id' => 'pre_hospitals#new', :as => 'new_form_pre_hospital'
   get 'rescates/new/:id' => 'rescues#new', :as => 'new_form_rescue'
   get 'incendios/new/:id' => 'fires#new', :as => 'new_form_fire'
@@ -10,6 +14,7 @@ Rails.application.routes.draw do
   get 'users/cambio_de_estado_usuario/:id' => 'users#cambio_de_estado_usuario', :as => 'cambio_de_estado_usuario' 
   get 'emergencies/index_last' => 'emergencies#index_last', :as => 'index_last'
   get 'emergencies/activo/:id' => 'emergencies#activo', :as => 'activo'
+  get 'emergencies/report_emergencies' => 'emergencies#report_emergencies', :as => 'report_emergencies'
   resources :users, only: [:index, :new, :edit, :create, :update]
   devise_for :users , controllers: {registrations: 'registrations'}
   resources :emergencies
@@ -20,6 +25,7 @@ Rails.application.routes.draw do
   resources :vehicles
   resources :materials
   resources :welcomes
+  resources :institution_lists
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

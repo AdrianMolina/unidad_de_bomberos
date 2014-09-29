@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140908154537) do
+ActiveRecord::Schema.define(version: 20140922220144) do
 
   create_table "affected_people", force: true do |t|
     t.string   "nombre"
@@ -42,6 +42,16 @@ ActiveRecord::Schema.define(version: 20140908154537) do
 
   add_index "assist_fires", ["fire_id"], name: "index_assist_fires_on_fire_id"
   add_index "assist_fires", ["user_id"], name: "index_assist_fires_on_user_id"
+
+  create_table "assist_pre_hospitals", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "pre_hospital_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "assist_pre_hospitals", ["pre_hospital_id"], name: "index_assist_pre_hospitals_on_pre_hospital_id"
+  add_index "assist_pre_hospitals", ["user_id"], name: "index_assist_pre_hospitals_on_user_id"
 
   create_table "assist_rescues", force: true do |t|
     t.integer  "user_id"
@@ -169,6 +179,13 @@ ActiveRecord::Schema.define(version: 20140908154537) do
   end
 
   add_index "fires", ["emergency_id"], name: "index_fires_on_emergency_id"
+
+  create_table "institution_lists", force: true do |t|
+    t.string   "sigla"
+    t.string   "nombre"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "institutions", force: true do |t|
     t.string   "nombre"

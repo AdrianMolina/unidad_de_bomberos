@@ -24,12 +24,12 @@
             <% @users.each do |user| %>
               <% if user.estado == "activo" %> 
                 <tr>
-                  <td><%= user.nombre %></td>
-                  <td><%= user.apellido %></td>
-                  <td><%= user.rango %></td>
-                  <td align="center"><%= link_to 'Mostrar', show_user_path(user) %> |
-                      <%= link_to 'Editar', edit_user_path(user) %> |
-                      <%= link_to 'dar de baja', cambio_de_estado_usuario_path(user), data: { confirm: 'Are you sure?' } %></td>
+                  <td style= 'cursor:pointer' onclick=<%="document.location.href='/users/show_user/"+user.id.to_s+"'"%>><%= user.nombre %></td>
+                  <td style= 'cursor:pointer' onclick=<%="document.location.href='/users/show_user/"+user.id.to_s+"'"%>><%= user.apellido %></td>
+                  <td style= 'cursor:pointer' onclick=<%="document.location.href='/users/show_user/"+user.id.to_s+"'"%>><%= user.rango %></td>
+                  <td align="center">
+                      <%= link_to 'Editar', edit_user_path(user), :class => 'btn btn-primary btn-sm' %>
+                      <%= link_to 'dar de baja', cambio_de_estado_usuario_path(user), :class => 'btn btn-danger btn-sm', data: { confirm: 'Esta seguro?' } %></td>
                 </tr>
               <% end %>
             <% end %>

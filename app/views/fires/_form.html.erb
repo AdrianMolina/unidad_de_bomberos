@@ -24,7 +24,7 @@
               <%= f.text_field :numero_caso, :class=>'form-control input-sm', :readonly => true, :value => @emergency.numero_caso %>
              </div>
           </div>
-          <div class="col-lg-2">
+          <div class="col-md-2">
             <div class="form-group">
               
             </div>
@@ -44,7 +44,7 @@
               <%#= f.date_select :fecha, :class=>'form-control input-sm' %>
             </div>
           </div>
-          <div class="col-lg-2">
+          <div class="col-md-2">
             <div class="form-group">
               
             </div>
@@ -71,7 +71,7 @@
               <%= f.collection_select :jefe_brigada, User.all, :nombre_completo, :nombre_completo, {prompt: "Seleccionar"}, {class: "form-control input-sm", :required => true} %>
             </div>
           </div>
-          <div class="col-lg-2">
+          <div class="col-md-2">
             <div class="form-group">
               
             </div>

@@ -6,6 +6,7 @@ class VehiclesController < ApplicationController
   # GET /vehicles.json
   def index
     @vehicles = Vehicle.all
+    @vehicles = Kaminari.paginate_array(@vehicles).page(params[:page]).per(6)
   end
 
   # GET /vehicles/1

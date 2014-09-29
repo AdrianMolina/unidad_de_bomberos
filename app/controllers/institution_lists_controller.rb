@@ -6,6 +6,7 @@ class InstitutionListsController < ApplicationController
   # GET /institution_lists.json
   def index
     @institution_lists = InstitutionList.all
+    @institution_lists = Kaminari.paginate_array(@institution_lists).page(params[:page]).per(6)
   end
 
   # GET /institution_lists/1

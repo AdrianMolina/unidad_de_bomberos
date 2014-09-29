@@ -6,6 +6,7 @@ class MaterialsController < ApplicationController
   # GET /materials.json
   def index
     @materials = Material.all
+    @materials = Kaminari.paginate_array(@materials).page(params[:page]).per(6)
   end
 
   # GET /materials/1

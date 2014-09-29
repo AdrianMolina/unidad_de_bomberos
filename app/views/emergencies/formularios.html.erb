@@ -1,17 +1,17 @@
 <br>
 <br>
-<div class="col-lg-6">
+<div class="col-md-6">
   <div class="page-header">
        <h1 id="forms">Formularios</h1>
   </div>
 </div>
-<div class="col-lg-12">
+<div class="col-md-12">
   <div>
     <h3 id="forms">Explosivos</h3>
   </div>
   <div class="well">
     <div class="row">
-      <div class="col-lg-12">
+      <div class="col-md-12">
         <% @explosivos.each do |e| %>
           <% if e.emergency_id == @emergencia.id %>
             <table class="table table-bordered">
@@ -43,7 +43,7 @@
   </div>
   <div class="well">
     <div class="row">
-      <div class="col-lg-12">
+      <div class="col-md-12">
         <% @incendios.each do |i| %>
           <% if i.emergency_id == @emergencia.id %>
             <table class="table table-bordered">
@@ -75,7 +75,7 @@
   </div>
   <div class="well">
     <div class="row">
-      <div class="col-lg-12">
+      <div class="col-md-12">
         <% @rescates.each do |r| %>
           <% if r.emergency_id == @emergencia.id %>
             <table class="table table-bordered">
@@ -107,7 +107,7 @@
   </div>
   <div class="well">
     <div class="row">
-      <div class="col-lg-12">
+      <div class="col-md-12">
         <% @atencion.each do |a| %>
           <% if a.emergency_id == @emergencia.id %>
             <table class="table table-bordered">

@@ -84,5 +84,6 @@
   </div>
   <div class="field">
     <a href="<%=emergencies_path%>" class="btn btn-default btn-sm active" role="button">Lista de emergencias</a>
+    <%= link_to "Imprimir emergencia (PDF)", emergency_path(@emergency, format: "pdf"), class:"btn btn-default btn-sm active" %>
   </div>
 </div>

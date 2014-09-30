@@ -7,7 +7,7 @@ class UsersController < ApplicationController
 	end
 
 	def show_user
-  	end
+  end
 
 	def new
 		@user = User.new

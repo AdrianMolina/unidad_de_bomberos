@@ -32,6 +32,13 @@ class EmergenciesController < ApplicationController
   # GET /emergencies/1
   # GET /emergencies/1.json
   def show
+    respond_to do |format|
+      format.html
+      format.pdf do
+        pdf = EmergenciaPdf.new(@emergency)
+        send_data pdf.render, filename: "emergency_#{@emergency.id}.pdf", type: "application/pdf", disposition: "inline"
+      end
+    end
   end
 
   # GET /emergencies/new

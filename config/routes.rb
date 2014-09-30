@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get 'users/usuarios_inactivos' => 'users#usuarios_inactivos', :as => 'usuarios_inactivos'
   get 'reports/asistencia_pre_hospitalarios' => 'reports#asistencia_pre_hospitalarios', :as => 'asistencia_pre_hospitalarios'
   get 'reports/asistencia_explosivos' => 'reports#asistencia_explosivos', :as => 'asistencia_explosivos'
   get 'reports/asistencia_rescates' => 'reports#asistencia_rescates', :as => 'asistencia_rescates'

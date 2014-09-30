@@ -46,8 +46,13 @@ class UsersController < ApplicationController
 	    else
 	    	@user.estado = "activo"
 	    	@user.save
-	    	redirect_to index_users_path
+	    	redirect_to usuarios_inactivos_path
 	    end
+	end
+
+	def usuarios_inactivos
+		@users = User.all
+		@users = Kaminari.paginate_array(@users).page(params[:page]).per(6)
 	end
 
 private

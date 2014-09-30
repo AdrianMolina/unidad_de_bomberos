@@ -22,14 +22,14 @@
 
           <tbody>
             <% @users.each do |user| %>
-              <% if user.estado == "activo" %> 
+              <% if user.estado == "inactivo" %> 
                 <tr>
                   <td style= 'cursor:pointer' onclick=<%="document.location.href='/users/show_user/"+user.id.to_s+"'"%>><%= user.nombre %></td>
                   <td style= 'cursor:pointer' onclick=<%="document.location.href='/users/show_user/"+user.id.to_s+"'"%>><%= user.apellido %></td>
                   <td style= 'cursor:pointer' onclick=<%="document.location.href='/users/show_user/"+user.id.to_s+"'"%>><%= user.rango %></td>
                   <td align="center">
                       <%= link_to 'Editar', edit_user_path(user), :class => 'btn btn-primary btn-sm' %>
-                      <%= link_to 'dar de baja', cambio_de_estado_usuario_path(user), :class => 'btn btn-danger btn-sm', data: { confirm: 'Esta seguro?' } %></td>
+                      <%= link_to 'dar de alta', cambio_de_estado_usuario_path(user), :class => 'btn btn-success btn-sm', data: { confirm: 'Esta seguro?' } %></td>
                 </tr>
               <% end %>
             <% end %>
@@ -39,7 +39,7 @@
     </div>
   </div>
   <a href="<%=new_user_path%>" class="btn btn-primary btn-sm active" role="button">Registrar Nuevo Usuario</a>
-  <a href="<%=usuarios_inactivos_path%>" class="btn btn-danger btn-sm active" role="button">Ver Usuarios Inactivos</a>
+  <a href="<%=index_users_path%>" class="btn btn-success btn-sm active" role="button">Ver Usuarios Activos</a>
   <BR>
   <center><%= paginate @users %></center>
 </div>

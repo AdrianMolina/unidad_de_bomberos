@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 	before_action :set_user, only: [:show_user, :edit, :update, :cambio_de_estado_usuario]
 	before_action :authenticate_user!
 	def index
-		@users = User.all
+		@users = User.where(:estado => 'activo')
 		@users = Kaminari.paginate_array(@users).page(params[:page]).per(6)
 	end
 
@@ -51,7 +51,7 @@ class UsersController < ApplicationController
 	end
 
 	def usuarios_inactivos
-		@users = User.all
+		@users = User.where(:estado => 'inactivo')
 		@users = Kaminari.paginate_array(@users).page(params[:page]).per(6)
 	end
 

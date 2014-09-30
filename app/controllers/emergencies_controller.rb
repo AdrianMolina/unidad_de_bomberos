@@ -16,7 +16,7 @@ class EmergenciesController < ApplicationController
   end
   #muestra las emergencias activas o en curso
   def index_last
-    @emergencies = Emergency.all
+    @emergencies = Emergency.where(:estado => 'f')
     @emergencies = Kaminari.paginate_array(@emergencies).page(params[:page]).per(4)
   end
   #reporte de emergencias

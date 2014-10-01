@@ -12,7 +12,7 @@
     <h4>Buscar por numero de caso, denunciante, direccion o sigla vehiculo</h4>
     <br>
     <%= form_tag emergencies_path, :method => 'get' do %>
-          <%= text_field_tag :search, params[:search] %> Fecha:
+    <%= text_field_tag :search, params[:search] %> Fecha: <%= text_field_tag :date, params[:date] %>
           <%= submit_tag "Buscar", :name => nil, :class => 'btn btn-primary btn ' %> 
     <% end %>
   </div>

@@ -27,6 +27,7 @@ gem 'pdfkit', '~> 0.6.2'
 gem 'wkhtmltopdf', '~> 0.1.2'
 gem 'kaminari'
 gem 'prawn'
+gem 'prawn-table'
 group :development do
   gem 'sqlite3'
 end

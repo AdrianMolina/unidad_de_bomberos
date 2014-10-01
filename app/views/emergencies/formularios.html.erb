@@ -5,7 +5,7 @@
        <h1 id="forms">Formularios</h1>
   </div>
 </div>
-<div class="col-md-12">
+<div class="col-md-8">
   <div>
     <h3 id="forms">Explosivos</h3>
   </div>
@@ -24,11 +24,10 @@
               </thead>
               <tbody>
                 <tr>
-                  <td><%= e.numero_caso %></td>
-                  <td><%= e.created_at %></td>
-                  <td align="center"><%= link_to 'Mostrar', e %> |
-                      <%= link_to 'Editar', edit_explosife_path(e),'data-no-turbolink' => true %> |   
-                      <%= link_to 'Eliminar', e, method: :delete, data: { confirm: 'Esta seguro?' } %></td>
+                  <td style= 'cursor:pointer' onclick=<%="document.location.href='/explosives/"+e.id.to_s+"'"%>><%= e.numero_caso %></td>
+                  <td style= 'cursor:pointer' onclick=<%="document.location.href='/explosives/"+e.id.to_s+"'"%>><%= e.created_at %></td>
+                  <td align="center">
+                      <%= link_to 'Editar', edit_explosife_path(e),'data-no-turbolink' => true %></td>
                 </tr>
               </tbody>
             </table>
@@ -56,11 +55,10 @@
               </thead>
               <tbody>
                 <tr>
-                  <td><%= i.numero_caso %></td>
-                  <td><%= i.created_at %></td>
-                  <td align="center"><%= link_to 'Mostrar', i %> |
-                      <%= link_to 'Editar', edit_fire_path(i),'data-no-turbolink' => true %> |   
-                      <%= link_to 'Eliminar', i, method: :delete, data: { confirm: 'Esta seguro?' } %></td>
+                  <td style= 'cursor:pointer' onclick=<%="document.location.href='/fires/"+i.id.to_s+"'"%>><%= i.numero_caso %></td>
+                  <td style= 'cursor:pointer' onclick=<%="document.location.href='/fires/"+i.id.to_s+"'"%>><%= i.created_at %></td>
+                  <td align="center">
+                      <%= link_to 'Editar', edit_fire_path(i),'data-no-turbolink' => true %></td>
                 </tr>
               </tbody>
             </table>
@@ -88,11 +86,10 @@
               </thead>
               <tbody>
                 <tr>
-                  <td><%= r.numero_caso %></td>
-                  <td><%= r.created_at %></td>
-                  <td align="center"><%= link_to 'Mostrar', r %> |
-                      <%= link_to 'Editar', edit_rescue_path(r),'data-no-turbolink' => true %> |   
-                      <%= link_to 'Eliminar', r, method: :delete, data: { confirm: 'Esta seguro?' } %></td>
+                  <td style= 'cursor:pointer' onclick=<%="document.location.href='/rescues/"+r.id.to_s+"'"%>><%= r.numero_caso %></td>
+                  <td style= 'cursor:pointer' onclick=<%="document.location.href='/rescues/"+r.id.to_s+"'"%>><%= r.created_at %></td>
+                  <td align="center">
+                      <%= link_to 'Editar', edit_rescue_path(r),'data-no-turbolink' => true %></td>
                 </tr>
               </tbody>
             </table>
@@ -103,7 +100,7 @@
   </div>
 
   <div>
-    <h3 id="forms">Rescates</h3>
+    <h3 id="forms">Atencion Prehospitalaria</h3>
   </div>
   <div class="well">
     <div class="row">

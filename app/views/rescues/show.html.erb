@@ -28,13 +28,13 @@ br>
         <div class="col-md-4">
           <div class="field">
             <h4><strong>Fecha:</strong>
-            <%= @rescue.created_at %></h4>
+            <%= @rescue.created_at.strftime("%d/%m/%Y") %></h4>
           </div>
         </div>
         <div class="col-md-4">
           <div class="field">
             <h4><strong>Hora:</strong>
-            <%= @rescue.hora_incidente %></h4>              
+            <%= @rescue.hora_incidente.strftime("%H:%M") %></h4>              
           </div>
         </div>
       </div>
@@ -79,6 +79,116 @@ br>
           <div class="field">
             <h4><strong>Jefe de seguridad:</strong>
             <%= @rescue.jefe_seguridad %></h4>            
+          </div>
+        </div>
+      </div>
+      <div class="col-md-8">
+        <div class="page-header">
+          <h3>Bomberos que intervinieron</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-5">
+          <div class="field">
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>Nombre</th>
+                  <th>Apellido Paterno</th>
+                  <th>Apellido Materno</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @rescue.assist_rescues.each do |a| %>
+                <tr>
+                  <td><%= a.user.nombre %></td>
+                  <td><%= a.user.apellido %></td>
+                  <td><%= a.user.ap_materno %></td>
+                </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-8">
+        <div class="page-header">
+          <h3>Materiales utilizados</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-5">
+          <div class="field">
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>Codigo</th>
+                  <th>Nombre</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @rescue.rescue_material_useds.each do |m| %>
+                <tr>
+                  <td><%= m.material.codigo %></td>
+                  <td><%= m.material.nombre_material %></td>
+                </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-8">
+        <div class="page-header">
+          <h3>Personas afectadas</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-5">
+          <div class="field">
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>Nombre</th>
+                  <th>Telefono</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @rescue.rescue_affected_people.each do |ap| %>
+                <tr>
+                  <td><%= ap.nombre %></td>
+                  <td><%= ap.telefono %></td>
+                </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-8">
+        <div class="page-header">
+          <h3>Instituciones que intervinieron</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-5">
+          <div class="field">
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>Nombre</th>
+                  <th>Trabajo realizado</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @rescue.rescue_institutions.each do |i| %>
+                <tr>
+                  <td><%= i.nombre %></td>
+                  <td><%= i.trabajo %></td>
+                </tr>
+                <% end %>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>

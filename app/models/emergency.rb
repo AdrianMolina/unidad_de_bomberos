@@ -9,7 +9,7 @@ class Emergency < ActiveRecord::Base
 	validates :lugar, :format => { :with => /[a-zA-Z]+/i, :message => "Sólo se permiten letras" }
 	validates :denunciante, :format => { :with => /[a-zA-Z]+/i, :message => "Sólo se permiten letras" }
 	validates :telefono_denunciante, :numericality => { :only_integer => true, :message => "Sólo se admiten numeros" }, :allow_blank => true
-	scope :search, lambda { |search_word, start_date, end_date| where('emergencies.denunciante LIKE ? OR emergencies.lugar LIKE ? OR emergencies.numero_caso LIKE ? OR emergencies.sigla_vehiculo LIKE ? AND emergencies.hora_salida >= ? AND emergencies.hora_salida <= ?', "%#{search_word}%", "%#{search_word}%", "%#{search_word}%", "%#{search_word}%", start_date, end_date) }
+	scope :search, lambda { |search_word| where('emergencies.denunciante LIKE ? OR emergencies.lugar LIKE ? OR emergencies.numero_caso LIKE ? OR emergencies.sigla_vehiculo LIKE ?', "%#{search_word}%", "%#{search_word}%", "%#{search_word}%", "%#{search_word}%") }
 	#scope :buscar, lambda { |fecha, type| where('emergencies.hora_salida LIKE ? AND emergencies.tipo LIKE ? ', "%#{fecha}%", "%#{type}%") }
   scope :buscar, lambda {|start_date, end_date, type| where('emergencies.hora_salida >= ? AND emergencies.hora_salida <= ? AND emergencies.tipo LIKE ?', start_date, end_date, "%#{type}%" )}
 	def self.check_box(params, tipo)
@@ -29,8 +29,7 @@ class Emergency < ActiveRecord::Base
 			"UBNA-%.4d" % numero
 		end
 	end
-	def self.incendios
-		emergencias = Emergency.all
+	def self.incendios(emergencias)
 		c=0
 		emergencias.each do |e|
 			if e.tipo == "incendio"
@@ -40,8 +39,7 @@ class Emergency < ActiveRecord::Base
 		c
 	end
 	
-	def self.pre_hospitals
-		emergencias = Emergency.all
+	def self.pre_hospitals(emergencias)
 		c=0
 		emergencias.each do |e|
 			if e.tipo == "prehospitalaria"
@@ -50,8 +48,7 @@ class Emergency < ActiveRecord::Base
 		end
 		c
 	end
-	def self.rescates
-		emergencias = Emergency.all
+	def self.rescates(emergencias)
 		c=0
 		emergencias.each do |e|
 			if e.tipo == "rescate"
@@ -60,8 +57,7 @@ class Emergency < ActiveRecord::Base
 		end
 		c
 	end
-	def self.explosivos
-		emergencias = Emergency.all
+	def self.explosivos(emergencias)
 		c=0
 		emergencias.each do |e|
 			if e.tipo == "explosivo"
@@ -70,5 +66,13 @@ class Emergency < ActiveRecord::Base
 		end
 		c
 	end
-
+  def self.busqueda(tipo, fecha)
+    resultado = Emergency.all
+    if fecha.nil? || fecha == ""
+      resultado = self.buscar("1/1/2014".to_date.beginning_of_day ,"1/1/2020".to_date.end_of_day,tipo)
+    else
+      resultado = self.buscar(fecha.to_date.beginning_of_day ,fecha.to_date.end_of_day,tipo)
+    end
+    resultado
+	end
 end

@@ -4,18 +4,11 @@ class EmergenciesController < ApplicationController
   # GET /emergencies
   # GET /emergencies.json
   def index
-    @emergencies = Emergency.all
-    if params[:search] && (params[:date].nil?)
-      @emergencies_reverse = Emergency.search(params[:search], "1/1/2014".to_date.beginning_of_day ,"1/1/2020".to_date.end_of_day).reverse
-      @emergencies = Kaminari.paginate_array(@emergencies_reverse).page(params[:page]).per(4)
-    elsif params[:search] || (params[:date].nil? !=true)
-      @emergencies_reverse = Emergency.search(params[:search], params[:date].to_date.beginning_of_day ,params[:date].to_date.end_of_day).reverse
-      @emergencies = Kaminari.paginate_array(@emergencies_reverse).page(params[:page]).per(4)
-    elsif params[:search] && (params[:date].nil? !=true)
-      @emergencies_reverse = Emergency.search(params[:search], params[:date].to_date.beginning_of_day ,params[:date].to_date.end_of_day).reverse
+    @emergencies = Emergency.all.reverse
+    if params[:search] 
+      @emergencies_reverse = Emergency.search(params[:search]).reverse
       @emergencies = Kaminari.paginate_array(@emergencies_reverse).page(params[:page]).per(4)
     else
-      @emergencies = Emergency.all.reverse
       @emergencies = Kaminari.paginate_array(@emergencies).page(params[:page]).per(4)
     end
   end
@@ -26,16 +19,7 @@ class EmergenciesController < ApplicationController
   end
   #reporte de emergencias
   def report_emergencies
-    @emergencies = Emergency.all
-    if params[:type] && (params[:search].nil?)
-      @emergencies = Emergency.buscar("1/1/2014".to_date.beginning_of_day ,"1/1/2020".to_date.end_of_day,params[:type])
-    elsif params[:type] || (params[:search].nil? !=true)
-      @emergencies = Emergency.buscar(params[:search].to_date.beginning_of_day ,params[:search].to_date.end_of_day,params[:type])
-    elsif params[:type] && (params[:search].nil? !=true)
-      @emergencies = Emergency.buscar(params[:search].to_date.beginning_of_day ,params[:search].to_date.end_of_day,params[:type])
-    else
-      @emergencies = Emergency.all
-    end
+    @emergencies = Emergency.busqueda(params[:type], params[:search])
   end
 
   # GET /emergencies/1

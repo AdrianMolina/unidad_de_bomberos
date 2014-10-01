@@ -57,25 +57,25 @@
 	<div class="col-md-3">
     	<div class="form-group">
               <legend><h3><center>Incendios</center></h3></legend>
-              <center>Cantidad de incendios: <%= Emergency.incendios %></center>
+              <center>Cantidad de incendios: <%= Emergency.incendios(@emergencies) %></center>
         </div>
 	</div>
 	<div class="col-md-3">
     	<div class="form-group">
               <legend><h3><center>Atencion Prehospitalaria</center></h3></legend>
-              <center>Cantidad de atenciones: <%= Emergency.pre_hospitals %></center>
+              <center>Cantidad de atenciones: <%= Emergency.pre_hospitals(@emergencies) %></center>
         </div>
 	</div>
 	<div class="col-md-3">
     	<div class="form-group">
               <legend><h3><center>Rescates</center></h3></legend>
-              <center>Cantidad de rescates: <%= Emergency.rescates %></center>
+              <center>Cantidad de rescates: <%= Emergency.rescates(@emergencies) %></center>
         </div>
 	</div>
 	<div class="col-md-3">
     	<div class="form-group">
               <legend><h3><center>Explosivos</center></h3></legend>
-              <center>Cantidad de explosivos: <%= Emergency.explosivos %></center>
+              <center>Cantidad de explosivos: <%= Emergency.explosivos(@emergencies) %></center>
         </div>
 	</div>
 </div>

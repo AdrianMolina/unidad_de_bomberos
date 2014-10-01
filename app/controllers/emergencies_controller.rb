@@ -15,7 +15,8 @@ class EmergenciesController < ApplicationController
       @emergencies_reverse = Emergency.search(params[:search], params[:date].to_date.beginning_of_day ,params[:date].to_date.end_of_day).reverse
       @emergencies = Kaminari.paginate_array(@emergencies_reverse).page(params[:page]).per(4)
     else
-      @emergencies = Emergency.all
+      @emergencies = Emergency.all.reverse
+      @emergencies = Kaminari.paginate_array(@emergencies).page(params[:page]).per(4)
     end
   end
   #muestra las emergencias activas o en curso

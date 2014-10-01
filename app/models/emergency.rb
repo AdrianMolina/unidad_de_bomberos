@@ -10,7 +10,8 @@ class Emergency < ActiveRecord::Base
 	validates :denunciante, :format => { :with => /[a-zA-Z]+/i, :message => "Sólo se permiten letras" }
 	validates :telefono_denunciante, :numericality => { :only_integer => true, :message => "Sólo se admiten numeros" }, :allow_blank => true
 	scope :search, lambda { |search_word| where('emergencies.denunciante LIKE ? OR emergencies.lugar LIKE ? OR emergencies.numero_caso LIKE ? OR emergencies.sigla_vehiculo LIKE ?', "%#{search_word}%", "%#{search_word}%", "%#{search_word}%", "%#{search_word}%") }
-	scope :buscar, lambda { |fecha, type| where('emergencies.hora_salida LIKE ? AND emergencies.tipo LIKE ? ', "%#{fecha}%", "%#{type}%") }
+	#scope :buscar, lambda { |fecha, type| where('emergencies.hora_salida LIKE ? AND emergencies.tipo LIKE ? ', "%#{fecha}%", "%#{type}%") }
+  scope :buscar, lambda {|start_date, end_date, type| where('emergencies.hora_salida >= ? AND emergencies.hora_salida <= ? AND emergencies.tipo LIKE ?', start_date, end_date, "%#{type}%" )}
 	def self.check_box(params, tipo)
 	  resp = false
 		if params == tipo

@@ -1,0 +1,92 @@
+<%= render 'mapa' %>
+
+<%= form_validated_for @emergency, :html => { :class => 'form-horizontal', :role => 'form' } do |f| %>
+  <% if @emergency.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@emergency.errors.count, "error") %> prohibited this emergency from being saved:</h2>
+
+      <ul>
+      <% @emergency.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div class="container">
+  <form role="form">
+    <div class="row clearfix">
+      <div class="col-md-4 column">
+        <div class="well">
+      
+          <div class="form-group">
+             <label for="exampleInputEmail1">Fecha y hora de salida</label>
+            <%= f.text_field :hora_salida, :class=>'form-control', :value=>Time.now.strftime("%Y/%m/%e %I:%M") %>
+          </div>
+          <div class="form-group">
+             <label for="exampleInputPassword1">Tipo</label>
+                <select id = "emergency_tipo" name = "emergency[tipo]" class='form-control input-sm' >
+                  <option value="incendio">Incendio</option>
+                  <option value="explosivo">Explosivo</option>
+                  <option value="rescate">Rescate</option>
+                  <option value="prehospitalaria">Atencion prehospitalaria</option>
+                </select>
+          </div>
+          <div class="form-group">
+             <label for="exampleInputPassword1">Sigla Vehiculo</label>
+             
+             <%= f.collection_select :vehicle_id, Vehicle.all, :id, :sigla, {prompt: "Seleccionar un Vehiculo"}, {class: "form-control input-sm" , :required => true} %>
+          </div>
+          <div class="form-group">
+             <label for="exampleInputPassword1">Observacion</label>
+             <%= f.text_area :observacion, :class=>'form-control' %>
+          </div>
+          <div class="form-group">
+             <label for="exampleInputPassword1">Denunciante</label>
+             <%= f.text_field :denunciante, :class=>'form-control' %>
+          </div>
+        </div>
+      </div>
+    
+    <div class="col-md-4 column">
+      <div class="well">
+        <div class="form-group">
+           <label for="exampleInputEmail1">Numero de caso</label>
+           <%= f.text_field :numero_caso, :class=>'form-control',:readonly => true %>
+        </div>
+        <div class="form-group">
+           <label for="exampleInputPassword1">Direccion</label>
+           <%= f.text_area :lugar, :class=>'form-control', :required => true %>
+            <input type="button" value="Ver en el mapa" onclick="codeAddress()">
+        </div>
+        <div class="form-group">
+           <label for="exampleInputPassword1">Referencia del lugar</label>
+           <%= f.text_area :referencia_lugar, :class=>'form-control' %>
+        </div>
+        <div class="form-group">
+           <label for="exampleInputPassword1">Telefono del denunciante</label>
+           <%= f.phone_field :telefono_denunciante, :class=>'form-control' %>
+        </div>
+        <div>
+          <%= f.hidden_field :latitude %>
+        </div>
+        <div>
+          <%= f.hidden_field :longitude %>
+        </div>
+        <div>
+          <%= f.hidden_field :estado, :value=> false %>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 column">
+      <div id="map" style="width:420px; height:450px"></div>
+    </div>
+    </div>
+  </form>
+    <input type="submit" value="Registrar Emergencia" class="btn btn-danger">
+    <a href="<%=emergencies_path%>" class="btn btn-default btn-sm active" role="button"> Atras </a>
+</div>
+<% end %>
+<script type="text/javascript">
+  jQuery('#emergency_hora_salida').datetimepicker();
+</script>

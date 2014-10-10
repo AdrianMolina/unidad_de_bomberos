@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 	before_action :set_user, only: [:show_user, :edit, :update, :cambio_de_estado_usuario]
-	before_action :authenticate_user!
+	before_action :authenticate_user!, except: [:login_service]
 	def index
 		@users = User.where(:estado => 'activo')
 		@users = Kaminari.paginate_array(@users).page(params[:page]).per(6)
@@ -53,6 +53,14 @@ class UsersController < ApplicationController
 	def usuarios_inactivos
 		@users = User.where(:estado => 'inactivo')
 		@users = Kaminari.paginate_array(@users).page(params[:page]).per(6)
+	end
+	def login_service
+		@user = User.find_by_username(params[:username])
+		if !@user.nil? && @user.valid_password?(params[:password])
+			render json: '{"res": true}'
+		else
+			render json: '{"res": false}'
+		end 
 	end
 
 private

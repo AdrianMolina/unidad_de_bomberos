@@ -1,6 +1,6 @@
 class EmergenciesController < ApplicationController
   before_action :set_emergency, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:emergencias_en_curso]
   # GET /emergencies
   # GET /emergencies.json
   def index
@@ -16,6 +16,11 @@ class EmergenciesController < ApplicationController
   def index_last
     @emergencies = Emergency.where(:estado => 'f')
     @emergencies = Kaminari.paginate_array(@emergencies).page(params[:page]).per(4)
+  end
+  #muestra las emergencias activas o en curso post
+  def emergencias_en_curso
+    @emergencies = Emergency.where(:estado => 'f')
+    render json: @emergencies
   end
   #reporte de emergencias
   def report_emergencies

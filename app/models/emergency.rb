@@ -21,7 +21,7 @@ class Emergency < ActiveRecord::Base
 	end
 
 	def self.numero_de_caso
-		emegencias = Emergency.all
+		emegencias = Emergency.all.order('numero_caso ASC')
 		if emegencias == []
 			"UBNA-%.4d" % 1
 		else

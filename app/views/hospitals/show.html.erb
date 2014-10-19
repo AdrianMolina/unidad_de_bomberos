@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre hospital:</strong>
+  <%= @hospital.nombre_hospital %>
+</p>
+
+<p>
+  <strong>Telefono:</strong>
+  <%= @hospital.telefono %>
+</p>
+
+<p>
+  <strong>Nivel:</strong>
+  <%= @hospital.nivel %>
+</p>
+
+<p>
+  <strong>Tipo:</strong>
+  <%= @hospital.tipo %>
+</p>
+
+<p>
+  <strong>Direccion:</strong>
+  <%= @hospital.direccion %>
+</p>
+
+<p>
+  <strong>Latitude:</strong>
+  <%= @hospital.latitude %>
+</p>
+
+<p>
+  <strong>Longitude:</strong>
+  <%= @hospital.longitude %>
+</p>
+
+<%= link_to 'Edit', edit_hospital_path(@hospital) %> |
+<%= link_to 'Back', hospitals_path %>

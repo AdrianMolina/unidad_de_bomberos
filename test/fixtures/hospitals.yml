@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nombre_hospital: MyString
+  telefono: 1
+  nivel: MyString
+  tipo: MyString
+  direccion: MyString
+  latitude: 1.5
+  longitude: 1.5
+
+two:
+  nombre_hospital: MyString
+  telefono: 1
+  nivel: MyString
+  tipo: MyString
+  direccion: MyString
+  latitude: 1.5
+  longitude: 1.5

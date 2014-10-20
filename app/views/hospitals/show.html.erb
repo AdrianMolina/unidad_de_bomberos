@@ -1,39 +1,51 @@
 <p id="notice"><%= notice %></p>
+<br>
+<div class="col-md-12">
+  <div class="page-header">
+       <h2 id="forms">Hospital</h2>
+  </div>
+</div>
 
-<p>
-  <strong>Nombre hospital:</strong>
-  <%= @hospital.nombre_hospital %>
-</p>
+<div class="container">
+  <div class="row clearfix">
+    <div class="col-md-4 column">
+      
+      <form role="form">
+        <h4>
+        <div class="form-group">
+           <label for="exampleInputEmail1">Nombre del hospital</label>
+            <%= @hospital.nombre_hospital %>
+        </div>
+        <div class="form-group">
+           <label for="exampleInputPassword1">Telefono</label>
+              <%= @hospital.telefono %>
+        </div>
+        <div class="form-group">
+           <label for="exampleInputPassword1">Nivel</label>
+           <%= @hospital.nivel %>
+        </div>
+        <div class="form-group">
+           <label for="exampleInputPassword1">Tipo</label>
+           <%= @hospital.tipo %>
+        </div>
+        <div class="form-group">
+           <label for="exampleInputPassword1">Direccion</label>
+           <%= @hospital.direccion %>
+        </div>
+        </h4>
+      </form>
+    
+    </div>
 
-<p>
-  <strong>Telefono:</strong>
-  <%= @hospital.telefono %>
-</p>
+    <div class="col-md-4 column">
+      <div id="map">
+        <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x450&sensor=false&zoom=16&markers=#{@hospital.latitude}%2C#{@hospital.longitude}" %>
+      </div>
+    </div> 
+  </div>
 
-<p>
-  <strong>Nivel:</strong>
-  <%= @hospital.nivel %>
-</p>
-
-<p>
-  <strong>Tipo:</strong>
-  <%= @hospital.tipo %>
-</p>
-
-<p>
-  <strong>Direccion:</strong>
-  <%= @hospital.direccion %>
-</p>
-
-<p>
-  <strong>Latitude:</strong>
-  <%= @hospital.latitude %>
-</p>
-
-<p>
-  <strong>Longitude:</strong>
-  <%= @hospital.longitude %>
-</p>
-
-<%= link_to 'Edit', edit_hospital_path(@hospital) %> |
-<%= link_to 'Back', hospitals_path %>
+ 
+  <div class="field">
+    <a href="<%=hospitals_path%>" class="btn btn-default btn-sm active" role="button">Lista de hospitales</a>
+  </div>
+</div>

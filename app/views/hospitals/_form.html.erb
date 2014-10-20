@@ -1,4 +1,5 @@
-<%= form_for(@hospital) do |f| %>
+<%= render 'mapa' %>
+<%= form_for @hospital, :html => { :class => 'form-horizontal', :role => 'form' } do |f| %>
   <% if @hospital.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@hospital.errors.count, "error") %> prohibited this hospital from being saved:</h2>
@@ -11,35 +12,52 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :nombre_hospital %><br>
-    <%= f.text_field :nombre_hospital %>
-  </div>
-  <div class="field">
-    <%= f.label :telefono %><br>
-    <%= f.number_field :telefono %>
-  </div>
-  <div class="field">
-    <%= f.label :nivel %><br>
-    <%= f.text_field :nivel %>
-  </div>
-  <div class="field">
-    <%= f.label :tipo %><br>
-    <%= f.text_field :tipo %>
-  </div>
-  <div class="field">
-    <%= f.label :direccion %><br>
-    <%= f.text_field :direccion %>
-  </div>
-  <div class="field">
-    <%= f.label :latitude %><br>
-    <%= f.text_field :latitude %>
-  </div>
-  <div class="field">
-    <%= f.label :longitude %><br>
-    <%= f.text_field :longitude %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<div class="container">
+  <form role="form">
+    <div class="row clearfix">
+      <div class="col-md-6 column">
+        <div class="well">
+      
+          <div class="form-group">
+             <label for="exampleInputEmail1">Nombre de Hospital</label>
+            <%= f.text_field :nombre_hospital, :class=>'form-control' %>
+          </div>
+          <div class="form-group">
+             <label for="exampleInputPassword1">Tipo</label>
+                <select id = "hospital_tipo" name = "hospital[tipo]" class='form-control input-sm' >
+                  <option value="publico">Publico</option>
+                  <option value="privado">Privado</option>
+                </select>
+          </div>
+          <div class="form-group">
+             <label for="exampleInputPassword1">Telefono</label>
+             <%= f.text_field :telefono, :class=>'form-control' %>
+          </div>
+          <div class="form-group">
+             <label for="exampleInputPassword1">Nivel</label>
+             <%= f.text_field :nivel, :class=>'form-control' %>
+          </div>
+          <div class="form-group">
+             <label for="exampleInputPassword1">Direccion</label>
+             <%= f.text_area :direccion, :class=>'form-control', :required => true %>
+            <input type="button" value="Ver en el mapa" onclick="codeAddress()">
+          </div>
+          <div>
+          <%= f.hidden_field :latitude %>
+        </div>
+        <div>
+          <%= f.hidden_field :longitude %>
+        </div>
+        </div>
+      </div>
+    
+    
+    <div class="col-md-6 column">
+      <div id="map" style="width:450px; height:500px"></div>
+    </div>
+    </div>
+  </form>
+    <input type="submit" value="Registrar Hospital" class="btn btn-danger">
+    <a href="<%=hospitals_path%>" class="btn btn-default btn-sm active" role="button"> Atras </a>
+</div>
 <% end %>

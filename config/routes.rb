@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   post 'users/login_service' => 'users#login_service', :as => 'login_service' 
   get 'emergencies/index_last' => 'emergencies#index_last', :as => 'index_last'
   post 'emergencies/emergencias_en_curso' => 'emergencies#emergencias_en_curso', :as => 'emergencias_en_curso'
+  post 'hospitals/lista_hospitales' => 'hospitals#lista_hospitales', :as => 'lista_hospitales'
   get 'emergencies/activo/:id' => 'emergencies#activo', :as => 'activo'
   get 'emergencies/report_emergencies' => 'emergencies#report_emergencies', :as => 'report_emergencies'
   resources :users, only: [:index, :new, :edit, :create, :update]

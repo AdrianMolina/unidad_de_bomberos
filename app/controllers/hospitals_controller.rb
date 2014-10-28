@@ -6,6 +6,10 @@ class HospitalsController < ApplicationController
   def index
     @hospitals = Hospital.all
   end
+  def lista_hospitales
+    @hospitals = Hospital.all
+    render json: @emergencies
+  end
 
   # GET /hospitals/1
   # GET /hospitals/1.json

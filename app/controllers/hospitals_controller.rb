@@ -8,7 +8,7 @@ class HospitalsController < ApplicationController
   end
   def lista_hospitales
     @hospitals = Hospital.all
-    render json: @emergencies
+    render json: @hospitals
   end
 
   # GET /hospitals/1

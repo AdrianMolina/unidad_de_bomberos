@@ -22,7 +22,6 @@
               <th>Despachador</th>
               <th>Tipo</th>
               <th></th>
-              <th></th>
             </tr>
           </thead>
 
@@ -36,9 +35,7 @@
                 <td style= 'cursor:pointer' onclick=<%="document.location.href='/emergencies/"+emergency.id.to_s+"'"%>><%= emergency.observacion %></td>
                 <td style= 'cursor:pointer' onclick=<%="document.location.href='/emergencies/"+emergency.id.to_s+"'"%>><%= emergency.user.nombre %></td>
                 <td style= 'cursor:pointer' onclick=<%="document.location.href='/emergencies/"+emergency.id.to_s+"'"%>><%= emergency.tipo %></td>
-                <td align="center"><%= link_to 'Editar', edit_emergency_path(emergency), :class => 'btn btn-primary btn-sm','data-no-turbolink' => true %>
-                    <%= link_to 'Emergencia resuelta', activo_path(emergency), :class => 'btn btn-success btn-sm' %></td>
-                <td align="center"><a href="<%=formularios_path(emergency)%>" class="btn btn-primary btn-sm active" role="button">Ver Formularios</a></td>
+                <td align="center"><%= link_to 'Emergencia resuelta', activo_path(emergency), :class => 'btn btn-success btn-sm' %></td>
               <% end %>
               </tr>
             <% end %>

@@ -18,11 +18,11 @@ class FiresController < ApplicationController
   def new
     @fire = Fire.new
     @emergency = Emergency.find(params[:id])
-    1.times {  
+    1.times {
       @fire.assist_fires.build
       @fire.fire_material_useds.build
       @fire.fire_affected_people.build
-      @fire.fire_institutions.build 
+      @fire.fire_institutions.build
     }
   end
 

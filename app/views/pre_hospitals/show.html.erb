@@ -67,6 +67,7 @@
           </div>
         </div>
       </div>
+      <br>
       <div class="row">
         <div class="col-md-4">
           <div class="field">
@@ -81,6 +82,7 @@
           </div>
         </div>
       </div>
+      <br>
       <div class="row">
         <div class="col-md-4">
           <div class="field">
@@ -91,6 +93,36 @@
         <div class="col-md-4">
           <div class="field">
         
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="col-md-8">
+        <div class="page-header">
+          <h3>Bomberos que intervinieron</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-5">
+          <div class="field">
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>Nombre</th>
+                  <th>Apellido Paterno</th>
+                  <th>Apellido Materno</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @pre_hospital.assist_pre_hospitals.each do |a| %>
+                <tr>
+                  <td><%= a.user.nombre %></td>
+                  <td><%= a.user.apellido %></td>
+                  <td><%= a.user.ap_materno %></td>
+                </tr>
+                <% end %>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>

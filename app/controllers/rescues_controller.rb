@@ -18,7 +18,7 @@ class RescuesController < ApplicationController
   def new
     @rescue = Rescue.new
     @emergency = Emergency.find(params[:id])
-    1.times {  
+    1.times {
       @rescue.assist_rescues.build
       @rescue.rescue_material_useds.build
       @rescue.rescue_affected_people.build

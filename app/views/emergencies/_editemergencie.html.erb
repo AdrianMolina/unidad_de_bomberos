@@ -83,8 +83,8 @@
     </div>
     </div>
   </form>
-    <input type="submit" value="Registrar Emergencia" class="btn btn-danger">
-    <a href="<%=emergencies_path%>" class="btn btn-default btn-sm active" role="button"> Atras </a>
+    <input type="submit" value="Editar Emergencia" class="btn btn-danger">
+    <%= link_to "Atras", @emergency,'data-no-turbolink' => true, class:"btn btn-default btn-sm active" %>
 </div>
 <% end %>
 <script type="text/javascript">

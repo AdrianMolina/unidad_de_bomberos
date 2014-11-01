@@ -26,8 +26,7 @@
                 <tr>
                   <td style= 'cursor:pointer' onclick=<%="document.location.href='/explosives/"+e.id.to_s+"'"%>><%= e.numero_caso %></td>
                   <td style= 'cursor:pointer' onclick=<%="document.location.href='/explosives/"+e.id.to_s+"'"%>><%= e.created_at %></td>
-                  <td align="center">
-                      <%= link_to 'Editar', edit_explosife_path(e),'data-no-turbolink' => true %></td>
+                  <td align="center"><%= link_to 'Editar', edit_explosife_path(e), :class => 'btn btn-primary btn-sm active','data-no-turbolink' => true %></td>
                 </tr>
               </tbody>
             </table>
@@ -57,8 +56,7 @@
                 <tr>
                   <td style= 'cursor:pointer' onclick=<%="document.location.href='/fires/"+i.id.to_s+"'"%>><%= i.numero_caso %></td>
                   <td style= 'cursor:pointer' onclick=<%="document.location.href='/fires/"+i.id.to_s+"'"%>><%= i.created_at %></td>
-                  <td align="center">
-                      <%= link_to 'Editar', edit_fire_path(i),'data-no-turbolink' => true %></td>
+                  <td align="center"><%= link_to 'Editar', edit_fire_path(i), :class => 'btn btn-primary btn-sm active','data-no-turbolink' => true %></td>
                 </tr>
               </tbody>
             </table>
@@ -88,8 +86,7 @@
                 <tr>
                   <td style= 'cursor:pointer' onclick=<%="document.location.href='/rescues/"+r.id.to_s+"'"%>><%= r.numero_caso %></td>
                   <td style= 'cursor:pointer' onclick=<%="document.location.href='/rescues/"+r.id.to_s+"'"%>><%= r.created_at %></td>
-                  <td align="center">
-                      <%= link_to 'Editar', edit_rescue_path(r),'data-no-turbolink' => true %></td>
+                  <td align="center"><%= link_to 'Editar', edit_rescue_path(r), :class => 'btn btn-primary btn-sm active','data-no-turbolink' => true %></td>
                 </tr>
               </tbody>
             </table>
@@ -117,11 +114,9 @@
               </thead>
               <tbody>
                 <tr>
-                  <td><%= a.numero_caso %></td>
-                  <td><%= a.created_at %></td>
-                  <td align="center"><%= link_to 'Mostrar', a %> |
-                      <%= link_to 'Editar', edit_pre_hospital_path(a),'data-no-turbolink' => true %> |   
-                      <%= link_to 'Eliminar', a, method: :delete, data: { confirm: 'Esta seguro?' } %></td>
+                  <td style= 'cursor:pointer' onclick=<%="document.location.href='/pre_hospitals/"+a.id.to_s+"'"%>><%= a.numero_caso %></td>
+                  <td style= 'cursor:pointer' onclick=<%="document.location.href='/pre_hospitals/"+a.id.to_s+"'"%>><%= a.created_at %></td>
+                  <td align="center"><%= link_to 'Editar', edit_pre_hospital_path(a), :class => 'btn btn-primary btn-sm active','data-no-turbolink' => true %></td>
                 </tr>
               </tbody>
             </table>
@@ -130,5 +125,6 @@
       </div>
     </div>
   </div>
-  <a href="<%=emergencies_path%>" class="btn btn-default btn-sm active" role="button">Volver</a>
+  <%= link_to "Atras", @emergencia,'data-no-turbolink' => true, class:"btn btn-default btn-sm active" %>
+
 </div>

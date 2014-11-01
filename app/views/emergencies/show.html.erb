@@ -14,26 +14,38 @@
       <form role="form">
         <h4>
         <div class="form-group">
-           <label for="exampleInputEmail1">Numero de caso</label>
+           <label for="exampleInputEmail1">Numero de caso:</label>
             <%= @emergency.numero_caso %>
         </div>
         <div class="form-group">
-           <label for="exampleInputPassword1">Denunciante</label>
+           <label for="exampleInputPassword1">Denunciante:</label>
               <%= @emergency.denunciante %>
         </div>
         <div class="form-group">
-           <label for="exampleInputPassword1">Direccion</label>
+           <label for="exampleInputPassword1">Direccion:</label>
            <%= @emergency.lugar %>
         </div>
         <div class="form-group">
-           <label for="exampleInputPassword1">Tipo</label>
+           <label for="exampleInputPassword1">Tipo:</label>
            <%= @emergency.tipo %>
         </div>
         <div class="form-group">
-           <label for="exampleInputPassword1">Observacion</label>
+           <label for="exampleInputPassword1">Observacion:</label>
            <%= @emergency.observacion %>
         </div>
         </h4>
+
+        <div class="page-header">
+          <h3 id="forms">Acciones:</h3>
+        </div>
+        <div class="field">
+          <%= link_to "Imprimir emergencia (PDF)", emergency_path(@emergency, format: "pdf"), class:"btn btn-default btn-sm active" %>
+
+          <%= link_to 'Editar Emergencia', edit_emergency_path(@emergency), :class => 'btn btn-default btn-sm active','data-no-turbolink' => true %>
+          <BR>
+          <BR>
+          <a href="<%=formularios_path(@emergency)%>" class="btn btn-default btn-sm active" role="button">Ver Formularios</a>
+        </div>
       </form>
     
     </div>
@@ -43,24 +55,24 @@
       <form role="form">
         <h4>
         <div class="form-group">
-           <label for="exampleInputEmail1">Hora de salida</label>
+           <label for="exampleInputEmail1">Hora de salida:</label>
            <%= @emergency.hora_salida.strftime("%Y/%m/%e %I:%M") %>
         </div>
         <div class="form-group">
-           <label for="exampleInputPassword1">Telefono Denunciante</label>
+           <label for="exampleInputPassword1">Telefono Denunciante:</label>
            <%= @emergency.telefono_denunciante %>
             
         </div>
         <div class="form-group">
-           <label for="exampleInputPassword1">Referencia del lugar</label>
+           <label for="exampleInputPassword1">Referencia del lugar:</label>
            <%= @emergency.referencia_lugar %>
         </div>
         <div class="form-group">
-           <label for="exampleInputPassword1">Despachador</label>
+           <label for="exampleInputPassword1">Despachador:</label>
            <%= @emergency.user.nombre + " " + @emergency.user.apellido %>
         </div>
         <div class="form-group">
-           <label for="exampleInputPassword1">Sigla vehiculo</label>
+           <label for="exampleInputPassword1">Sigla vehiculo:</label>
            <%= @emergency.vehicle.sigla %>
         </div>
         </h4>
@@ -69,12 +81,12 @@
     </div>
 
     <div class="col-md-4 column">
-      <div id="map-canvas" style="width:500px; height:450px"></div>
+      <div id="map-canvas" style="width:400px; height:400px"></div>
     </div> 
   </div>
 
   <div class="page-header">
-       <h2 id="forms">Añadir formulario:</h2>
+       <h3 id="forms">Añadir formulario:</h3>
   </div>
   <div class="field">
     <a data-no-turbolink="true" href="<%=new_form_explosive_path(@emergency)%>" class="btn btn-primary btn-sm active" role="button">Explosivos</a>
@@ -83,7 +95,6 @@
     <a data-no-turbolink="true" href="<%=new_form_pre_hospital_path(@emergency)%>" class="btn btn-success btn-sm active" role="button">Atencion Prehospitalaria</a>
   </div>
   <div class="field">
-    <a href="<%=emergencies_path%>" class="btn btn-default btn-sm active" role="button">Lista de emergencias</a>
-    <%= link_to "Imprimir emergencia (PDF)", emergency_path(@emergency, format: "pdf"), class:"btn btn-default btn-sm active" %>
+    <a href="<%=emergencies_path%>" class="btn btn-default btn-sm active" role="button">Ir a Todas las emergencias</a>
   </div>
 </div>

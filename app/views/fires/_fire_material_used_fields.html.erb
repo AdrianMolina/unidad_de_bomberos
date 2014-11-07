@@ -9,7 +9,7 @@
 
         <tbody>
         	<tr>
-            	<td><%= f.collection_select :material_id, Material.all, :id, :nombre_codigo_material, {prompt: "Agregar material"}, {class: "form-control input-sm", :required => true} %></td>
+            	<td><%= f.collection_select :material_id, Material.all, :id, :nombre_codigo_material, {prompt: "Agregar material"}, {class: "form-control input-sm"} %></td>
                 <td align="center"><%= f.link_to_remove "Eliminar material", :class=> 'btn btn-warning active' %></td>
             </tr>
         </tbody>

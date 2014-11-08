@@ -9,10 +9,12 @@
 </div>
 <div class="row">
   <div class="col-md-6">
-    <h4>Buscar por numero de caso, denunciante, direccion o sigla vehiculo</h4>
+    <h4>Buscar por numero de caso, direccion o  denunciante</h4>
     <br>
     <%= form_tag emergencies_path, :method => 'get' do %>
-    <%= text_field_tag :search, params[:search] %> Fecha: <%= text_field_tag :date, params[:date] %>
+    <%= text_field_tag :search, params[:search] %>
+    Fecha inicio: <%= text_field_tag :date, params[:date], :onchange => 'llenar()' %>
+    Fecha fin: <%= text_field_tag :fecha_fin, params[:fecha_fin] %>
           <%= submit_tag "Buscar", :name => nil, :class => 'btn btn-primary btn ' %> 
     <% end %>
   </div>
@@ -26,7 +28,7 @@
           <thead>
             <tr>
               <th>Numero caso</th>
-              <th>Lugar</th>
+              <th>Direccion</th>
               <th>Denunciante</th>
               <th>Observacion</th>
               <th>Despachador</th>
@@ -52,11 +54,35 @@
   </div>
   <a data-no-turbolink="true" href="<%=new_emergency_path%>" class="btn btn-danger btn-sm active" role="button">Registrar Emergencia</a>
   <BR>
-  <center><%= paginate @emergencies %></center>
+  
 </div>
-<script type="text/javascript">
-  jQuery('#date').datetimepicker({
-     format:'d/m/Y',
-    timepicker:false
-  });
+  <script type="text/javascript">
+  
+ jQuery('#date').datetimepicker({
+  format:'d/m/Y',
+  onShow:function( ct ){
+   this.setOptions({
+    maxDate:jQuery('#fecha_fin').val()?jQuery('#fecha_fin').val():false
+   })
+  },
+  timepicker:false
+ });
+ jQuery('#fecha_fin').datetimepicker({
+  format:'d/m/Y',
+  onShow:function( ct ){
+   this.setOptions({
+    minDate:jQuery('#date').val()?jQuery('#date').val():false
+   })
+  },
+  timepicker:false
+ });  
+</script>
+<script>
+function llenar() {
+    var $fecha_inicio = document.getElementById('date');
+    var $fecha_fin = document.getElementById('fecha_fin');
+    if ($fecha_fin.value ==""){
+      $fecha_fin.value = $fecha_inicio.value;
+    }
+}
 </script>

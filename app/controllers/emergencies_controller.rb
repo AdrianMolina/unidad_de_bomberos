@@ -4,13 +4,14 @@ class EmergenciesController < ApplicationController
   # GET /emergencies
   # GET /emergencies.json
   def index
-    @emergencies = Emergency.all.reverse
-    if params[:search] 
-      @emergencies_reverse = Emergency.search(params[:search]).reverse
-      @emergencies = Kaminari.paginate_array(@emergencies_reverse).page(params[:page]).per(4)
-    else
-      @emergencies = Kaminari.paginate_array(@emergencies).page(params[:page]).per(4)
-    end
+    #@emergencies = Emergency.all.reverse
+    @emergencies = Emergency.busqueda_index(params[:search], params[:date], params[:fecha_fin])
+    #if params[:search] 
+     # @emergencies_reverse = Emergency.search(params[:search]).reverse
+     # @emergencies = Kaminari.paginate_array(@emergencies_reverse).page(params[:page]).per(4)
+    #else
+    #  @emergencies = Kaminari.paginate_array(@emergencies).page(params[:page]).per(4)
+    #end
   end
   #muestra las emergencias activas o en curso
   def index_last

@@ -24,7 +24,7 @@ class EmergenciesController < ApplicationController
   end
   #reporte de emergencias
   def report_emergencies
-    @emergencies = Emergency.busqueda(params[:type], params[:search])
+    @emergencies = Emergency.busqueda(params[:type], params[:search], params[:fecha_fin])
   end
 
   # GET /emergencies/1

@@ -66,12 +66,12 @@ class Emergency < ActiveRecord::Base
 		end
 		c
 	end
-  def self.busqueda(tipo, fecha)
+  def self.busqueda(tipo, fecha,fecha_fin)
     resultado = Emergency.all
     if fecha.nil? || fecha == ""
       resultado = self.buscar("1/1/2014".to_date.beginning_of_day ,"1/1/2020".to_date.end_of_day,tipo)
     else
-      resultado = self.buscar(fecha.to_date.beginning_of_day ,fecha.to_date.end_of_day,tipo)
+      resultado = self.buscar(fecha.to_date.beginning_of_day ,fecha_fin.to_date.end_of_day,tipo)
     end
     resultado
 	end

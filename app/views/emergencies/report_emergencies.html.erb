@@ -2,8 +2,7 @@
 <div class="row">
 	<div class="col-md-3">
 		<%= form_tag report_emergencies_path, :method => 'get' do %>
-          Por fecha
-          <%= text_field_tag :search, params[:search] %>
+
 			<fieldset>
 			    <legend><h3>Filtros</h3></legend>
 			    <div class="actions">
@@ -14,6 +13,16 @@
           			</div>
           			<div class="col-md-10 column">
             			<div class="form-group">
+                  <div class="controls">
+                    <%= label_tag :type, "Fecha inicio:", :class=>"control-label" %>
+			        	    <label class="checkbox inline">
+                      <%= text_field_tag :search, params[:search], :onchange => 'llenar()' %>
+			              </label>
+                    <%= label_tag :type, "Fecha fin:", :class=>"control-label" %>
+                    <label class="checkbox inline">
+			           	    <%= text_field_tag :fecha_fin, params[:fecha_fin] %>
+			              </label>
+			            </div>
 			        <%= label_tag :type, "Tipo de emergencia:", :class=>"control-label" %>
 			        
 			        <div class="controls">
@@ -80,9 +89,33 @@
 	</div>
 </div>
 <script type="text/javascript">
-  jQuery('#search').datetimepicker({
-     format:'d/m/Y',
-    timepicker:false
-  });
+  
+ jQuery('#search').datetimepicker({
+  format:'d/m/Y',
+  onShow:function( ct ){
+   this.setOptions({
+    maxDate:jQuery('#fecha_fin').val()?jQuery('#fecha_fin').val():false
+   })
+  },
+  timepicker:false
+ });
+ jQuery('#fecha_fin').datetimepicker({
+  format:'d/m/Y',
+  onShow:function( ct ){
+   this.setOptions({
+    minDate:jQuery('#search').val()?jQuery('#search').val():false
+   })
+  },
+  timepicker:false
+ });  
+</script>
+<script>
+function llenar() {
+    var $fecha_inicio = document.getElementById('search');
+    var $fecha_fin = document.getElementById('fecha_fin');
+    if ($fecha_fin.value ==""){
+      $fecha_fin.value = $fecha_inicio.value;
+    }
+}
 </script>
 

@@ -31,7 +31,7 @@
               <th>Direccion</th>
               <th>Denunciante</th>
               <th>Observacion</th>
-              <th>Despachador</th>
+              <th>Fecha de emergencia</th>
               <th>Tipo</th>
             </tr>
           </thead>
@@ -43,7 +43,7 @@
                 <td style= 'cursor:pointer' onclick=<%="document.location.href='/emergencies/"+emergency.id.to_s+"'"%>><%= emergency.lugar %></td>
                 <td style= 'cursor:pointer' onclick=<%="document.location.href='/emergencies/"+emergency.id.to_s+"'"%>><%= emergency.denunciante %></td>
                 <td style= 'cursor:pointer' onclick=<%="document.location.href='/emergencies/"+emergency.id.to_s+"'"%>><%= emergency.observacion %></td>
-                <td style= 'cursor:pointer' onclick=<%="document.location.href='/emergencies/"+emergency.id.to_s+"'"%>><%= emergency.user.nombre %></td>
+                <td style= 'cursor:pointer' onclick=<%="document.location.href='/emergencies/"+emergency.id.to_s+"'"%>><%= @emergency.hora_salida.strftime("%Y/%m/%e %I:%M") %></td>
                 <td style= 'cursor:pointer' onclick=<%="document.location.href='/emergencies/"+emergency.id.to_s+"'"%>><%= emergency.tipo %></td>
               </tr>
             <% end %>

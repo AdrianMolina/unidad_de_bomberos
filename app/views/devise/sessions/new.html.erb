@@ -1,34 +1,38 @@
 <br>
 <br>
 <br>
-<br>
+<div class="row clearfix">
+<div class="col-md-5 column">
+</div>
+<div class="col-md-4 column">
+<h2>Iniciar sesión</h2>
+</div>
+</div>
 <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-<div class="col-md-4">
-  <div class="well">
-    <div class="row">
-      <div class="col-md-12">
-		  <div class="form-group">
-		  	<%= f.label :username, "Nombre de Usuario" %>
-		  	<%= f.text_field :username, :autofocus => true, :class=>'form-control input-sm', :title => "Por favor ingrese nombre de usuario", :required => true %>
-		  </div>
-
-		  <div class="form-group">
-		  	<%= f.label :password, "Contraseña" %>
-		  	<%= f.password_field :password, :class=>'form-control input-sm', :title => "Por favor ingrese contraseña", :required => true %>
-		  </div>
-
-		  <% if devise_mapping.rememberable? -%>
-		    <div class="form-group">
-		    	<%= f.check_box :remember_me %> <%= f.label :remember_me, "¿recordarme?" %>
-		    </div>
-		  <% end -%>
-		  <div class="form-group">
-          	<input type="submit" value="Ingresar" class="btn btn-primary">
-          </div>
-		</div>
-	</div>
-  </div>
+<div class="container">
+<div class="row clearfix">
+<div class="col-md-4 column">
+</div>
+<div class="col-md-4 column">
+<div class="well">
+<form role="form">
+<div class="form-group">
+<label for="exampleInputEmail1">Nombre de usuario</label><%= f.text_field :username, :autofocus => true, :class=>'form-control input-sm', :title => "Por favor ingrese nombre de usuario", :required => true %>
+</div>
+  <br>
+<div class="form-group">
+<label for="exampleInputPassword1">Contraseña</label><%= f.password_field :password, :class=>'form-control input-sm', :title => "Por favor ingrese contraseña", :required => true %>
+</div>
+ <br>
+<% if devise_mapping.rememberable? -%>
+<div><%= f.check_box :remember_me %> <%= f.label :remember_me, "Mantener la sesión iniciada" %></div>
+ <br>
+<% end -%>
+<button type="submit" class="btn btn-primary">Iniciar sesión</button>
+</form>
+</div>
+</div>
+</div>
 </div>
 <% end %>
-
 <!--<%= render "devise/shared/links" %>-->

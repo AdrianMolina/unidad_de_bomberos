@@ -17,8 +17,8 @@
         </div>
         <div class="col-md-4">
           <div class="field">
-            <h4><strong>Apellido:</strong>
-            <%= @user.apellido %></h4>              
+            <h4><strong>Apellidos:</strong>
+              <%= @user.apellido %> <%= @user.ap_materno%></h4>              
           </div>
         </div>
       </div>
@@ -31,14 +31,56 @@
         </div>
         <div class="col-md-4">
           <div class="field">
-            <h4><strong>Email:</strong>
-            <%= @user.email %></h4>              
+            <h4><strong>Numero de escalafon:</strong>
+            <%= @user.escalafon %></h4>              
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="field">
+            <h4><strong>Especialidad:</strong>
+              <%= @user.especialidad %></h4>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="field">
+            <h4><strong>Telefono:</strong>
+              <%= @user.telefono %> - <%= @user.celular %> </h4>              
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="field">
+            <h4><strong>Institución:</strong>
+            <%= @user.institucion %></h4>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="field">
+            <h4><strong>Año de egreso:</strong>
+              <%= @user.egreso %></h4>              
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="field">
+            <h4><strong>Cargo que ocupa:</strong>
+            <%= @user.cargo %></h4>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="field">
+            <h4><strong>Correo electronico:</strong>
+              <%= @user.email %></h4>              
           </div>
         </div>
       </div>
     </div>
   </div>
   <div class="field">
-    <a href="<%=index_users_path%>" class="btn btn-default btn-sm active" role="button">Volver</a>
+    <a href="<%=index_users_path%>" class="btn btn-primary btn-sm active" role="button">Lista de usuarios</a>
   </div>
 </div>

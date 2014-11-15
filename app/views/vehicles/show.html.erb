@@ -1,50 +1,53 @@
-<p id="notice"><%= notice %></p>
+  <p id="notice"><%= notice %></p>
 <br>
-<div class="col-md-12">
+<div class="col-xs-12 col-md-12">
   <div class="page-header">
-       <h2 id="forms">Vehiculo</h2>
+       <h2 id="forms">Vehículo</h2>
   </div>
 </div>
-<div class="col-md-12">
+<div class="col-xs-12 col-md-12">
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-xs-4 col-md-2">
+    </div>
+    <div class="col-xs-9 col-md-7">
+    <div class="col-xs-12 col-md-12">
+      <div class="well">
       <div class="row">
-        <div class="col-md-4">
+        <div class="col-xs-8 col-md-6">
           <div class="field">
             <h4><strong>Sigla:</strong>
             <%= @vehicle.sigla %></h4>
           </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-xs-8 col-md-6">
           <div class="field">
             <h4><strong>Placa:</strong>
-            <%= @vehicle.placa %></h4>              
+            <%= @vehicle.placa %></h4>        
           </div>
         </div>
       </div>
-      <br>
       <div class="row">
-        <div class="col-md-4">
+        <div class="col-xs-8 col-md-6">
           <div class="field">
             <h4><strong>Modelo:</strong>
             <%= @vehicle.modelo %></h4>
           </div>
         </div>
-        <div class="col-md-4">
-          <div class="field">  
-              <h4><strong>Conductores:</strong>
+        <div class="col-xs-8 col-md-6">
+          <div class="field">
+            <h4><strong>Conductores:</strong>
                 <% @vehicle.drivers.each do |d| %>
-                  <BR><%= d.user.nombre_completo %>
+                  <center><%= d.user.nombre_completo %></center>
                 <% end %>
-              </h4>
+              </h4>              
           </div>
         </div>
       </div>
-      <br>
+        </div>
+      </div>
     </div>
   </div>
-  <br>
   <div class="field">
-    <a href="<%=vehicles_path%>" class="btn btn-default btn-sm active" role="button">Volver</a>
+    <a href="<%=vehicles_path%>" class="btn btn-primary btn-sm active" role="button">Lista de vehículos</a>
   </div>
 </div>

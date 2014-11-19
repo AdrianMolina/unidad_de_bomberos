@@ -1,0 +1,22 @@
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day'],
+          ['Incendios',  <%= Emergency.incendios(@emergencies) %>],
+          ['Atencion Prehospitalaria',  <%= Emergency.pre_hospitals(@emergencies) %>],
+          ['Rescates',  <%= Emergency.rescates(@emergencies) %>],
+          ['Explosivos', <%= Emergency.explosivos(@emergencies) %>]
+        ]);
+
+        var options = {
+          title: 'Porcentaje de emergencias atendidas',
+          pieHole: 0.4,
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+        chart.draw(data, options);
+      }
+    </script>

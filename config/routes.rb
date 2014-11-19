@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
 
+
+  get 'exportar/exportar_asistencias_incendios' => 'reports#exportar_asistencias_incendios', :as => 'asistencias_incendios'
+  get 'exportar/exportar_asistencias_rescates' => 'reports#exportar_asistencias_rescates', :as => 'asistencias_rescates'
+  get 'exportar/exportar_asistencias_explosivos' => 'reports#exportar_asistencias_explosivos', :as => 'asistencias_explosivos'
+  get 'exportar/exportar_asistencias_pre_hospitalarios' => 'reports#exportar_asistencias_pre_hospitalarios', :as => 'asistencias_pre_hospitalarios'
   get 'users/usuarios_inactivos' => 'users#usuarios_inactivos', :as => 'usuarios_inactivos'
   get 'reports/asistencia_pre_hospitalarios' => 'reports#asistencia_pre_hospitalarios', :as => 'asistencia_pre_hospitalarios'
   get 'reports/asistencia_explosivos' => 'reports#asistencia_explosivos', :as => 'asistencia_explosivos'

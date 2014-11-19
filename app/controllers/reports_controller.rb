@@ -1,27 +1,71 @@
 class ReportsController < ApplicationController
   before_action :authenticate_user!
   def asistencia_incendios
-    vector = User.all
+    vector = User.where(:estado => 'activo')
     @usuarios = ordenar_incedio(vector)
     @usuarios = Kaminari.paginate_array(@usuarios).page(params[:page]).per(8)
   end
 
   def asistencia_rescates
-    vector = User.all
+    vector = User.where(:estado => 'activo')
     @usuarios = ordenar_rescate(vector)
     @usuarios = Kaminari.paginate_array(@usuarios).page(params[:page]).per(8)
   end
 
   def asistencia_explosivos
-    vector = User.all
+    vector = User.where(:estado => 'activo')
     @usuarios = ordenar_explosivo(vector)
     @usuarios = Kaminari.paginate_array(@usuarios).page(params[:page]).per(8)
   end
 
   def asistencia_pre_hospitalarios
-    vector = User.all
+    vector = User.where(:estado => 'activo')
     @usuarios = ordenar_prehospitalario(vector)
     @usuarios = Kaminari.paginate_array(@usuarios).page(params[:page]).per(8)
+  end
+
+  def exportar_asistencias_incendios
+    @usuarios = User.where(:estado => 'activo')
+    usuarios_csv = CSV.generate do |csv|
+      csv << ["Nombre", "Apellido", "Rango", "Numero de asistencias"]
+      @usuarios.each do |usuario|
+        csv << [usuario.nombre, usuario.apellido, usuario.rango, usuario.assist_fires.count]
+      end
+    end
+    send_data(usuarios_csv, :type => 'text/csv', :filename => 'asistencias_incendios.csv')
+  end
+
+  def exportar_asistencias_rescates
+    @usuarios = User.where(:estado => 'activo')
+    usuarios_csv = CSV.generate do |csv|
+      csv << ["Nombre", "Apellido", "Rango", "Numero de asistencias"]
+      @usuarios.each do |usuario|
+        csv << [usuario.nombre, usuario.apellido, usuario.rango, usuario.assist_rescues.count]
+      end
+    end
+    send_data(usuarios_csv, :type => 'text/csv', :filename => 'asistencias_rescates.csv')
+  end
+
+  def exportar_asistencias_explosivos
+    @usuarios = User.where(:estado => 'activo')
+    usuarios_csv = CSV.generate do |csv|
+      csv << ["Nombre", "Apellido", "Rango", "Numero de asistencias"]
+      @usuarios.each do |usuario|
+        csv << [usuario.nombre, usuario.apellido, usuario.rango, usuario.assists.count]
+      end
+    end
+    send_data(usuarios_csv, :type => 'text/csv', :filename => 'asistencias_explosivos.csv')
+  end
+
+  def exportar_asistencias_pre_hospitalarios
+    @usuarios = User.where(:estado => 'activo')
+    usuarios_csv = CSV.generate do |csv|
+      csv << ["Nombre", "Apellido", "Rango", "Numero de asistencias"]
+      @usuarios.each do |usuario|
+        csv << [usuario.nombre, usuario.apellido, usuario.rango, usuario.assist_pre_hospitals.count]
+      end
+    end
+    send_data(usuarios_csv, :type => 'text/csv', :filename => 'asistencias_pre_hospitalario.csv')
   end
 
   private

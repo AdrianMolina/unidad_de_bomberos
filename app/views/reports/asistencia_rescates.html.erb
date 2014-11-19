@@ -22,19 +22,21 @@
 
           <tbody>
             <% @usuarios.each do |user| %>
-              <% if user.estado == "activo" %> 
                 <tr>
                   <td><%= user.nombre %></td>
                   <td><%= user.apellido %></td>
                   <td><%= user.rango %></td>
                   <td><%= user.assist_rescues.count %></td>
                 </tr>
-              <% end %>
             <% end %>
           </tbody>
         </table>
       </div>
     </div>
+    <p>
+      Descargar:
+        <%=link_to 'Archivo CSV (excel)', asistencias_rescates_path, :class => "btn btn-default btn-sm active" %>
+    </p>
   </div>
   <div class="field">
     <a data-no-turbolink="true" href="<%=asistencia_incendios_path%>" class="btn btn-danger btn-sm active" role="button">Asistencia Incendios</a>

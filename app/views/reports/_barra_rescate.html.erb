@@ -8,7 +8,7 @@ function drawChart() {
   var datos = setDatos();
   var data = google.visualization.arrayToDataTable(datos);
   var options = {
-    title: 'Cantidad de asistencias a incendios',
+    title: 'Cantidad de asistencias a rescates',
     hAxis: {title: 'Bomberos', titleTextStyle: {color: 'red'}}
   };
 
@@ -23,7 +23,7 @@ function setDatos() {
   var contador = 1;
   datos[0] = ['Element', 'Asistencias', { role: 'style' }];
   '<% @usuarios.each do |user| %>'
-    datos[contador] = ['<%= user.nombre %>'+' <%= user.apellido %>', <%= user.assist_fires.count %>, '#b87333'];
+    datos[contador] = ['<%= user.nombre %>'+' <%= user.apellido %>', <%= user.assist_rescues.count %>, '#b87333'];
     contador= contador+ 1;
   '<% end %>'
   return datos;

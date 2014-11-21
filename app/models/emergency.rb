@@ -7,7 +7,7 @@ class Emergency < ActiveRecord::Base
 	has_many :pre_hospitals
 	validates :numero_caso, :uniqueness => true
 	validates :lugar, :format => { :with => /[a-zA-Z]+/i, :message => "Sólo se permiten letras" }
-	validates :denunciante, :format => { :with => /[a-zA-Z]+/i, :message => "Sólo se permiten letras" }
+	#validates :denunciante, :format => { :with => /[a-zA-Z]+/i, :message => "Sólo se permiten letras" } daba error al guardar en blanco
 	validates :telefono_denunciante, :numericality => { :only_integer => true, :message => "Sólo se admiten numeros" }, :allow_blank => true
 	scope :search, lambda { |start_date, end_date, search_word| where('emergencies.hora_salida >= ? AND emergencies.hora_salida <= ? AND (emergencies.denunciante LIKE ? OR emergencies.lugar LIKE ? OR emergencies.numero_caso LIKE ?)', start_date, end_date, "%#{search_word}%", "%#{search_word}%", "%#{search_word}%") }
 	#scope :search, lambda {|start_date, end_date, type| where('emergencies.hora_salida >= ? AND emergencies.hora_salida <= ? AND (emergencies.tipo LIKE ? OR emergencies.lugar LIKE ?)', start_date, end_date, "%#{type}%", "%#{type}%" )}

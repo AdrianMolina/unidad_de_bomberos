@@ -20,11 +20,11 @@
         <div class="well">
       
           <div class="form-group">
-             <label for="exampleInputEmail1">Fecha y hora de salida</label>
+             <label for="exampleInputEmail1">*Fecha y hora de salida</label>
             <%= f.text_field :hora_salida, :class=>'form-control', :value=>Time.now.strftime("%Y/%m/%e %I:%M") %>
           </div>
           <div class="form-group">
-             <label for="exampleInputPassword1">Tipo</label>
+             <label for="exampleInputPassword1">*Tipo</label>
                 <select id = "emergency_tipo" name = "emergency[tipo]" class='form-control input-sm' >
                   <option value="incendio">Incendio</option>
                   <option value="explosivo">Explosivo</option>
@@ -51,11 +51,11 @@
     <div class="col-md-4 column">
       <div class="well">
         <div class="form-group">
-           <label for="exampleInputEmail1">Numero de caso</label>
+           <label for="exampleInputEmail1">*Numero de caso</label>
            <%= f.text_field :numero_caso, :class=>'form-control',:readonly => true, :value=>Emergency.numero_de_caso %>
         </div>
         <div class="form-group">
-           <label for="exampleInputPassword1">Direccion</label>
+           <label for="exampleInputPassword1">*Direccion</label>
            <%= f.text_area :lugar, :class=>'form-control', :required => true %>
             <input type="button" value="Ver en el mapa" onclick="hospitales()">
         </div>

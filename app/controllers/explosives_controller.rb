@@ -17,12 +17,12 @@ class ExplosivesController < ApplicationController
   def new
     @explosive = Explosive.new
     @emergency = Emergency.find(params[:id])
-    1.times {  
-      @explosive.assists.build
-      @explosive.explosive_material_useds.build
-      @explosive.affected_people.build 
-      @explosive.institutions.build 
-    }
+    #1.times {  
+    #  @explosive.assists.build
+     # @explosive.explosive_material_useds.build
+     # @explosive.affected_people.build 
+     # @explosive.institutions.build 
+    #}
   end
 
   # GET /explosives/1/edit
@@ -34,9 +34,12 @@ class ExplosivesController < ApplicationController
   # POST /explosives.json
   def create
     @explosive = Explosive.new(explosive_params)
-
+    @bomberos = params[:user_ids]
     respond_to do |format|
       if @explosive.save
+        @bomberos.each do |b|
+          Assist.create(:user_id => b,:explosive_id => @explosive.id)
+        end
         format.html { redirect_to @explosive, notice: 'Explosive was successfully created.' }
         format.json { render :show, status: :created, location: @explosive }
       else

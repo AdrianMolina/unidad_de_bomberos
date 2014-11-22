@@ -106,8 +106,13 @@
         <div class="page-header">
           <h2>Bomberos que intervinieron</h2>
         </div>
-        <%= f.fields_for :assists %>
-        <p><%= f.link_to_add "Agregar Bombero", :assists, :class=> 'btn btn-success pull-right' %></p>
+          <li>
+            <% User.all.each do |u|  %>
+              <%= check_box_tag "user_ids[]", u.id %> <%= u.nombre_completo %>
+            <% end %>
+          </li>
+        <%# f.fields_for :assists %>
+        <p><%# f.link_to_add "Agregar Bombero", :assists, :class=> 'btn btn-success pull-right' %></p>
         <BR>
         <BR>
         <div class="page-header">

@@ -42,7 +42,7 @@ class RescuesController < ApplicationController
   # POST /rescues.json
   def create
     @rescue = Rescue.new(rescue_params)
-
+    @emergency = Emergency.find(@rescue.emergency_id)
     respond_to do |format|
       if @rescue.save
         format.html { redirect_to @rescue, notice: 'Rescue was successfully created.' }
@@ -57,6 +57,7 @@ class RescuesController < ApplicationController
   # PATCH/PUT /rescues/1
   # PATCH/PUT /rescues/1.json
   def update
+    @emergency = Emergency.find(@rescue.emergency_id)
     respond_to do |format|
       if @rescue.update(rescue_params)
         format.html { redirect_to @rescue, notice: 'Rescue was successfully updated.' }

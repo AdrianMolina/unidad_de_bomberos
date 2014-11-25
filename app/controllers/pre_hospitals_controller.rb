@@ -39,7 +39,7 @@ class PreHospitalsController < ApplicationController
   # POST /pre_hospitals.json
   def create
     @pre_hospital = PreHospital.new(pre_hospital_params)
-
+    @emergency = Emergency.find(@pre_hospital.emergency_id)
     respond_to do |format|
       if @pre_hospital.save
         format.html { redirect_to @pre_hospital, notice: 'Pre hospital was successfully created.' }
@@ -54,6 +54,7 @@ class PreHospitalsController < ApplicationController
   # PATCH/PUT /pre_hospitals/1
   # PATCH/PUT /pre_hospitals/1.json
   def update
+    @emergency = Emergency.find(@pre_hospital.emergency_id)
     respond_to do |format|
       if @pre_hospital.update(pre_hospital_params)
         format.html { redirect_to @pre_hospital, notice: 'Pre hospital was successfully updated.' }

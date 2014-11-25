@@ -42,7 +42,7 @@ class FiresController < ApplicationController
   # POST /fires.json
   def create
     @fire = Fire.new(fire_params)
-
+    @emergency = Emergency.find(@fire.emergency_id)
     respond_to do |format|
       if @fire.save
         format.html { redirect_to @fire, notice: 'Fire was successfully created.' }
@@ -57,6 +57,7 @@ class FiresController < ApplicationController
   # PATCH/PUT /fires/1
   # PATCH/PUT /fires/1.json
   def update
+    @emergency = Emergency.find(@fire.emergency_id)
     respond_to do |format|
       if @fire.update(fire_params)
         format.html { redirect_to @fire, notice: 'Fire was successfully updated.' }

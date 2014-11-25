@@ -85,14 +85,26 @@
     </div> 
   </div>
 
-  <div class="page-header">
-       <h3 id="forms">Añadir formulario:</h3>
-  </div>
+    <div class="page-header">
+      <h3 id="forms">Añadir formulario:</h3>
+    </div>
+
   <div class="field">
+    <% if Emergency.contador_explosivos(@emergency.id) == 0 %>
     <a data-no-turbolink="true" href="<%=new_form_explosive_path(@emergency)%>" class="btn btn-primary btn-sm active" role="button">Explosivos</a>
+    <% end %>
+
+    <% if @emergency.rescues.count == 0 %>
     <a data-no-turbolink="true" href="<%=new_form_rescue_path(@emergency)%>" class="btn btn-warning btn-sm active" role="button">Rescate</a>
+    <% end %>
+
+    <% if @emergency.fires.count == 0 %>
     <a data-no-turbolink="true" href="<%=new_form_fire_path(@emergency)%>" class="btn btn-danger btn-sm active" role="button">Incendio</a>
+    <% end %>
+
+    <% if @emergency.pre_hospitals.count == 0 %>
     <a data-no-turbolink="true" href="<%=new_form_pre_hospital_path(@emergency)%>" class="btn btn-success btn-sm active" role="button">Atencion Prehospitalaria</a>
+    <% end %>
   </div>
   <div class="field">
     <a href="<%=emergencies_path%>" class="btn btn-default btn-sm active" role="button">Ir a Todas las emergencias</a>

@@ -12,12 +12,26 @@ class Emergency < ActiveRecord::Base
 	scope :search, lambda { |start_date, end_date, search_word| where('emergencies.hora_salida >= ? AND emergencies.hora_salida <= ? AND (emergencies.denunciante LIKE ? OR emergencies.lugar LIKE ? OR emergencies.numero_caso LIKE ?)', start_date, end_date, "%#{search_word}%", "%#{search_word}%", "%#{search_word}%") }
 	#scope :search, lambda {|start_date, end_date, type| where('emergencies.hora_salida >= ? AND emergencies.hora_salida <= ? AND (emergencies.tipo LIKE ? OR emergencies.lugar LIKE ?)', start_date, end_date, "%#{type}%", "%#{type}%" )}
   scope :buscar, lambda {|start_date, end_date, type| where('emergencies.hora_salida >= ? AND emergencies.hora_salida <= ? AND emergencies.tipo LIKE ?', start_date, end_date, "%#{type}%" )}
+
 	def self.check_box(params, tipo)
 	  resp = false
 		if params == tipo
 			resp = true
 		end
 		resp
+	end
+
+	def self.contador_explosivos(id_emergencia)
+		explosivos = Explosive.all
+		cont = 0
+		explosivos.each do |exp|
+			if id_emergencia == exp.emergency_id
+				cont = cont + 1
+			else
+				cont = cont
+			end
+		end
+		cont
 	end
 
 	def self.numero_de_caso

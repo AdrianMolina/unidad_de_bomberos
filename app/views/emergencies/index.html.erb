@@ -54,9 +54,16 @@
       </div>
     </div>
   </div>
-  <a data-no-turbolink="true" href="<%=new_emergency_path%>" class="btn btn-danger btn-sm active" role="button">Registrar Emergencia</a>
-  <BR>
-  <center><%= paginate @emergencies %></center>
+    <div class="col-md-4 column">
+    <div class="form-group">
+      <a data-no-turbolink="true" href="<%=new_emergency_path%>" class="btn btn-danger btn-sm active" role="button">Registrar Emergencia</a>  
+    </div>
+  </div>
+  <div class="col-md-4 column">
+    <div class="form-group">
+      <center><%= paginate @emergencies %></center>
+    </div>
+  </div>
 </div>
   
   <script type="text/javascript">

@@ -12,6 +12,13 @@ class PreHospitalsController < ApplicationController
   # GET /pre_hospitals/1.json
   def show
     @emergency = Emergency.find(@pre_hospital.emergency_id)
+    respond_to do |format|
+      format.html
+      format.pdf do
+        pdf = PreHospitalPdf.new(@pre_hospital)
+        send_data pdf.render, filename: "pre_hospital#{@pre_hospital.id}.pdf", type: "application/pdf", disposition: "inline"
+      end
+    end
   end
 
   # GET /pre_hospitals/new

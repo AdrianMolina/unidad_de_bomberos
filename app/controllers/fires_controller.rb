@@ -12,6 +12,13 @@ class FiresController < ApplicationController
   # GET /fires/1.json
   def show
     @emergency = Emergency.find(@fire.emergency_id)
+    respond_to do |format|
+      format.html
+      format.pdf do
+        pdf = IncendioPdf.new(@fire)
+        send_data pdf.render, filename: "fire_#{@fire.id}.pdf", type: "application/pdf", disposition: "inline"
+      end
+    end
   end
 
   # GET /fires/new

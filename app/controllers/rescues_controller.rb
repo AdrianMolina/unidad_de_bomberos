@@ -12,6 +12,13 @@ class RescuesController < ApplicationController
   # GET /rescues/1.json
   def show
     @emergency = Emergency.find(@rescue.emergency_id)
+    respond_to do |format|
+      format.html
+      format.pdf do
+        pdf = RescatePdf.new(@rescue)
+        send_data pdf.render, filename: "rescue#{@rescue.id}.pdf", type: "application/pdf", disposition: "inline"
+      end
+    end
   end
 
   # GET /rescues/new

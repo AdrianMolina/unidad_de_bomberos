@@ -41,7 +41,7 @@
       <div class="row">
         <div class="col-md-4">
           <div class="field">
-            <h4><strong>Accidente vehicular::</strong>
+            <h4><strong>Accidente vehicular:</strong>
             <%= @pre_hospital.accidente_vehicular %></h4>
           </div>
         </div>
@@ -131,5 +131,6 @@
   <br>
   <div class="field">
     <a href="<%=formularios_path(@emergency)%>" class="btn btn-default btn-sm active" role="button">Volver</a>
+    <%= link_to "Imprimir formulario (PDF)", pre_hospital_path(@pre_hospital, format: "pdf"), class:"btn btn-default btn-sm active" %>
   </div>
 </div>

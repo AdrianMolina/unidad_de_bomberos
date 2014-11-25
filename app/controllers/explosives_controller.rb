@@ -11,6 +11,13 @@ class ExplosivesController < ApplicationController
   # GET /explosives/1.json
   def show
     @emergency = Emergency.find(@explosive.emergency_id)
+    respond_to do |format|
+      format.html
+      format.pdf do
+        pdf = ExplosivoPdf.new(@explosive)
+        send_data pdf.render, filename: "explosive#{@explosive.id}.pdf", type: "application/pdf", disposition: "inline"
+      end
+    end
   end
 
   # GET /explosives/new

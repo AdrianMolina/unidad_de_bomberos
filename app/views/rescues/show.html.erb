@@ -197,5 +197,6 @@ br>
   <br>
   <div class="field">
     <a href="<%=formularios_path(@emergency)%>" class="btn btn-default btn-sm active" role="button">Volver</a>
+    <%= link_to "Imprimir formulario (PDF)", rescue_path(@rescue, format: "pdf"), class:"btn btn-default btn-sm active" %>
   </div>
 </div>

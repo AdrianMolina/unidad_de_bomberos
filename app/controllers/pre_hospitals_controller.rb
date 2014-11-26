@@ -25,9 +25,9 @@ class PreHospitalsController < ApplicationController
   def new
     @pre_hospital = PreHospital.new
     @emergency = Emergency.find(params[:id])
-    1.times {
-      @pre_hospital.assist_pre_hospitals.build
-    }
+    #1.times {
+    #  @pre_hospital.assist_pre_hospitals.build
+    #}
   end
 
   # GET /pre_hospitals/1/edit

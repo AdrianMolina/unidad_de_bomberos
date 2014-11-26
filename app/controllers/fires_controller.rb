@@ -25,12 +25,12 @@ class FiresController < ApplicationController
   def new
     @fire = Fire.new
     @emergency = Emergency.find(params[:id])
-    1.times {
-      @fire.assist_fires.build
-      @fire.fire_material_useds.build
-      @fire.fire_affected_people.build
-      @fire.fire_institutions.build
-    }
+    #1.times {
+    #  @fire.assist_fires.build
+    #  @fire.fire_material_useds.build
+    #  @fire.fire_affected_people.build
+    #  @fire.fire_institutions.build
+    #}
   end
 
   # GET /fires/1/edit
@@ -45,7 +45,7 @@ class FiresController < ApplicationController
     @emergency = Emergency.find(@fire.emergency_id)
     respond_to do |format|
       if @fire.save
-        format.html { redirect_to @fire, notice: 'La informacion del incendio fue creado con exito.' }
+        format.html { redirect_to @fire, notice: 'La informacion del formulario de incendios fue registrada con exito.' }
         format.json { render :show, status: :created, location: @fire }
       else
         format.html { render :new }
@@ -60,7 +60,7 @@ class FiresController < ApplicationController
     @emergency = Emergency.find(@fire.emergency_id)
     respond_to do |format|
       if @fire.update(fire_params)
-        format.html { redirect_to @fire, notice: 'La informacion del incendio fue actualizado con exito.' }
+        format.html { redirect_to @fire, notice: 'La informacion del formulario de incendios fue actualizada con exito.' }
         format.json { render :show, status: :ok, location: @fire }
       else
         format.html { render :edit }

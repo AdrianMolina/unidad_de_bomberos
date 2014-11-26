@@ -1,13 +1,8 @@
 <div class="row" >
-<div class="col-sm-3">
+<div class="col-sm-12">
   <div class="form-group">
-    <label for="user_id">Conductores</label>
+    <label for="user_id">*Conductores</label>
     <%= f.collection_select :user_id, User.all, :id, :nombre_completo, {prompt: "Agregar conductor"}, {class: "form-control input-sm", :required => true} %>
-  </div>
-</div>
-<div class="col-sm-2">
-  <div class="form-group">
-    <%= f.link_to_remove "Eliminar conductor", :class=> 'btn btn-warning active' %>
   </div>
 </div>
 </div>

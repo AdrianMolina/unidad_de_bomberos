@@ -1,16 +1,16 @@
 <%= render 'mapa' %>
 <%= nested_form_for @explosive, :html => { :class => 'form-horizontal', :role => 'form' } do |f| %>
-  <% if @explosive.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@explosive.errors.count, "error") %> prohibited this explosife from being saved:</h2>
-
+    <% if @explosive.errors.any? %>
+    <div class="alert alert-danger alert-dismissible" role="alert">
+      <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Cerrar</span></button>
+      <h3><%= pluralize(@explosive.errors.count, "Errore") %> no se puede guardar la informacion del formulario porque:</h3>
       <ul>
-      <% @explosive.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% @explosive.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
-    </div>
-  <% end %>
+      </div>
+    <% end %>
 
 <div class="col-md-8 column">
   <div class="row">
@@ -32,15 +32,17 @@
           <div class="col-md-5 column">
             <div class="form-group">
               <%= f.label :lugar_incidente, "*Lugar del incidente" %><br>
-              <%= f.text_field :lugar_incidente, :class=>'form-control input-sm', :value => @emergency.lugar, :maxlength => 30 , :title => "Por favor rellene este campo", :required => true %>
-              <input type="button" value="Ver en el mapa" onclick="codeAddress()">
+              <%= f.text_area :lugar_incidente, :class=>'form-control input-sm', :value => @emergency.lugar, :maxlength => 30 , :title => "Por favor rellene este campo", :required => true %>
+              <input type="button" value="Ver en el mapa" onclick="hospitales()">
             </div>
           </div>
         </div>
         <div class="row">
           <div class="col-md-5 column">
             <div class="form-group">
-              <%#= f.label :fecha, "Fecha" %><br>
+              <%= f.label :hora_incidente, "*Fecha y Hora" %><br>
+              <%= f.text_field :hora_incidente, :class=>'form-control input-sm', :value => @emergency.hora_salida.strftime("%Y/%m/%e %I:%M"), :maxlength => 20 , :title => "Por favor ingrese la hora de la emergencia", :required => true %>
+              <%#= f.label :fecha, "Fecha" %>
               <%#= f.date_select :fecha, :class=>'form-control input-sm' %>
             </div>
           </div>
@@ -51,8 +53,7 @@
           </div>
           <div class="col-md-5 column">
             <div class="form-group" >
-              <%= f.label :hora_incidente, "*Fecha y Hora" %><br>
-              <%= f.text_field :hora_incidente, :class=>'form-control input-sm', :value => @emergency.hora_salida.strftime("%Y/%m/%e %I:%M"), :maxlength => 20 , :title => "Por favor ingrese la hora de la emergencia", :required => true %>
+              
             </div>
           </div>
         </div>

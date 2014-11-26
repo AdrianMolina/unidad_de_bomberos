@@ -58,7 +58,7 @@ class MaterialsController < ApplicationController
   def destroy
     @material.destroy
     respond_to do |format|
-      format.html { redirect_to materials_url, notice: 'Material was successfully destroyed.' }
+      format.html { redirect_to materials_url, notice: 'Material borrado con exito' }
       format.json { head :no_content }
     end
   end

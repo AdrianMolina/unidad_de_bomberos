@@ -2,15 +2,15 @@
 
 <%= form_validated_for @emergency, :html => { :class => 'form-horizontal', :role => 'form' } do |f| %>
   <% if @emergency.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@emergency.errors.count, "error") %> La informacion no pudo ser guardada porque:</h2>
-
-      <ul>
-      <% @emergency.errors.full_messages.each do |message| %>
+  <div class="alert alert-danger alert-dismissible" role="alert">
+  <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Cerrar</span></button>
+  <h3><%= pluralize(@emergency.errors.count, "error") %> No se puede guardar la informacion de la emergencia porque:</h3>
+  <ul>
+  <% @emergency.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
-      </ul>
-    </div>
+  </ul>
+</div>
   <% end %>
 
 <div class="container">
@@ -21,7 +21,7 @@
       
           <div class="form-group">
              <label for="exampleInputEmail1">Fecha y hora de salida</label>
-            <%= f.text_field :hora_salida, :class=>'form-control', :value=>Time.now.strftime("%Y/%m/%e %I:%M") %>
+            <%= f.text_field :hora_salida, :class=>'form-control',:readonly => true, :value=>Time.now.strftime("%Y/%m/%e %I:%M") %>
           </div>
           <div class="form-group">
              <label for="exampleInputPassword1">Tipo</label>
@@ -87,6 +87,3 @@
     <%= link_to "Atras", @emergency,'data-no-turbolink' => true, class:"btn btn-default btn-sm active" %>
 </div>
 <% end %>
-<script type="text/javascript">
-  jQuery('#emergency_hora_salida').datetimepicker();
-</script>

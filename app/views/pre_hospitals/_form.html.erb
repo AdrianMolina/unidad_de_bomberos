@@ -1,15 +1,16 @@
 <%= render 'mapa' %>
 <%= nested_form_for @pre_hospital, :html => { :class => 'form-horizontal', :role => 'form' } do |f| %>
+  
   <% if @pre_hospital.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@pre_hospital.errors.count, "error") %> prohibited this pre_hospital from being saved:</h2>
-
+    <div class="alert alert-danger alert-dismissible" role="alert">
+      <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Cerrar</span></button>
+      <h3><%= pluralize(@pre_hospital.errors.count, "Errore") %> no se puede guardar la informacion del formulario porque:</h3>
       <ul>
-      <% @pre_hospital.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% @pre_hospital.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
-    </div>
+      </div>
   <% end %>
 
 <div class="col-md-8 column">
@@ -33,8 +34,8 @@
           <div class="col-md-5 column">
             <div class="form-group">
               <%= f.label :lugar_incidente, "*Lugar del incidente" %><br>
-              <%= f.text_field :lugar_incidente, :class=>'form-control input-sm', :value => @emergency.lugar, :maxlength => 30 , :title => "Por favor ingrese la direccion", :required => true %>
-              <input type="button" value="Ver en el mapa" onclick="codeAddress()">
+              <%= f.text_area :lugar_incidente, :class=>'form-control input-sm', :value => @emergency.lugar, :maxlength => 30 , :title => "Por favor ingrese la direccion", :required => true %>
+              <input type="button" value="Ver en el mapa" onclick="hospitales()">
             </div>
           </div>
         </div>

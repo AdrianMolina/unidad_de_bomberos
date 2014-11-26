@@ -1,16 +1,16 @@
 <%= form_for @institution_list, :html => { :class => 'form-horizontal', :role => 'form' } do |f| %>
-  <% if @institution_list.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@institution_list.errors.count, "error") %> prohibited this institution_list from being saved:</h2>
 
+<% if @institution_list.errors.any? %>
+    <div class="alert alert-danger alert-dismissible" role="alert">
+      <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Cerrar</span></button>
+      <h3><%= pluralize(@institution_list.errors.count, "Errore") %> no se puede guardar la informacion porque:</h3>
       <ul>
-      <% @institution_list.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% @institution_list.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
-    </div>
-  <% end %>
-
+      </div>
+    <% end %>
 <div class="col-md-4">
   <div class="well">
     <div class="row">

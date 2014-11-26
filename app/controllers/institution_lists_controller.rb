@@ -44,7 +44,7 @@ class InstitutionListsController < ApplicationController
   def update
     respond_to do |format|
       if @institution_list.update(institution_list_params)
-        format.html { redirect_to @institution_list, notice: 'Se actualizaron con exito los datos de la institucion' }
+        format.html { redirect_to @institution_list, notice: 'La informacion de la institucion fue actualizada con exito.' }
         format.json { render :show, status: :ok, location: @institution_list }
       else
         format.html { render :edit }
@@ -58,7 +58,7 @@ class InstitutionListsController < ApplicationController
   def destroy
     @institution_list.destroy
     respond_to do |format|
-      format.html { redirect_to institution_lists_url, notice: 'La informacion de la institucion fue actualizada con exito.' }
+      format.html { redirect_to institution_lists_url, notice: 'Institucion borrada' }
       format.json { head :no_content }
     end
   end

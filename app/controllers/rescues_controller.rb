@@ -25,12 +25,12 @@ class RescuesController < ApplicationController
   def new
     @rescue = Rescue.new
     @emergency = Emergency.find(params[:id])
-    1.times {
-      @rescue.assist_rescues.build
-      @rescue.rescue_material_useds.build
-      @rescue.rescue_affected_people.build
-      @rescue.rescue_institutions.build
-    }
+    #1.times {
+    #  @rescue.assist_rescues.build
+    #  @rescue.rescue_material_useds.build
+    #  @rescue.rescue_affected_people.build
+    #  @rescue.rescue_institutions.build
+    #}
   end
 
   # GET /rescues/1/edit
@@ -45,7 +45,7 @@ class RescuesController < ApplicationController
     @emergency = Emergency.find(@rescue.emergency_id)
     respond_to do |format|
       if @rescue.save
-        format.html { redirect_to @rescue, notice: 'La informacion del rescate fue creada con exito.' }
+        format.html { redirect_to @rescue, notice: 'La informacion del formulario de rescate fue creada con exito.' }
         format.json { render :show, status: :created, location: @rescue }
       else
         format.html { render :new }
@@ -60,7 +60,7 @@ class RescuesController < ApplicationController
     @emergency = Emergency.find(@rescue.emergency_id)
     respond_to do |format|
       if @rescue.update(rescue_params)
-        format.html { redirect_to @rescue, notice: 'Informacion del rescate fue actualizado con exito.' }
+        format.html { redirect_to @rescue, notice: 'La informacion del formulario de rescate fue actualizada con exito.' }
         format.json { render :show, status: :ok, location: @rescue }
       else
         format.html { render :edit }

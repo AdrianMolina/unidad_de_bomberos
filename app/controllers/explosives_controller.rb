@@ -24,12 +24,12 @@ class ExplosivesController < ApplicationController
   def new
     @explosive = Explosive.new
     @emergency = Emergency.find(params[:id])
-    1.times {  
-     @explosive.assists.build
-     @explosive.explosive_material_useds.build
-     @explosive.affected_people.build 
-     @explosive.institutions.build 
-    }
+    #1.times {  
+     #@explosive.assists.build
+     #@explosive.explosive_material_useds.build
+     #@explosive.affected_people.build 
+     #@explosive.institutions.build 
+    #}
   end
 
   # GET /explosives/1/edit
@@ -44,7 +44,7 @@ class ExplosivesController < ApplicationController
     @emergency = Emergency.find(@explosive.emergency_id)
     respond_to do |format|
       if @explosive.save
-        format.html { redirect_to @explosive, notice: 'La informacion del atencion expplosivos fue creado con exito.' }
+        format.html { redirect_to @explosive, notice: 'La informacion del formulario de explosivos fue registrada con exito.' }
         format.json { render :show, status: :created, location: @explosive }
       else
         format.html { render :new }
@@ -59,7 +59,7 @@ class ExplosivesController < ApplicationController
     @emergency = Emergency.find(@explosive.emergency_id)
     respond_to do |format|
       if @explosive.update(explosive_params)
-        format.html { redirect_to @explosive, notice: 'La informacion del atencion explposivos fue actualizado con exito.' }
+        format.html { redirect_to @explosive, notice: 'La informacion del formulario de explosivos fue actualizada con exito.' }
         format.json { render :show, status: :ok, location: @explosive }
       else
         format.html { render :edit }

@@ -4,11 +4,22 @@
     var marker;
     var geocoder;
     var map;
+    var longitudes;
+    var latitudes;
+    var avenida;
+    
   function initialize() {
     var $latitude = document.getElementById('rescue_latitude');
     var $longitude = document.getElementById('rescue_longitude');
-    var latitude = <%=@emergency.latitude%>;
-    var longitude = <%=@emergency.longitude%>;
+    var latitude;
+    var longitude;
+    if ($latitude.value ==""){
+      latitude = -17.40049275908006;
+      longitude = -66.1427843109314;
+    }else{
+      latitude = $latitude.value;
+      longitude = $longitude.value;
+    }
     var zoom = 15;
     geocoder = new google.maps.Geocoder();
     var LatLng = new google.maps.LatLng(latitude, longitude);
@@ -36,27 +47,74 @@
       var latLng = marker.latLng;
       $latitude.value = latLng.lat();
       $longitude.value = latLng.lng();
+      geocodePosition(latLng);
     });
-    
+    longitudes = [-66.16925483142292, -66.17357094137662, -66.17660032492081, -66.18073199941169, -66.18541025545608, -66.18879661326501, -66.19368673623816, -66.19780862666616, -66.20338502076402, -66.20813776267615, -66.21304101091974, -66.21687904823803, -66.22152254364686, -66.22602971462672, -66.23235521612686, -66.23638364947222, -66.24097481027924, -66.24448659996993, -66.24976781324501, -66.25582072105614, -66.26055454553439, -66.26384094634356, -66.26914509468348];
+    latitudes = [-17.396567933956536, -17.393875476278858, -17.393720789255656, -17.393385516218377, -17.393234415945702, -17.393074289171057, -17.392851535182032, -17.39264612077875, -17.392427611227408, -17.392134772320063, -17.39202649396111, -17.391838373780175, -17.391627027479952, -17.391437361653654, -17.391262722430792, -17.390976409060343, -17.390805824325476, -17.39067222020914, -17.391029650569678, -17.391597562583105, -17.392216294344415, -17.39239989126509, -17.392943377420444];
+    avenida = new Array();
+    var contador = 1;
+    for (var i = 0; i < longitudes.length; i++) {
+      avenida[i] ="blanco galindo km" + contador;
+      contador = contador + 0.5;
+    };
     
   }
 
   function codeAddress() {
   var address = document.getElementById('rescue_lugar_incidente').value;
+  var lat = document.getElementById('rescue_latitude');
+  var lon = document.getElementById('rescue_longitude');
   address = address + " cochabamba bolivia";
   geocoder.geocode( { 'address': address}, function(results, status) {
     if (status == google.maps.GeocoderStatus.OK) {
       map.setCenter(results[0].geometry.location);
       
       marker.setPosition(results[0].geometry.location);
+      
+      var latLng = results[0].geometry.location;
+      lat.value = latLng.lat();
+      lon.value = latLng.lng();
+
     } else {
-      alert('No se pudo encontrar la direccion: ' + status);
+      alert('No se pudo encontrar la direccion: ' + address);
     }
   });
 }
+function hospitales(){
+  var address = document.getElementById('rescue_lugar_incidente').value;
+  var lat = document.getElementById('rescue_latitude');
+  var lon = document.getElementById('rescue_longitude');
+  var bandera = 0;
+  for (var i = 0; i < avenida.length; i++) {
+    if (avenida[i] == address) {
+      var LatLng = new google.maps.LatLng(latitudes[i], longitudes[i]);
+      map.setCenter(LatLng);
+      marker.setPosition(LatLng);
+      lat.value = latitudes[i];
+      lon.value = longitudes[i];
+      bandera=1;
+      i=avenida.length;
+    }
+  };
+  if (bandera==0){
+    codeAddress();
+  }
 
+}
 google.maps.event.addDomListener(window, 'load', initialize);
 
   initialize();
+
+  function geocodePosition(pos) {
+  geocoder.geocode({
+    latLng: pos
+  }, function(responses) {
+    if (responses && responses.length > 0) {
+      document.getElementById('rescue_lugar_incidente').value = (responses[0].formatted_address);
+    } else {
+      alert('No se pudo encontrar la direccion');
+    }
+  });
+}
 
   </script>

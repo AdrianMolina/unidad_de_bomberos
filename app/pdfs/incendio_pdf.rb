@@ -1,6 +1,4 @@
 require "prawn/table"
-require "User"
-require "assist_fire"
 
 class IncendioPdf < Prawn::Document
   def initialize(incendio)

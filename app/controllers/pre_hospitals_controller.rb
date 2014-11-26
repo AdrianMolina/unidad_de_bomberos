@@ -42,7 +42,7 @@ class PreHospitalsController < ApplicationController
     @emergency = Emergency.find(@pre_hospital.emergency_id)
     respond_to do |format|
       if @pre_hospital.save
-        format.html { redirect_to @pre_hospital, notice: 'Pre hospital was successfully created.' }
+        format.html { redirect_to @pre_hospital, notice: 'La informacion del atencion prehospitalaria fue creada con exito.' }
         format.json { render :show, status: :created, location: @pre_hospital }
       else
         format.html { render :new }
@@ -57,7 +57,7 @@ class PreHospitalsController < ApplicationController
     @emergency = Emergency.find(@pre_hospital.emergency_id)
     respond_to do |format|
       if @pre_hospital.update(pre_hospital_params)
-        format.html { redirect_to @pre_hospital, notice: 'Pre hospital was successfully updated.' }
+        format.html { redirect_to @pre_hospital, notice: 'La informacion del atencion prehospitalaria ha sido actualizada con exito.' }
         format.json { render :show, status: :ok, location: @pre_hospital }
       else
         format.html { render :edit }

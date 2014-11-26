@@ -44,7 +44,7 @@ class ExplosivesController < ApplicationController
     @emergency = Emergency.find(@explosive.emergency_id)
     respond_to do |format|
       if @explosive.save
-        format.html { redirect_to @explosive, notice: 'Explosive was successfully created.' }
+        format.html { redirect_to @explosive, notice: 'La informacion del atencion expplosivos fue creado con exito.' }
         format.json { render :show, status: :created, location: @explosive }
       else
         format.html { render :new }
@@ -59,7 +59,7 @@ class ExplosivesController < ApplicationController
     @emergency = Emergency.find(@explosive.emergency_id)
     respond_to do |format|
       if @explosive.update(explosive_params)
-        format.html { redirect_to @explosive, notice: 'Explosive was successfully updated.' }
+        format.html { redirect_to @explosive, notice: 'La informacion del atencion explposivos fue actualizado con exito.' }
         format.json { render :show, status: :ok, location: @explosive }
       else
         format.html { render :edit }

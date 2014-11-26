@@ -45,7 +45,7 @@ class RescuesController < ApplicationController
     @emergency = Emergency.find(@rescue.emergency_id)
     respond_to do |format|
       if @rescue.save
-        format.html { redirect_to @rescue, notice: 'Rescue was successfully created.' }
+        format.html { redirect_to @rescue, notice: 'La informacion del rescate fue creada con exito.' }
         format.json { render :show, status: :created, location: @rescue }
       else
         format.html { render :new }
@@ -60,7 +60,7 @@ class RescuesController < ApplicationController
     @emergency = Emergency.find(@rescue.emergency_id)
     respond_to do |format|
       if @rescue.update(rescue_params)
-        format.html { redirect_to @rescue, notice: 'Rescue was successfully updated.' }
+        format.html { redirect_to @rescue, notice: 'Informacion del rescate fue actualizado con exito.' }
         format.json { render :show, status: :ok, location: @rescue }
       else
         format.html { render :edit }

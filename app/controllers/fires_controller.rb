@@ -45,7 +45,7 @@ class FiresController < ApplicationController
     @emergency = Emergency.find(@fire.emergency_id)
     respond_to do |format|
       if @fire.save
-        format.html { redirect_to @fire, notice: 'Fire was successfully created.' }
+        format.html { redirect_to @fire, notice: 'La informacion del incendio fue creado con exito.' }
         format.json { render :show, status: :created, location: @fire }
       else
         format.html { render :new }
@@ -60,7 +60,7 @@ class FiresController < ApplicationController
     @emergency = Emergency.find(@fire.emergency_id)
     respond_to do |format|
       if @fire.update(fire_params)
-        format.html { redirect_to @fire, notice: 'Fire was successfully updated.' }
+        format.html { redirect_to @fire, notice: 'La informacion del incendio fue actualizado con exito.' }
         format.json { render :show, status: :ok, location: @fire }
       else
         format.html { render :edit }

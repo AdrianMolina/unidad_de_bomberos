@@ -25,7 +25,7 @@
               <tbody>
                 <tr>
                   <td style= 'cursor:pointer' onclick=<%="document.location.href='/explosives/"+e.id.to_s+"'"%>><%= e.numero_caso %></td>
-                  <td style= 'cursor:pointer' onclick=<%="document.location.href='/explosives/"+e.id.to_s+"'"%>><%= e.created_at %></td>
+                  <td style= 'cursor:pointer' onclick=<%="document.location.href='/explosives/"+e.id.to_s+"'"%>><%= e.created_at.strftime("%Y/%m/%e %I:%M") %></td>
                   <td align="center"><%= link_to 'Editar', edit_explosife_path(e), :class => 'btn btn-primary btn-sm active','data-no-turbolink' => true %></td>
                 </tr>
               </tbody>
@@ -55,7 +55,7 @@
               <tbody>
                 <tr>
                   <td style= 'cursor:pointer' onclick=<%="document.location.href='/fires/"+i.id.to_s+"'"%>><%= i.numero_caso %></td>
-                  <td style= 'cursor:pointer' onclick=<%="document.location.href='/fires/"+i.id.to_s+"'"%>><%= i.created_at %></td>
+                  <td style= 'cursor:pointer' onclick=<%="document.location.href='/fires/"+i.id.to_s+"'"%>><%= i.created_at.strftime("%Y/%m/%e %I:%M") %></td>
                   <td align="center"><%= link_to 'Editar', edit_fire_path(i), :class => 'btn btn-primary btn-sm active','data-no-turbolink' => true %></td>
                 </tr>
               </tbody>
@@ -85,7 +85,7 @@
               <tbody>
                 <tr>
                   <td style= 'cursor:pointer' onclick=<%="document.location.href='/rescues/"+r.id.to_s+"'"%>><%= r.numero_caso %></td>
-                  <td style= 'cursor:pointer' onclick=<%="document.location.href='/rescues/"+r.id.to_s+"'"%>><%= r.created_at %></td>
+                  <td style= 'cursor:pointer' onclick=<%="document.location.href='/rescues/"+r.id.to_s+"'"%>><%= r.created_at.strftime("%Y/%m/%e %I:%M") %></td>
                   <td align="center"><%= link_to 'Editar', edit_rescue_path(r), :class => 'btn btn-primary btn-sm active','data-no-turbolink' => true %></td>
                 </tr>
               </tbody>
@@ -115,7 +115,7 @@
               <tbody>
                 <tr>
                   <td style= 'cursor:pointer' onclick=<%="document.location.href='/pre_hospitals/"+a.id.to_s+"'"%>><%= a.numero_caso %></td>
-                  <td style= 'cursor:pointer' onclick=<%="document.location.href='/pre_hospitals/"+a.id.to_s+"'"%>><%= a.created_at %></td>
+                  <td style= 'cursor:pointer' onclick=<%="document.location.href='/pre_hospitals/"+a.id.to_s+"'"%>><%= a.created_at.strftime("%Y/%m/%e %I:%M") %></td>
                   <td align="center"><%= link_to 'Editar', edit_pre_hospital_path(a), :class => 'btn btn-primary btn-sm active','data-no-turbolink' => true %></td>
                 </tr>
               </tbody>

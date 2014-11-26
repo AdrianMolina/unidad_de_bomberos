@@ -82,6 +82,8 @@
 }
 function hospitales(){
   var address = document.getElementById('emergency_lugar').value;
+  var lat = document.getElementById('emergency_latitude');
+  var lon = document.getElementById('emergency_longitude');
   var bandera = 0;
   for (var i = 0; i < avenida.length; i++) {
     if (avenida[i] == address) {

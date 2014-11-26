@@ -21,7 +21,7 @@ class UsersController < ApplicationController
 		@user.estado = "activo" #deberia ser bool y no un string
 	    respond_to do |format|
 	      if @user.save
-	        format.html { redirect_to index_users_path, notice: 'user was successfully created.' }
+	        format.html { redirect_to index_users_path, notice: 'Usuario registrado con exito' }
 	      else
 	        format.html { render :new }
 	      end
@@ -31,7 +31,7 @@ class UsersController < ApplicationController
 	def update
 	    respond_to do |format|
 	      if @user.update(user_params)
-	        format.html { redirect_to show_user_path(@user), notice: 'user was successfully updated.' }
+	        format.html { redirect_to show_user_path(@user), notice: 'La informacion del usuario fue actualizada con exito.' }
 	      else
 	        format.html { render :edit }
 	      end

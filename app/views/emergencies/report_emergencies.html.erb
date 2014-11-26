@@ -27,19 +27,19 @@
 			        
 			        <div class="controls">
 			        	<label class="checkbox inline">
-			           		<%= check_box_tag :type , 'incendio', Emergency.check_box(params[:type],"incendio") %>
+                  <%= check_box_tag "types[]" , 'incendio', Emergency.check_box(params[:types],"incendio") %>
 			           		Incendios
 			            </label>
 			        	<label class="checkbox inline">
-			          		<%= check_box_tag :type , 'explosivo', Emergency.check_box(params[:type],"explosivo") %>
+			          		<%= check_box_tag "types[]" , 'explosivo', Emergency.check_box(params[:types],"explosivo") %>
 			          		Explosivos
 			            </label>
 						<label class="checkbox inline">
-			          		<%= check_box_tag :type , 'prehospitalaria', Emergency.check_box(params[:type],"prehospitalaria") %>
+			          		<%= check_box_tag "types[]" , 'prehospitalaria', Emergency.check_box(params[:types],"prehospitalaria") %>
 			          		Atencion prehospitalaria
 			            </label>
 			            <label class="checkbox inline">
-			          		<%= check_box_tag :type , 'rescate', Emergency.check_box(params[:type],"rescate") %>
+			          		<%= check_box_tag "types[]" , 'rescate', Emergency.check_box(params[:types],"rescate") %>
 			          		Rescate
 			            </label>
 			        </div>

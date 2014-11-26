@@ -16,9 +16,13 @@ class Emergency < ActiveRecord::Base
 
 	def self.check_box(params, tipo)
 	  resp = false
-		if params == tipo
+   if !params.nil?
+    params.each do |p|
+		if p == tipo
 			resp = true
 		end
+    end
+   end
 		resp
 	end
 
@@ -81,14 +85,21 @@ class Emergency < ActiveRecord::Base
 		end
 		c
 	end
-  def self.busqueda(tipo, fecha,fecha_fin)
-    resultado = Emergency.all
-    if fecha.nil? || fecha == ""
-      resultado = self.buscar("1/1/2014".to_date.beginning_of_day ,"1/1/2020".to_date.end_of_day,tipo)
-    else
-      resultado = self.buscar(fecha.to_date.beginning_of_day ,fecha_fin.to_date.end_of_day,tipo)
+  def self.busqueda(tipos, fecha,fecha_fin)
+    res=Emergency.all
+    if !tipos.nil?
+        res=[]
+        tipos.each do |tipo|
+          if fecha.nil? || fecha == ""
+            resultado = self.buscar("1/1/2014".to_date.beginning_of_day ,"1/1/2020".to_date.end_of_day,tipo)
+            res+=resultado
+          else
+            resultado = self.buscar(fecha.to_date.beginning_of_day ,fecha_fin.to_date.end_of_day,tipo)
+            res+=resultado
+          end
+        end
     end
-    resultado
+    res
 	end
   def self.busqueda_index(search_word, fecha,fecha_fin)
     resultado = Emergency.all

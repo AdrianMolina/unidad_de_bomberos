@@ -1,20 +1,17 @@
-           <!-- Modal -->
-<div class="modal fade" id="myModalMaterial" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Cerrar</span></button>
-        <h4 class="modal-title" id="myModalLabel">Nombre del material</h4>
-      </div>
-      <div class="modal-body">
-            <% Material.all.all.each do |m|  %>
-        <li><%= check_box_tag "material_ids[]", m.id %> <%= m.nombre_codigo_material %></li>
-            <% end %>
-        
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Volver</button>
-      </div>
-    </div>
-  </div>
+<div class="row" >
+  <table class="table table-bordered">
+    <thead>
+          <tr>
+              <th>Nombre del material</th>
+              <th></th>
+            </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+              <td><%= f.collection_select :material_id, Material.all, :id, :nombre_codigo_material, {prompt: "Agregar material"}, {class: "form-control input-sm"} %></td>
+                <td align="center"><%= f.link_to_remove "Eliminar material", :class=> 'btn btn-warning active' %></td>
+            </tr>
+        </tbody>
+    </table>
 </div>

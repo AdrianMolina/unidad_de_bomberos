@@ -1,20 +1,17 @@
-           <!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Cerrar</span></button>
-        <h4 class="modal-title" id="myModalLabel">Bomberos que intervinieron</h4>
-      </div>
-      <div class="modal-body">
-            <% User.all.each do |u|  %>
-              <li><%= check_box_tag "user_ids[]", u.id %> <%= u.nombre_completo %></li>
-            <% end %>
-        
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Volver</button>
-      </div>
-    </div>
-  </div>
+<div class="row" >
+  <table class="table table-bordered">
+    <thead>
+          <tr>
+              <th>Nombre Bombero</th>
+              <th></th>
+            </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+              <td><%= f.collection_select :user_id, User.all, :id, :nombre_completo, {prompt: "Agregar bombero"}, {class: "form-control input-sm active"} %></td>
+                <td align="center"><%= f.link_to_remove "Eliminar bombero", :class=> 'btn btn-warning active' %></td>
+            </tr>
+        </tbody>
+    </table>
 </div>

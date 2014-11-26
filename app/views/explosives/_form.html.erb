@@ -105,17 +105,16 @@
         </div>
           <div class="page-header">
             <h2>Bomberos que intervinieron</h2>
-        </div>
-        <input type="button" value="Agregar Bomberos" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal" >
-          <%= render 'assist_fields'%> 
-        
+          </div>
+          <%= f.fields_for :assists %>
+          <p><%= f.link_to_add "Agregar Bombero", :assists, :class=> 'btn btn-success pull-right' %></p>
         <BR>
         <BR>
         <div class="page-header">
           <h2>Materiales utilizados</h2>
         </div>
-          <input type="button" value="Agregar Bomberos" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModalMaterial" >
-          <%= render 'explosive_material_used_fields'%>
+        <%= f.fields_for :explosive_material_useds %>
+        <p><%= f.link_to_add "Agregar material", :explosive_material_useds, :class=> 'btn btn-success pull-right' %></p>
         <BR>
         <BR>
         <div class="page-header">

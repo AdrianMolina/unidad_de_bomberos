@@ -56,7 +56,7 @@ class EmergenciesController < ApplicationController
     @emergency.user_id = current_user.id
     respond_to do |format|
       if @emergency.save
-        format.html { redirect_to @emergency, notice: 'Emergency was successfully created.' }
+        format.html { redirect_to @emergency, notice: 'La emergencia ha sido creada.' }
         format.json { render :show, status: :created, location: @emergency }
       else
         format.html { render :new }
@@ -70,7 +70,7 @@ class EmergenciesController < ApplicationController
   def update
     respond_to do |format|
       if @emergency.update(emergency_params)
-        format.html { redirect_to @emergency, notice: 'Emergency was successfully updated.' }
+        format.html { redirect_to @emergency, notice: 'La emergencia fue actualizada con exito' }
         format.json { render :show, status: :ok, location: @emergency }
       else
         format.html { render :edit }

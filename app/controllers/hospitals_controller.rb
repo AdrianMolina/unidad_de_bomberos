@@ -32,7 +32,7 @@ class HospitalsController < ApplicationController
 
     respond_to do |format|
       if @hospital.save
-        format.html { redirect_to @hospital, notice: 'Hospital was successfully created.' }
+        format.html { redirect_to @hospital, notice: 'Se registro con exito el Hospital.' }
         format.json { render :show, status: :created, location: @hospital }
       else
         format.html { render :new }
@@ -46,7 +46,7 @@ class HospitalsController < ApplicationController
   def update
     respond_to do |format|
       if @hospital.update(hospital_params)
-        format.html { redirect_to @hospital, notice: 'Hospital was successfully updated.' }
+        format.html { redirect_to @hospital, notice: 'La informacion del hospital fue actualizada.' }
         format.json { render :show, status: :ok, location: @hospital }
       else
         format.html { render :edit }

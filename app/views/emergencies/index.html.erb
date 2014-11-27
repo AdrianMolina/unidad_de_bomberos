@@ -85,12 +85,12 @@
           <tbody>
             <% @emergencies.each do |emergency| %>
               <tr>
-                <td style= 'cursor:pointer' onclick=<%="document.location.href='/emergencies/"+emergency.id.to_s+"'"%>><%= emergency.numero_caso %></td>
-                <td style= 'cursor:pointer' onclick=<%="document.location.href='/emergencies/"+emergency.id.to_s+"'"%>><%= emergency.lugar %></td>
-                <td style= 'cursor:pointer' onclick=<%="document.location.href='/emergencies/"+emergency.id.to_s+"'"%>><%= emergency.denunciante %></td>
-                <td style= 'cursor:pointer' onclick=<%="document.location.href='/emergencies/"+emergency.id.to_s+"'"%>><%= emergency.observacion %></td>
-                <td style= 'cursor:pointer' onclick=<%="document.location.href='/emergencies/"+emergency.id.to_s+"'"%>><%= emergency.hora_salida.strftime("%Y/%m/%e %I:%M") %></td>
-                <td style= 'cursor:pointer' onclick=<%="document.location.href='/emergencies/"+emergency.id.to_s+"'"%>><%= emergency.tipo %></td>
+                <td class="success" style= 'cursor:pointer' onclick=<%="document.location.href='/emergencies/"+emergency.id.to_s+"'"%>><%= emergency.numero_caso %></td>
+                <td class="success" style= 'cursor:pointer' onclick=<%="document.location.href='/emergencies/"+emergency.id.to_s+"'"%>><%= emergency.lugar %></td>
+                <td class="success" style= 'cursor:pointer' onclick=<%="document.location.href='/emergencies/"+emergency.id.to_s+"'"%>><%= emergency.denunciante %></td>
+                <td class="success" style= 'cursor:pointer' onclick=<%="document.location.href='/emergencies/"+emergency.id.to_s+"'"%>><%= emergency.observacion %></td>
+                <td class="success" style= 'cursor:pointer' onclick=<%="document.location.href='/emergencies/"+emergency.id.to_s+"'"%>><%= emergency.hora_salida.strftime("%Y/%m/%e %I:%M") %></td>
+                <td class="success" style= 'cursor:pointer' onclick=<%="document.location.href='/emergencies/"+emergency.id.to_s+"'"%>><%= emergency.tipo %></td>
               </tr>
             <% end %>
           </tbody>

@@ -30,13 +30,13 @@
             <% @emergencies.each do |emergency| %>
               <tr>
               <% if emergency.estado == false %>
-                <td style= 'cursor:pointer' onclick=<%="document.location.href='/emergencies/"+emergency.id.to_s+"'"%>><%= emergency.numero_caso %></td>
-                <td style= 'cursor:pointer' onclick=<%="document.location.href='/emergencies/"+emergency.id.to_s+"'"%>><%= emergency.lugar %></td>
-                <td style= 'cursor:pointer' onclick=<%="document.location.href='/emergencies/"+emergency.id.to_s+"'"%>><%= emergency.denunciante %></td>
-                <td style= 'cursor:pointer' onclick=<%="document.location.href='/emergencies/"+emergency.id.to_s+"'"%>><%= emergency.observacion %></td>
-                <td style= 'cursor:pointer' onclick=<%="document.location.href='/emergencies/"+emergency.id.to_s+"'"%>><%= emergency.user.nombre %></td>
-                <td style= 'cursor:pointer' onclick=<%="document.location.href='/emergencies/"+emergency.id.to_s+"'"%>><%= emergency.tipo %></td>
-                <td align="center"><%= link_to 'Emergencia resuelta', activo_path(emergency), :class => 'btn btn-success btn-sm' %></td>
+                <td class="danger" style= 'cursor:pointer' onclick=<%="document.location.href='/emergencies/"+emergency.id.to_s+"'"%>><%= emergency.numero_caso %></td>
+                <td class="danger" style= 'cursor:pointer' onclick=<%="document.location.href='/emergencies/"+emergency.id.to_s+"'"%>><%= emergency.lugar %></td>
+                <td class="danger" style= 'cursor:pointer' onclick=<%="document.location.href='/emergencies/"+emergency.id.to_s+"'"%>><%= emergency.denunciante %></td>
+                <td class="danger" style= 'cursor:pointer' onclick=<%="document.location.href='/emergencies/"+emergency.id.to_s+"'"%>><%= emergency.observacion %></td>
+                <td class="danger" style= 'cursor:pointer' onclick=<%="document.location.href='/emergencies/"+emergency.id.to_s+"'"%>><%= emergency.user.nombre %></td>
+                <td class="danger" style= 'cursor:pointer' onclick=<%="document.location.href='/emergencies/"+emergency.id.to_s+"'"%>><%= emergency.tipo %></td>
+                <td class="danger" align="center"><%= link_to 'Emergencia resuelta', activo_path(emergency), :class => 'btn btn-success btn-sm' %></td>
               <% end %>
               </tr>
             <% end %>

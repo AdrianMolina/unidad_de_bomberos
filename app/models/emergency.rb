@@ -10,7 +10,7 @@ class Emergency < ActiveRecord::Base
 	validates :denunciante, :format => { :with => /[a-zA-Z]+/i, :message => "Sólo se permiten letras" }, :allow_blank => true
   validates :lugar, :presence => true
 	validates :telefono_denunciante, :numericality => { :only_integer => true, :message => "Sólo se admiten numeros" }, :allow_blank => true
-	scope :search, lambda { |start_date, end_date, search_word| where('emergencies.hora_salida >= ? AND emergencies.hora_salida <= ? AND (emergencies.denunciante LIKE ? OR emergencies.lugar LIKE ? OR emergencies.numero_caso LIKE ?)', start_date, end_date, "%#{search_word}%", "%#{search_word}%", "%#{search_word}%") }
+	scope :search, lambda { |start_date, end_date, search_word| where('emergencies.hora_salida >= ? AND emergencies.hora_salida <= ? AND (emergencies.tipo LIKE ? OR emergencies.denunciante LIKE ? OR emergencies.lugar LIKE ? OR emergencies.numero_caso LIKE ?)', start_date, end_date,"%#{search_word}%", "%#{search_word}%", "%#{search_word}%", "%#{search_word}%") }
 	#scope :search, lambda {|start_date, end_date, type| where('emergencies.hora_salida >= ? AND emergencies.hora_salida <= ? AND (emergencies.tipo LIKE ? OR emergencies.lugar LIKE ?)', start_date, end_date, "%#{type}%", "%#{type}%" )}
   scope :buscar, lambda {|start_date, end_date, type| where('emergencies.hora_salida >= ? AND emergencies.hora_salida <= ? AND emergencies.tipo LIKE ?', start_date, end_date, "%#{type}%" )}
 

@@ -93,7 +93,7 @@
             <div class="col-md-5 column">
               <div class="form-group">
                 <%= f.label :rango, "*Rango" %>
-                <%= f.text_field :rango, :class=>'form-control input-sm', :maxlength => 30 , :title => "Por favor ingrese su rango", :required => true %>
+                <%= f.select(:rango, [["General",1],["Coronel",2],["Teniente-Coronel",3],["Mayor",4],["Capitan",5],["Teniente",6],["Sub-Teniente",7],["Sub-Oficial Superior",8],["Sub-Oficial Mayor",9],["Sub-Oficial Primero",10],["Sub-Oficial Segundo",11],["Sargento Primero",12],["Sargento Segundo",13],["Cabo",14],["Policia",15]].collect {|p| p }, {  include_blank: 'Seleccione su rango'}, { :class=>'form-control input-sm', :required => true}) %>
               </div>
             </div>
           </div>

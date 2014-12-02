@@ -1,4 +1,4 @@
-<h2>Posicion terminales</h2>
+<h2>Posicion de las emergencias</h2>
 <style type="text/css">
   #map-canvas { height: 400px }
 </style>
@@ -57,7 +57,7 @@ function setContentString(){
       '</div>'+
       '<h4 id="firstHeading" class="firstHeading"><%= emergency.tipo%></h4>'+
       '<div id="bodyContent">'+
-      '<p> <%= emergency.hora_salida %></p>'+
+      '<p> <%= emergency.hora_salida.strftime("%Y/%m/%e %I:%M") %></p>'+
       '<p> <%= emergency.observacion %></p>'+
       '</div>'+
       '</div>';

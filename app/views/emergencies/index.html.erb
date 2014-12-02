@@ -37,7 +37,7 @@
           <div class="col-md-5 column">
             <div class="form-group">
               <label for="exampleInputPassword1">Fecha inicio: </label>
-              <%= text_field_tag :date, params[:date], :class=>'form-control input-sm',:placeholder=>"buscar desde" , :onchange => 'llenar()' %>
+              <%= text_field_tag :date, params[:date], :class=>'form-control input-sm',:placeholder=>"buscar desde" %>
             </div>
           </div>
           <div class="col-md-2 column">
@@ -131,12 +131,4 @@
   timepicker:false
  });  
 </script>
-<script>
-function llenar() {
-    var $fecha_inicio = document.getElementById('date');
-    var $fecha_fin = document.getElementById('fecha_fin');
-    if ($fecha_fin.value ==""){
-      $fecha_fin.value = $fecha_inicio.value;
-    }
-}
-</script>
+

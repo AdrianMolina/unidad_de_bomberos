@@ -93,6 +93,9 @@ class Emergency < ActiveRecord::Base
           if fecha.nil? || fecha == ""
             resultado = self.buscar("1/1/2014".to_date.beginning_of_day ,"1/1/2020".to_date.end_of_day,tipo)
             res+=resultado
+          elsif fecha_fin.nil? || fecha_fin == ""
+               resultado = self.search(fecha.to_date.beginning_of_day ,"1/1/2020".to_date.end_of_day,tipo)
+               res+=resultado
           else
             resultado = self.buscar(fecha.to_date.beginning_of_day ,fecha_fin.to_date.end_of_day,tipo)
             res+=resultado
@@ -105,6 +108,8 @@ class Emergency < ActiveRecord::Base
     resultado = Emergency.all
     if fecha.nil? || fecha == ""
       resultado = self.search("1/1/2014".to_date.beginning_of_day ,"1/1/2020".to_date.end_of_day,search_word)
+    elsif fecha_fin.nil? || fecha_fin == ""
+      resultado = self.search(fecha.to_date.beginning_of_day ,"1/1/2020".to_date.end_of_day,search_word)
     else
       resultado = self.search(fecha.to_date.beginning_of_day ,fecha_fin.to_date.end_of_day,search_word)
     end

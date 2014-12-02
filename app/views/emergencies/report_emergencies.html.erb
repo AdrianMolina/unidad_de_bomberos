@@ -16,7 +16,7 @@
                   <div class="controls">
                     <%= label_tag :type, "Fecha inicio:", :class=>"control-label" %>
 			        	    <label class="checkbox inline">
-                      <%= text_field_tag :search, params[:search], :onchange => 'llenar()' %>
+                      <%= text_field_tag :search, params[:search] %>
 			              </label>
                     <%= label_tag :type, "Fecha fin:", :class=>"control-label" %>
                     <label class="checkbox inline">
@@ -111,14 +111,5 @@
   },
   timepicker:false
  });  
-</script>
-<script>
-function llenar() {
-    var $fecha_inicio = document.getElementById('search');
-    var $fecha_fin = document.getElementById('fecha_fin');
-    if ($fecha_fin.value ==""){
-      $fecha_fin.value = $fecha_inicio.value;
-    }
-}
 </script>
 

@@ -23,6 +23,10 @@ class ReportsController < ApplicationController
     @usuarios = ordenar_prehospitalario(vector)
     @usuarios = Kaminari.paginate_array(@usuarios).page(params[:page]).per(8)
   end
+  def asistencia_todo
+    @usuarios = User.where(:estado => 'activo')
+    @usuarios = Kaminari.paginate_array(@usuarios).page(params[:page]).per(8)
+  end
 
   def exportar_asistencias_incendios
     @usuarios = User.where(:estado => 'activo')

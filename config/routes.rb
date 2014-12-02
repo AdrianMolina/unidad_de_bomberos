@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get 'reports/asistencia_explosivos' => 'reports#asistencia_explosivos', :as => 'asistencia_explosivos'
   get 'reports/asistencia_rescates' => 'reports#asistencia_rescates', :as => 'asistencia_rescates'
   get 'reports/asistencia_incendios' => 'reports#asistencia_incendios', :as => 'asistencia_incendios'
+  get 'reports/asistencia_todo' => 'reports#asistencia_todo', :as => 'asistencia_todo'
   get 'pre_hospitalario/new/:id' => 'pre_hospitals#new', :as => 'new_form_pre_hospital'
   get 'rescates/new/:id' => 'rescues#new', :as => 'new_form_rescue'
   get 'incendios/new/:id' => 'fires#new', :as => 'new_form_fire'

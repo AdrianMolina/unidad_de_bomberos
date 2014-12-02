@@ -93,7 +93,7 @@
             <div class="col-md-5 column">
               <div class="form-group">
                 <%= f.label :rango, "*Rango" %>
-                <%= f.select(:rango, [["General",1],["Coronel",2],["Teniente-Coronel",3],["Mayor",4],["Capitan",5],["Teniente",6],["Sub-Teniente",7],["Sub-Oficial Superior",8],["Sub-Oficial Mayor",9],["Sub-Oficial Primero",10],["Sub-Oficial Segundo",11],["Sargento Primero",12],["Sargento Segundo",13],["Cabo",14],["Policia",15]].collect {|p| p }, {  include_blank: 'Seleccione su rango'}, { :class=>'form-control input-sm', :required => true}) %>
+                <%= f.select(:rango, [["General","General"],["Coronel","Coronel"],["Teniente-Coronel","Teniente-Coronel"],["Mayor","Mayor"],["Capitan","Capitan"],["Teniente","Teniente"],["Sub-Teniente","Sub-Teniente"],["Sub-Oficial Superior","Sub-Oficial Superior"],["Sub-Oficial Mayor","Sub-Oficial Mayor"],["Sub-Oficial Primero","Sub-Oficial Primero"],["Sub-Oficial Segundo","Sub-Oficial Segundo"],["Sargento Primero","Sargento Primero"],["Sargento Segundo","Sargento Segundo"],["Cabo","Cabo"],["Policia","Policia"]].collect {|p| p }, {  include_blank: 'Seleccione su rango'}, { :class=>'form-control input-sm', :required => true}) %>
               </div>
             </div>
           </div>
@@ -112,8 +112,8 @@
             </div>
             <div class="col-md-5 column">
               <div class="form-group">
-                <%= f.label :especialidad, "*Area de especialidad" %>
-                <%= f.text_field :especialidad, :class=>'form-control input-sm', :maxlength => 30 , :title => "Por favor ingrese su especialidad", :required => true %>
+                <%= f.label :especialidad, "*Unidades comando departamental" %>
+                <%= f.select(:especialidad, [["CMDO. DPTL.","CMDO. DPTL."],["SUB-CMDO","SUB-CMDO"],["INSPECTOR","INSPECTOR"],["PERSONAL D-1","PERSONAL D-1"],["INTELIGENCIA D-2","INTELIGENCIA D-2"],["PLANEAMIENTO D-3","PLANEAMIENTO D-3"],["ADMINISTRATIVA D-4","ADMINISTRATIVA D-4"],["1 ER. BAT. COMANDANTE","1 ER. BAT. COMANDANTE"],["1 ER. BAT. SB CMDTE","1 ER. BAT. SB CMDTE"],["2DO. BAT. SEG. F. EST","2DO. BAT. SEG. F. EST"],["ABRA","ABRA"],["BOMBEROS","BOMBEROS"],["BRIGADA FLIA.","BRIGADA FLIA."],["BIENESTAR SOCIAL","BIENESTAR SOCIAL"],["CAMINERA","CAMINERA"],["CANES","CANES"],["CEFOTES DIRECTOR","CEFOTES DIRECTOR"],["CEFOTES SUB DIRECTOR","CEFOTES SUB DIRECTOR"],["CLINICA POLICIAL","CLINICA POLICIAL"],["DELTA","DELTA"],["DIPROVE DIRECTOR","DIPROVE DIRECTOR"],["DIPROVE SUB DIRECTOR","DIPROVE SUB DIRECTOR"],["ESBAPOL DIRECTOR","ESBAPOL DIRECTOR"],["FISCAL POLICIAL","FISCAL POLICIAL"],["FELCC DIRECTOR","FELCC DIRECTOR"],["FELCC SUB DIRECTOR","FELCC SUB DIRECTOR"],["FELCC PUNATA","FELCC PUNATA"],["INTERPOL","INTERPOL"],["JEDECOES","JEDECOES"],["PAC","PAC"]].collect {|p| p }, {  include_blank: 'Seleccione una opcion'}, { :class=>'form-control input-sm', :required => true}) %>
               </div>
             </div>
           </div>

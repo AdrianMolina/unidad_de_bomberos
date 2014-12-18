@@ -56,6 +56,7 @@ class EmergenciesController < ApplicationController
     @emergency.user_id = current_user.id
     respond_to do |format|
       if @emergency.save
+        mensaje = NotificationSender(Android.all,@emergency)
         format.html { redirect_to @emergency, notice: 'La emergencia ha sido creada.' }
         format.json { render :show, status: :created, location: @emergency }
       else

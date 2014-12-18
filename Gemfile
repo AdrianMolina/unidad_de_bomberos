@@ -28,6 +28,7 @@ gem 'wkhtmltopdf', '~> 0.1.2'
 gem 'kaminari'
 gem 'prawn'
 gem 'prawn-table'
+gem 'gcm'
 group :development do
   gem 'sqlite3'
 end

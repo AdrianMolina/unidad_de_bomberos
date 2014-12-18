@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141019145617) do
+ActiveRecord::Schema.define(version: 20141218021054) do
 
   create_table "affected_people", force: true do |t|
     t.string   "nombre"
@@ -22,6 +22,12 @@ ActiveRecord::Schema.define(version: 20141019145617) do
   end
 
   add_index "affected_people", ["explosive_id"], name: "index_affected_people_on_explosive_id"
+
+  create_table "androids", force: true do |t|
+    t.string   "registrationId"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "assist_explosives", force: true do |t|
     t.integer  "user_id"

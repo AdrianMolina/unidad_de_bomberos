@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   post 'hospitals/lista_hospitales' => 'hospitals#lista_hospitales', :as => 'lista_hospitales'
   get 'emergencies/activo/:id' => 'emergencies#activo', :as => 'activo'
   get 'emergencies/report_emergencies' => 'emergencies#report_emergencies', :as => 'report_emergencies'
+  post 'androids/register_phone' => 'androids#register_phone', :as => 'register_phone' 
   resources :users, only: [:index, :new, :edit, :create, :update]
   devise_for :users , controllers: {registrations: 'registrations'}
   resources :emergencies

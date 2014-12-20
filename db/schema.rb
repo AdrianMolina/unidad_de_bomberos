@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141218021054) do
+ActiveRecord::Schema.define(version: 20141220171716) do
 
   create_table "affected_people", force: true do |t|
     t.string   "nombre"
@@ -27,6 +27,8 @@ ActiveRecord::Schema.define(version: 20141218021054) do
     t.string   "registrationId"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.float    "latitude"
+    t.float    "longitude"
   end
 
   create_table "assist_explosives", force: true do |t|

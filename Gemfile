@@ -29,6 +29,7 @@ gem 'kaminari'
 gem 'prawn'
 gem 'prawn-table'
 gem 'gcm'
+gem 'gmaps4rails'
 group :development do
   gem 'sqlite3'
 end

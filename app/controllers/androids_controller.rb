@@ -8,4 +8,10 @@ class AndroidsController < ApplicationController
 			render json: '{"res": false}'
 		end 
 	end
+	def update_position
+		@android = Android.all.last
+		@android.latitude = params[:latitude]
+		@android.longitude = params[:longitude]
+		@android.save
+	end
 end

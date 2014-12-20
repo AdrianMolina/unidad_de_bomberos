@@ -108,6 +108,13 @@ class EmergenciesController < ApplicationController
     @emergency.save
     redirect_to index_last_path
   end
+  def location_loqsea
+    @location = Android.all.last
+    render json: @location
+
+  end
+  def prueba
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.

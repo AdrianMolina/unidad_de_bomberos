@@ -20,3 +20,4 @@
 //= require jquery-1.10.2
 //= require jquery.datetimepicker
 //= require jquery_nested_form
+//= require gmaps/google

@@ -5,6 +5,7 @@ class Emergency < ActiveRecord::Base
 	has_many :fires
 	has_many :rescues
 	has_many :pre_hospitals
+  has_many :androids
 	validates :numero_caso, :uniqueness => true
   #validates :lugar, :format => { :with => /[a-zA-Z]+/i, :message => "Sólo se permiten letras" } da error al guardar
 	validates :denunciante, :format => { :with => /[a-zA-Z]+/i, :message => "Sólo se permiten letras" }, :allow_blank => true

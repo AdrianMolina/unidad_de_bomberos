@@ -1,4 +1,11 @@
 <h1>Ver Mensajero</h1>
+<% @android.each do |a| %>
+<tr>
+  <td  <%= a.registrationId %></td>
+                <td align="center">
+                  <%= a.destroy %></td>
+              </tr>
+            <% end %>
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
 <div style='width: 800px;'>
   <div id="map" style='width: 600px; height: 400px;'></div>

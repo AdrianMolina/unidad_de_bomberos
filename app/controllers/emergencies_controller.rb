@@ -114,6 +114,7 @@ class EmergenciesController < ApplicationController
 
   end
   def prueba
+    @android = Android.all
   end
 
   private

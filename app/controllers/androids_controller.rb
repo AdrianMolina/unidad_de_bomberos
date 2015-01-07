@@ -10,7 +10,7 @@ class AndroidsController < ApplicationController
 	end
 	def update_position
 		#@android = Android.find_by_registrationId(params[:registrationId])
-    @android = Android.All.last
+    @android = Android.all.last
     @android.latitude = params[:latitude]
 		@android.longitude = params[:longitude]
 		@android.save

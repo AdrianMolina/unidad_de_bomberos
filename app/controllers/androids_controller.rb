@@ -13,6 +13,7 @@ class AndroidsController < ApplicationController
     #@android = Android.all.last
     	@android.latitude = params[:latitude]
 		@android.longitude = params[:longitude]
+		@android.emergency_id = params[:id]
 		@android.save
 	end
 end

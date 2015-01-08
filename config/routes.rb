@@ -25,7 +25,7 @@ Rails.application.routes.draw do
   post 'hospitals/lista_hospitales' => 'hospitals#lista_hospitales', :as => 'lista_hospitales'
   get 'emergencies/activo/:id' => 'emergencies#activo', :as => 'activo'
   get 'emergencies/report_emergencies' => 'emergencies#report_emergencies', :as => 'report_emergencies' 
-  get 'emergencies/location_loqsea' => 'emergencies#location_loqsea', :as => 'location_loqsea'
+  get 'emergencies/location_loqsea/:id' => 'emergencies#location_loqsea', :as => 'location_loqsea'
   get 'emergencies/prueba' => 'emergencies#prueba', :as => 'prueba'
   post 'androids/register_phone' => 'androids#register_phone', :as => 'register_phone'
   post 'androids/update_position' => 'androids#update_position', :as => 'update_position'

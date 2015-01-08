@@ -39,7 +39,7 @@
   
 setInterval(function () {
 try{
-     $.get('/emergencies/location_loqsea', function(location){   
+     $.get('<%=location_loqsea_path(@emergency)%>', function(location){   
           if(location!=null)
           {
 

@@ -17,7 +17,6 @@ class EmergenciesController < ApplicationController
   def index_last
     @emergencies = Emergency.where(:estado => 'f')
     @emergencies = Kaminari.paginate_array(@emergencies).page(params[:page]).per(10)
-    Android.all.delete_all
   end
   #muestra las emergencias activas o en curso post
   def emergencias_en_curso
@@ -110,9 +109,10 @@ class EmergenciesController < ApplicationController
     redirect_to index_last_path
   end
   def location_loqsea
-    @location = Android.all.last
-    render json: @location
-
+    if !Android.find_by_emergency_id(params[:id]).nil?
+     @location=Android.find_by_emergency_id(params[:id])
+     render json: @location
+    end
   end
   def prueba
     #@android = Android.all

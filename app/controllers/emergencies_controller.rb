@@ -17,6 +17,7 @@ class EmergenciesController < ApplicationController
   def index_last
     @emergencies = Emergency.where(:estado => 'f')
     @emergencies = Kaminari.paginate_array(@emergencies).page(params[:page]).per(10)
+    Android.all.delete_all
   end
   #muestra las emergencias activas o en curso post
   def emergencias_en_curso

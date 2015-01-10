@@ -1,0 +1,52 @@
+<br>
+<br>
+<div class="row">
+  <div class="col-md-6">
+    <div class="page-header">
+         <h1 id="forms">Reporte de Materiales</h1>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-8">
+  <div class="well">
+    <div class="row">
+      <div class="col-md-12">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Nombre Material</th>
+              <th>Especialidad</th>
+              <th>Codigo</th>
+              <th>Estado</th>
+              <th>Ubicacion</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% @materials.each do |material| %>
+            <tr>
+                <td ><%= material.nombre_material %></td>
+                <td ><%= material.especialidad %></td>
+                <td ><%= material.codigo %></td>
+                <td ><%= material.estado %></td>
+                <td ><%= material.ubicacion %></td>
+                
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <BR>
+</div>
+
+<%= render 'barra' %>
+ <div class="col-md-2">
+ </div>
+ <div class="col-md-12">
+   <div class="row">
+  <div id="chart_div" style="width: 900px; height: 500px;"></div>
+   </div>
+   </div>

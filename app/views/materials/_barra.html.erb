@@ -1,0 +1,29 @@
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+google.setOnLoadCallback(drawChart);
+function drawChart() {
+
+  
+  var datos = setDatos();
+  var data = google.visualization.arrayToDataTable(datos);
+  var options = {
+    title: 'Grafica de materiales por estado',
+    hAxis: {title: 'Materiales', titleTextStyle: {color: 'red'}}
+  };
+
+  var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+
+  chart.draw(data, options);
+
+}
+
+function setDatos() {
+  var datos = new Array();
+  datos[0] = ['Element', 'Estado', { role: 'style' }];
+  datos[1] = ['Bueno', <%= @materials.where({estado:"Bueno"}).count %>, 'green'];
+  datos[2] = ['Regular', <%= @materials.where({estado:"Regular"}).count %>, 'yellow'];
+  datos[3] = ['Malo', <%= @materials.where({estado:"Malo"}).count %>, 'red'];
+  return datos;
+}
+    </script>

@@ -29,6 +29,7 @@ Rails.application.routes.draw do
   get 'emergencies/prueba' => 'emergencies#prueba', :as => 'prueba'
   post 'androids/register_phone' => 'androids#register_phone', :as => 'register_phone'
   post 'androids/update_position' => 'androids#update_position', :as => 'update_position'
+  get 'materials/report' => 'materials#report', :as =>'report_material'
   resources :users, only: [:index, :new, :edit, :create, :update]
   devise_for :users , controllers: {registrations: 'registrations'}
   resources :emergencies

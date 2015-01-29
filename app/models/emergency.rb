@@ -108,7 +108,7 @@ class Emergency < ActiveRecord::Base
   def self.busqueda_index(search_word, fecha,fecha_fin)
     resultado = Emergency.all
     if fecha.nil? || fecha == ""
-      resultado = self.search("1/1/2014".to_date.beginning_of_day ,"1/1/2020".to_date.end_of_day,search_word.downcase)
+      resultado = self.search("1/1/2014".to_date.beginning_of_day ,"1/1/2020".to_date.end_of_day,search_word)
     elsif fecha_fin.nil? || fecha_fin == ""
       resultado = self.search(fecha.to_date.beginning_of_day ,"1/1/2020".to_date.end_of_day,search_word.downcase)
     else

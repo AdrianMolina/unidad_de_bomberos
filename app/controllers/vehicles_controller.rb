@@ -33,6 +33,9 @@ class VehiclesController < ApplicationController
 
     respond_to do |format|
       if @vehicle.save
+        @android = Android.find(params[:android_id])
+        @android.android_id = params[:android_id]
+        @android.save
         format.html { redirect_to @vehicle, notice: 'El vehiculo fue registrado con exito.' }
         format.json { render :show, status: :created, location: @vehicle }
       else
@@ -47,6 +50,9 @@ class VehiclesController < ApplicationController
   def update
     respond_to do |format|
       if @vehicle.update(vehicle_params)
+        @android = Android.find(params[:android_id])
+        @android.android_id = params[:android_id]
+        @android.save
         format.html { redirect_to @vehicle, notice: 'La informacion del vehiculo fue actualizada con exito.' }
         format.json { render :show, status: :ok, location: @vehicle }
       else

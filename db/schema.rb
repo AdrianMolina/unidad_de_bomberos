@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141221175713) do
+ActiveRecord::Schema.define(version: 20150129214858) do
 
   create_table "affected_people", force: true do |t|
     t.string   "nombre"
@@ -30,9 +30,12 @@ ActiveRecord::Schema.define(version: 20141221175713) do
     t.float    "latitude"
     t.float    "longitude"
     t.integer  "emergency_id"
+    t.string   "nombre"
+    t.integer  "vehicle_id"
   end
 
   add_index "androids", ["emergency_id"], name: "index_androids_on_emergency_id"
+  add_index "androids", ["vehicle_id"], name: "index_androids_on_vehicle_id"
 
   create_table "assist_explosives", force: true do |t|
     t.integer  "user_id"
@@ -347,6 +350,9 @@ ActiveRecord::Schema.define(version: 20141221175713) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "especialidad"
+    t.integer  "android_id"
   end
+
+  add_index "vehicles", ["android_id"], name: "index_vehicles_on_android_id"
 
 end

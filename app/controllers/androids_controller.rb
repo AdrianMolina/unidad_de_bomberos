@@ -2,6 +2,7 @@ class AndroidsController < ApplicationController
 	def register_phone
 		@android = Android.new
     	@android.registrationId = params[:registrationId]
+    	@android.nombre = params[:nombre]
 		if @android.save
 			render json: '{"res": true}'
 		else

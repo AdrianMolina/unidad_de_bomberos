@@ -109,12 +109,14 @@ class EmergenciesController < ApplicationController
     redirect_to index_last_path
   end
   def location_loqsea
-    @vehicle_id = Emergency.find(params[:id]).vehicle_id
-    if !Android.where("emergency_id = ? AND vehicle_id = ?", params[:id], @vehicle_id).first.nil?
-    #if !Android.find_by_emergency_id(params[:id]).nil?
-     #@location=Android.find_by_emergency_id(params[:id])
-     @location=Android.where("emergency_id = ? AND vehicle_id = ?", params[:id], @vehicle_id).first
-     render json: @location
+    @android_id = Emergency.find(params[:id]).vehicle.android_id
+    #if !Android.where("emergency_id = ? AND vehicle_id = ?", params[:id], @vehicle_id).first.nil?
+    if !Android.find_by_emergency_id(params[:id]).nil?
+     @location=Android.find_by_emergency_id(params[:id])
+     if @android_id == @location.id
+      render json: @location
+     end
+     #@location=Android.where("emergency_id = ? AND vehicle_id = ?", params[:id], @vehicle_id).first
     end
   end
   def prueba

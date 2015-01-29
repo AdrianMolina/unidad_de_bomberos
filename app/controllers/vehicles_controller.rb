@@ -33,9 +33,6 @@ class VehiclesController < ApplicationController
 
     respond_to do |format|
       if @vehicle.save
-        @android = Android.find(params[:android_id])
-        @android.android_id = params[:android_id]
-        @android.save
         format.html { redirect_to @vehicle, notice: 'El vehiculo fue registrado con exito.' }
         format.json { render :show, status: :created, location: @vehicle }
       else
@@ -50,9 +47,6 @@ class VehiclesController < ApplicationController
   def update
     respond_to do |format|
       if @vehicle.update(vehicle_params)
-        @android = Android.find(params[:android_id])
-        @android.android_id = params[:android_id]
-        @android.save
         format.html { redirect_to @vehicle, notice: 'La informacion del vehiculo fue actualizada con exito.' }
         format.json { render :show, status: :ok, location: @vehicle }
       else
@@ -80,6 +74,6 @@ class VehiclesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def vehicle_params
-      params.require(:vehicle).permit(:sigla, :placa, :modelo, :especialidad, drivers_attributes: [:id, :vehicle_id, :user_id, :_destroy])
+      params.require(:vehicle).permit(:sigla, :placa, :modelo, :especialidad, :android_id, drivers_attributes: [:id, :vehicle_id, :user_id, :_destroy])
     end
 end

@@ -1,4 +1,5 @@
 class AndroidsController < ApplicationController
+	before_action :set_emergency, only: [:show, :edit, :update, :destroy]
 	def register_phone
 		@android = Android.new
     	@android.registrationId = params[:registrationId]
@@ -17,4 +18,30 @@ class AndroidsController < ApplicationController
 		@android.emergency_id = params[:id]
 		@android.save
 	end
+	def index
+    	@androids = Android.all
+  	end
+  	def edit
+  	end
+  	def update
+    respond_to do |format|
+      if @android.update(android_params)
+        format.html { redirect_to @android, notice: 'el dispositivo fue actualizado con exito' }
+        format.json { render :show, status: :ok, location: @android }
+      else
+        format.html { render :edit }
+        format.json { render json: @android.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+  	private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_emergency
+      @android = Android.find(params[:id])
+    end
+
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def emergency_params
+      params.require(:android).permit(:registrationId, :nombre)
+    end
 end

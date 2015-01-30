@@ -1,0 +1,40 @@
+
+<br>
+<br>
+<div class="col-md-12">
+  <div class="page-header">
+       <h1 id="forms">Lista de dispositivos androids registrados</h1>
+  </div>
+</div>
+
+<div class="col-md-8">
+  <div class="well">
+    <div class="row">
+      <div class="col-md-12">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Nombre del dispositivo</th>
+              <th>asignado a</th>
+              <th>Fecha de registro</th>
+              <th>fecha de Actualizacion</th>
+              <th colspan="3"></th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% @androids.each do |android| %>
+              <tr>
+                <td ><%= android.nombre %></td>
+                <td ><%= android.vehicles.first.sigla %></td>
+                <td ><%= android.created_at.strftime("%Y/%m/%e  %I:%M") %></td>
+                <td ><%= android.updated_at.strftime("%Y/%m/%e  %I:%M") %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  
+</div>

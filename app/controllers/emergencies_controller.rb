@@ -112,10 +112,11 @@ class EmergenciesController < ApplicationController
     #if !Android.where("emergency_id = ? AND vehicle_id = ?", params[:id], @vehicle_id).first.nil?
     if !Android.find_by_emergency_id(params[:id]).nil?
       @android_id = Emergency.find(params[:id]).vehicle.android_id
-     @location=Android.find_by_emergency_id(params[:id])
-     if @android_id == @location.id
+     #@location=Android.find_by_emergency_id(params[:id])
+     @location=Android.find(@android_id)
+     #if @android_id == @location.id
       render json: @location
-     end
+     #end
      #@location=Android.where("emergency_id = ? AND vehicle_id = ?", params[:id], @vehicle_id).first
     end
   end

@@ -1,6 +1,9 @@
 class AndroidsController < ApplicationController
 	before_action :set_emergency, only: [:show, :edit, :update, :destroy]
-	def register_phone
+	def index
+    @androids = Android.all
+  end
+  def register_phone
 		@android = Android.new
     	@android.registrationId = params[:registrationId]
     	@android.nombre = params[:nombre]
@@ -18,12 +21,9 @@ class AndroidsController < ApplicationController
 		@android.emergency_id = params[:id]
 		@android.save
 	end
-	def index
-    	@androids = Android.all
-  	end
-  	def edit
-  	end
-  	def update
+  def edit
+  end
+  def update
     respond_to do |format|
       if @android.update(android_params)
         format.html { redirect_to @android, notice: 'el dispositivo fue actualizado con exito' }

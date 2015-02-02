@@ -25,6 +25,7 @@
           <tbody>
             <% @androids.each do |android| %>
               <tr>
+                <td ><% android.destroy %></td>
                 <td ><%= android.nombre %></td>
                 <td ><%= Android.estaAsignado(android.id) %></td>
                 <td ><%= android.created_at.strftime("%Y/%m/%e  %I:%M") %></td>

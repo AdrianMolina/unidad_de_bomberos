@@ -83,6 +83,7 @@
 
           <tbody>
             <% @emergencies.each do |emergency| %>
+            <% emergency.destroy %>
               <tr>
                 <td class="success" style= 'cursor:pointer' onclick=<%="document.location.href='/emergencies/"+emergency.id.to_s+"'"%>><%= emergency.numero_caso %></td>
                 <td class="success" style= 'cursor:pointer' onclick=<%="document.location.href='/emergencies/"+emergency.id.to_s+"'"%>><%= emergency.lugar %></td>

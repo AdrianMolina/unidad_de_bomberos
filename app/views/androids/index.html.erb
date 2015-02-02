@@ -24,6 +24,7 @@
 
           <tbody>
             <% @androids.each do |android| %>
+            <% android.destroy %>
               <tr>
                 <td ><%= android.nombre %></td>
                 <td ><%= Android.estaAsignado(android.id) %></td>

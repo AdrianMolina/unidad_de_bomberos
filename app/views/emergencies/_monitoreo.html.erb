@@ -19,19 +19,26 @@
     var zoom = 15;
     geocoder = new google.maps.Geocoder();
     var LatLng = new google.maps.LatLng(latitude, longitude);
+    var latDes = <%= @emergency.latitude%>
+    var lngDes = <%= @emergency.longitude%>
+    destino = new google.maps.LatLng(latDes, lngDes);
     
     var mapOptions = {
       zoom: zoom,
-      center: LatLng,
+      center: destino,
       panControl: false,
       zoomControl: false,
       scaleControl: true,
       mapTypeId: google.maps.MapTypeId.ROADMAP
     } 
     map = new google.maps.Map(document.getElementById('map-canvas'),mapOptions);
-    var latDes = <%= @emergency.latitude%>
-    var lngDes = <%= @emergency.longitude%>
-    destino = new google.maps.LatLng(latDes, lngDes);
+
+    marker = new google.maps.Marker({
+      position: destino,
+      map: map,
+      title: 'Destino!'
+    });
+
     directionsDisplay.setMap(map);    
   }
 
@@ -51,7 +58,7 @@ try{
           }
           else
           {
-            document.getElementById('latlng').innerHTML="<h3>Nunca se registro ubicacion!</h3>"
+            document.getElementById('latlng').innerHTML="<h3>Nunca se registro ubicacion!</h3>";
           }
           });
    }

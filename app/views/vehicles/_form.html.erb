@@ -37,7 +37,7 @@
           </div>
           <div class="form-group">
             <%= f.label :android_id, "*Elija el dispositivo android para este vehiculo" %><br>
-            <%= f.collection_select :android_id, Android.all, :id, :nombre, {prompt: "Seleccionar un dispositivo"}, {class: "form-control input-sm", :required => true} %>
+            <%= f.collection_select :android_id, Android.where(:estado => 't'), :id, :nombre, {prompt: "Seleccionar un dispositivo"}, {class: "form-control input-sm", :required => true} %>
           </div>
           <%= f.fields_for :drivers %>
           <div class="form-group">

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150129214858) do
+ActiveRecord::Schema.define(version: 20150210032034) do
 
   create_table "affected_people", force: true do |t|
     t.string   "nombre"
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 20150129214858) do
     t.integer  "emergency_id"
     t.string   "nombre"
     t.integer  "vehicle_id"
+    t.boolean  "estado"
   end
 
   add_index "androids", ["emergency_id"], name: "index_androids_on_emergency_id"

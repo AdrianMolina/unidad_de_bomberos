@@ -29,8 +29,7 @@
                 <td ><%= Android.estaAsignado(android.id) %></td>
                 <td ><%= android.created_at.strftime("%Y/%m/%e  %I:%M") %></td>
                 <td ><%= android.updated_at.strftime("%Y/%m/%e  %I:%M") %></td>
-                <td ><%= android.updated_at.strftime("%Y/%m/%e  %I:%M") %></td>
-                
+                <td  align="center"><%= link_to 'Dar de baja', activar_path(android), :class => 'btn btn-danger btn-sm' %></td>
               </tr>
             <% end %>
           </tbody>

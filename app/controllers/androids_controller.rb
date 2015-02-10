@@ -7,6 +7,7 @@ class AndroidsController < ApplicationController
 		@android = Android.new
     	@android.registrationId = params[:registrationId]
     	@android.nombre = params[:nombre]
+      @android.estado = true
 		if @android.save
 			render json: '{"res": true}'
 		else
@@ -33,6 +34,16 @@ class AndroidsController < ApplicationController
         format.json { render json: @android.errors, status: :unprocessable_entity }
       end
     end
+  end
+  def activo
+    @android = Android.find(params[:id])
+    if @android.estado.nil? or @android.estado == false
+      @android.estado = true
+    else
+      @android.estado = false
+    end
+    @android.save
+    redirect_to androids_path
   end
   	private
     # Use callbacks to share common setup or constraints between actions.

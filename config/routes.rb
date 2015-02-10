@@ -29,6 +29,7 @@ Rails.application.routes.draw do
   get 'emergencies/prueba' => 'emergencies#prueba', :as => 'prueba'
   post 'androids/register_phone' => 'androids#register_phone', :as => 'register_phone'
   post 'androids/update_position' => 'androids#update_position', :as => 'update_position'
+  get 'androids/activo/:id' => 'androids#activo', :as => 'activar'
   get 'materials/report' => 'materials#report', :as =>'report_material'
   resources :androids
   resources :users, only: [:index, :new, :edit, :create, :update]
